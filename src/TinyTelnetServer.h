@@ -20,9 +20,15 @@ class TinyTelnetServer {
     addCommand("help", help);
     addCommand("?", help);
   }
-  bool begin() { return p_server->begin(port); }
+  /// Start the server
+  bool begin() {
+    is_active = p_server->begin(port);
+    return is_active;
+  }
 
+  /// Stop the server
   void end() {
+    is_active = false;
     if (p_client) {
       p_client->stop();
     }
@@ -46,6 +52,8 @@ class TinyTelnetServer {
 
   /// proccess the next command: call in loop()
   bool processCommand() {
+    if (!is_active) return false;
+
     auto client = p_server->accept();
     if (client.connected()) {
       p_client = &client;
@@ -70,6 +78,7 @@ class TinyTelnetServer {
   int no_connect_delay = NO_CONNECT_DELAY_MS;
   int max_input_buffer_size = MAX_INPUT_BUFFER_SIZE;
   int port = 23;
+  bool is_active = false;
 
   struct Command {
     const char* cmd;

@@ -62,10 +62,44 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="class_tiny_telnet_server.html" title="A simple telnet server for Arduino.">TinyTelnetServer</a> </div>  </div>
+<div class="title"><a class="el" href="class_tiny_telnet_server.html" title="A simple telnet server for Arduino. Call the addCommand method to register your commands.">TinyTelnetServer</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> A simple Arduino library to build a flexible telnet server. </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> A simple Arduino library to build a flexible telnet server. By default a microcontroller does not support any telnet commands. Therefore I implemented a flexible functionality to register the commands that you want to provide.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Examples</h2>
+<p>I am providing an example that uses <a href="/examples/wifi-telnet-server">WiFi.h</a> and one that relies on the <a href="/examples/ethernet-telnet-server">Ethernet.h</a></p>
+<p>I am registering the led function: you can execute <em>help</em> to provide the list of all supported commands and <em>led(on)</em> or <em>led(off)</em> to switch the led on and off.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Documentation</h2>
+<ul>
+<li><a href="https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html">Class Docoumentation</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Support</h2>
+<p>I spent a lot of time to provide a comprehensive and complete documentation. So please read the documentation first and check the issues and discussions before posting any new ones on Github.</p>
+<p>Open <b>issues only for bugs</b> and if it is not a bug, use a discussion: Provide enough information about</p>
+<ul>
+<li>the selected scenario/sketch</li>
+<li>what exactly you are trying to do</li>
+<li>your hardware</li>
+<li>your software versions</li>
+<li>what exactly your problem is</li>
+<li>to enable others to understand and reproduce your issue.</li>
+</ul>
+<p>Finally, <b>don't send me any e-mails</b> or post questions on my personal website!</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Installation</h2>
+<p>You can download the library as zip and call include Library -&gt; zip library. Or you can git clone this project into the Arduino libraries folder e.g. with</p>
+<div class="fragment"><div class="line">cd  ~/Documents/Arduino/libraries</div>
+<div class="line">git clone https://github.com/pschatzmann/TinyTelnetServer.git</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+Sponsor Me</h2>
+<p>This software is totally free, but you can make me happy by rewarding me with a treat</p>
+<ul>
+<li><a href="https://www.buymeacoffee.com/philschatzh">Buy me a coffee</a></li>
+<li><a href="https://paypal.me/pschatzmann?country.x=CH&amp;locale.x=en_US">Paypal me</a> </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

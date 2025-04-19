@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['parsecommand_2',['parseCommand',['../class_tiny_telnet_server.html#aa1ce4ad8d27c4b4a1261da83a5bb306f',1,'TinyTelnetServer']]],
-  ['processcommand_3',['processCommand',['../class_tiny_telnet_server.html#ad4ddba23426572933fdffd34f9705e4b',1,'TinyTelnetServer::processCommand()'],['../class_tiny_telnet_server.html#a8a5e36b9559b478b95c8ea655a70348d',1,'TinyTelnetServer::processCommand(const char *input, Print &amp;result)'],['../class_tiny_telnet_server.html#af31f6c77cb026da354b22bb05154e0d0',1,'TinyTelnetServer::processCommand(std::string &amp;cmd, std::vector&lt; std::string &gt; parameter, Print &amp;result)']]]
+  ['c_5fstr_8',['c_str',['../classtelnet_1_1_str_view.html#aec3b892490340beb0afb99e070327a0a',1,'telnet::StrView']]],
+  ['clear_9',['clear',['../classtelnet_1_1_str.html#a9bdd3306e0781632f0b18bdf451720e1',1,'telnet::Str::clear()'],['../classtelnet_1_1_str_view.html#a55bed79047984f1d5fc4d161f7e7d49c',1,'telnet::StrView::clear()']]],
+  ['command_10',['Command',['../struct_tiny_telnet_server_1_1_command.html',1,'TinyTelnetServer']]],
+  ['contains_11',['contains',['../classtelnet_1_1_str_view.html#a71d698a978e986071798dc391c26493d',1,'telnet::StrView']]],
+  ['copyfrom_12',['copyFrom',['../classtelnet_1_1_str.html#a06bfb2d23a9c7286ee7eea9c3bbdebce',1,'telnet::Str']]],
+  ['count_13',['count',['../classtelnet_1_1_str_view.html#af0d4218664c7f32631a5e17de266423e',1,'telnet::StrView']]]
 ];

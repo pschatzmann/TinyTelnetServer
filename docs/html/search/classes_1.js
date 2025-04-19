@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tinytelnetserver_7',['TinyTelnetServer',['../class_tiny_telnet_server.html',1,'']]]
+  ['command_80',['Command',['../struct_tiny_telnet_server_1_1_command.html',1,'TinyTelnetServer']]]
 ];

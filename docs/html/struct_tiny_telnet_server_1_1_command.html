@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TinyTelnetServer: TinyTelnetServer&lt; NetworkServer, NetworkClient &gt;::Command Struct Reference</title>
+<title>TinyTelnetServer: TinyTelnetServer&lt; Server, Client &gt;::Command Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,18 +69,21 @@ $(function() {
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_tiny_telnet_server_1_1_command-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">TinyTelnetServer&lt; NetworkServer, NetworkClient &gt;::Command Struct Reference</div>  </div>
+<div class="title">TinyTelnetServer&lt; Server, Client &gt;::Command Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0106a9e3186d7a2b37b6995a64654717"><td class="memItemLeft" align="right" valign="top"><a id="a0106a9e3186d7a2b37b6995a64654717"></a>
-bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b> )(std::string &amp;cmd, std::string &amp;parameters, Print &amp;out, <a class="el" href="class_tiny_telnet_server.html">TinyTelnetServer</a> *self)</td></tr>
-<tr class="separator:a0106a9e3186d7a2b37b6995a64654717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a742e626a091ec40b81aadd21cd87ea6e"><td class="memItemLeft" align="right" valign="top"><a id="a742e626a091ec40b81aadd21cd87ea6e"></a>
+<tr class="memitem:ae83c7c5319e8b40ae7ec476c3c2f6f20"><td class="memItemLeft" align="right" valign="top"><a id="ae83c7c5319e8b40ae7ec476c3c2f6f20"></a>
+bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b> )(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="class_tiny_telnet_server.html">TinyTelnetServer</a> *self)</td></tr>
+<tr class="separator:ae83c7c5319e8b40ae7ec476c3c2f6f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2529526e8f6e1b6216f9ce5af9494cd6"><td class="memItemLeft" align="right" valign="top"><a id="a2529526e8f6e1b6216f9ce5af9494cd6"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>cmd</b></td></tr>
-<tr class="separator:a742e626a091ec40b81aadd21cd87ea6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a2529526e8f6e1b6216f9ce5af9494cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d802dfb93a5d782d07bfc9cb994a99c"><td class="memItemLeft" align="right" valign="top"><a id="a5d802dfb93a5d782d07bfc9cb994a99c"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>parameter_help</b> = &quot;&quot;</td></tr>
+<tr class="separator:a5d802dfb93a5d782d07bfc9cb994a99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="_tiny_telnet_server_8h_source.html">TinyTelnetServer.h</a></li>

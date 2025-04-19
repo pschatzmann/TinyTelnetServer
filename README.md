@@ -14,7 +14,7 @@ I am registering the led function: you can execute _help_ to provide the list of
 
 ### Documentation
 
-- [Class Docoumentation](/docs/html/class_tiny_telnet_server.html)
+- [Class Docoumentation](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html)
 
 ### Support
 
