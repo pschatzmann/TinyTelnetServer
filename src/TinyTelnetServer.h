@@ -157,7 +157,6 @@ class TinyTelnetServer {
       out.print("\t");
     }
     out.println("\n");
-    out.flush();
 
     return true;
   }
@@ -200,7 +199,6 @@ class TinyTelnetServer {
       processTelnetCommand(cmd, len, client);
       start += len;
     }
-    client.flush();
 
     return start;
   }
@@ -258,7 +256,6 @@ class TinyTelnetServer {
       client.write(tmp, sizeof(tmp));
       client.println("> Welcome to TinyTelnetServer");
     }
-    client.flush();
   }
 
   /// Reads a line delimited by '\n' from the Stream
@@ -366,7 +363,6 @@ class TinyTelnetServer {
       int start = parseTelnetCommands((char*)cmd.c_str(), cmd.length(), result);
       TELNET_LOGE("Not Processed: %s", cmd.c_str()+start);
     }
-    result.flush();
 
     return false;
   }

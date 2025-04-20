@@ -7,7 +7,7 @@ a flexible functionality to register the commands that you want to provide.
 
 ### Examples
 
-I am providing an example that uses [WiFi.h](/examples/wifi-telnet-server) and one that relies on the [Ethernet.h](/examples/ethernet-telnet-server)
+I am providing an example that uses [WiFi.h](/examples/wifi-telnet-server/wifi-telnet-server.ino) and one that relies on the [Ethernet.h](/examples/ethernet-telnet-server/ethernet-telnet-server.ino)
 
 I am registering the led function: you can execute _help_ to provide the list of all supported commands and _led(on)_ or _led(off)_ to switch the led on and off.
 
