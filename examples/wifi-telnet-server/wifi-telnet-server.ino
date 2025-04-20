@@ -12,15 +12,15 @@ const char* password = "Password";
 
 void login() {
   WiFi.begin(ssid, password);
+  Serial.println("Connecting to WiFi...");
   while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Connecting to WiFi...");
+    delay(100);
   }
-  Serial.println("Connected to WiFi");
+  Serial.print("Connected to WiFi ");
   Serial.println(WiFi.localIP());
 }
 
-bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, WiFiClient& out,
          TinyTelnetServer<WiFiServer, WiFiClient>* self) {
   if (parameters.size() != 1) {
     out.println("led Error: Invalid number of parameters");
@@ -39,11 +39,17 @@ bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
 
 void setup() {
   Serial.begin(115200);
+  // setup logger
+  TinyTelnetLogger.begin(Serial, TinyTelnetLogLevel::Info);
+
   // login to Wifi
   login();
 
   // register a command
   server.addCommand("led", led, "(on|off)");
+
+  // start server
+  server.begin();
 }
 
 void loop() {

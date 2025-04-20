@@ -23,7 +23,7 @@ void login() {
 }
 
 // callback function for the led command
-bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, EthernetClient& out,
          TinyTelnetServer<EthernetServer, EthernetClient>* self) {
   if (parameters.size() != 1) {
     out.println("led Error: Invalid number of parameters");
@@ -42,11 +42,17 @@ bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
 
 void setup() {
   Serial.begin(115200);
+  // setup logger
+  TinyTelnetLogger.begin(Serial, TinyTelnetLogLevel::Info);
+
   // login to Ethernet
   login();
 
   // register the led command
   server.addCommand("led", led, "(on|off)");
+
+  // start server
+  server.begin();
 }
 
 void loop() { server.processCommand(); }
