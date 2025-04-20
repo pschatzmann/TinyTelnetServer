@@ -1,8 +1,9 @@
 #pragma once
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "../TinyTelnetServerConfig.h"
 
 /**
@@ -16,10 +17,10 @@
 namespace telnet {
 
 /**
- * @brief String View: A simple wrapper to provide string functions on existing allocated char*.
- * If the underlying char* is a const we do not allow any updates; The ownership
- * of the char* must be managed externally!
- * 
+ * @brief String View: A simple wrapper to provide string functions on existing
+ * allocated char*. If the underlying char* is a const we do not allow any
+ * updates; The ownership of the char* must be managed externally!
+ *
  * @ingroup string
  * @author Phil Schatzmann
  * @copyright GPLv3
@@ -41,7 +42,9 @@ class StrView {
   }
 
   /// Creates a Str with the indicated buffer
-  StrView(char chars[], int maxlen, int len = 0) { set(chars, maxlen, len, false); }
+  StrView(char chars[], int maxlen, int len = 0) {
+    set(chars, maxlen, len, false);
+  }
 
   /// assigs a value
   virtual void set(const char* alt) {
@@ -267,9 +270,9 @@ class StrView {
   }
 
   /// searches for the nth occurence of the indicated character
-  virtual int nIndexOf(const char c, int n){
+  virtual int nIndexOf(const char c, int n) {
     int result = -1;
-    for (int j=0; j < n; j++){
+    for (int j = 0; j < n; j++) {
       result = indexOf(c, result + 1);
       if (result < 0) break;
     }
@@ -306,9 +309,9 @@ class StrView {
   }
 
   /// searches for the nth occurence of the indicated character
-  virtual int nIndexOf(const char* cont, int n){
+  virtual int nIndexOf(const char* cont, int n) {
     int result = -1;
-    for (int j=0; j < n; j++){
+    for (int j = 0; j < n; j++) {
       result = indexOf(cont, result + 1);
       if (result < 0) break;
     }
@@ -473,7 +476,6 @@ class StrView {
     }
   }
 
-
   /// inplace substring: copies a substring into the current string
   virtual bool substr(const char* from, int start, int end) {
     if (end > start) {
@@ -488,12 +490,11 @@ class StrView {
     }
     return false;
   }
-  
+
   /// inplace substring: copies a substring into the current string
   virtual bool substr(StrView& from, int start, int end) {
     return substr(from.c_str(), start, end);
   }
-
 
   /// remove leading and traling spaces
   virtual void trim() {
@@ -721,7 +722,6 @@ class StrView {
     return result;
   }
 
-
  protected:
   char* chars = nullptr;
   bool is_const = false;
@@ -830,4 +830,4 @@ class StrView {
   }
 };
 
-}  // namespace audio_tools
+}  // namespace telnet

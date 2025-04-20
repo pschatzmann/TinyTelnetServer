@@ -11,8 +11,8 @@ namespace telnet {
 
 /**
  * @brief Vector implementation which provides the most important methods as
- *defined by std::vector. This class it is quite handy to have and most of the
- *times quite better then dealing with raw c arrays.
+ * defined by std::vector. This class it is quite handy to have and most of the
+ * times quite better then dealing with raw c arrays.
  * @ingroup collections
  * @author Phil Schatzmann
  * @copyright GPLv3
@@ -93,17 +93,15 @@ class Vector {
 
 #endif
 
-  /// Default constructor: size 0 with DefaultAllocator: The len defines the capacity
+  /// Default constructor: size 0 with DefaultAllocator: The len defines the
+  /// capacity
   Vector(size_t len = 0, Allocator &allocator = DefaultAllocator) {
     setAllocator(allocator);
     resize_internal(len, false, false);
   }
 
-
   /// Constructor with only allocator
-  Vector(Allocator &allocator) {
-    setAllocator(allocator);
-  }
+  Vector(Allocator &allocator) { setAllocator(allocator); }
 
   /// Allocate size and initialize array
   Vector(int size, T value, Allocator &allocator = DefaultAllocator) {
@@ -170,9 +168,7 @@ class Vector {
   /// Destructor
   virtual ~Vector() { reset(); }
 
-  void setAllocator(Allocator &allocator) {
-    p_allocator = &allocator;
-  }
+  void setAllocator(Allocator &allocator) { p_allocator = &allocator; }
 
   void clear() { len = 0; }
 
@@ -259,9 +255,9 @@ class Vector {
     return p_data[index];
   }
 
-  T &operator[](const int index) const {    
+  T &operator[](const int index) const {
     assert(index < len);
-    return p_data[index]; 
+    return p_data[index];
   }
 
   bool resize(int newSize, T value) {
@@ -325,10 +321,7 @@ class Vector {
     return -1;
   }
 
-  bool contains(T obj){
-    return indexOf(obj) >= 0;
-  }
-
+  bool contains(T obj) { return indexOf(obj) >= 0; }
 
   void swap(T &other) {
     // save values
@@ -369,9 +362,9 @@ class Vector {
       if (oldData != nullptr) {
         if (copy && this->len > 0) {
           // save existing data
-          memmove((void*)p_data, (void*)oldData, len * sizeof(T));
+          memmove((void *)p_data, (void *)oldData, len * sizeof(T));
           // clear to prevent double release
-          memset((void*)oldData, 0, len * sizeof(T));
+          memset((void *)oldData, 0, len * sizeof(T));
         }
         if (shrink) {
           cleanup(oldData, newSize, oldBufferLen);
@@ -399,7 +392,6 @@ class Vector {
 #endif
   }
 
-
   void cleanup(T *data, int from, int to) {
     for (int j = from; j < to; j++) {
       data[j].~T();
@@ -407,4 +399,4 @@ class Vector {
   }
 };
 
-}  // namespace audio_tools
+}  // namespace telnet

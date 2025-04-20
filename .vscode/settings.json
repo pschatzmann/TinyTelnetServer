@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp"
     }
 }

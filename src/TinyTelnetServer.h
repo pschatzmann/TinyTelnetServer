@@ -1,9 +1,9 @@
 #pragma once
 #include "Print.h"
 #include "TinyTelnetServerConfig.h"
+#include "utils/Logger.h"
 #include "utils/Str.h"
 #include "utils/Vector.h"
-
 
 /**
  * @brief A simple telnet server for Arduino. Call the addCommand method to
@@ -116,7 +116,7 @@ class TinyTelnetServer {
     telnet::Str cmd;
     telnet::Vector<telnet::Str> parameters;
     parseCommand(input, cmd, parameters);
-    if (cmd.length() == 0) {
+    if (cmd.isEmpty()) {
       return false;
     }
     return processCommand(cmd, parameters, result);
@@ -184,12 +184,16 @@ class TinyTelnetServer {
                       Print& result) {
     for (auto& command : commands) {
       if (cmd.equalsIgnoreCase(command.cmd)) {
+        TELNET_LOGI("Command: %s", cmd.c_str());
+        for (auto& parameter : parameters) {
+          TELNET_LOGI("- Parameter: %s", parameter.c_str());
+        }
         return command.cb(cmd, parameters, result, this);
       }
     }
-    result.println("Unrecognized command: type 'help' for available commands.");
+    result.println("Invalid command: type 'help' for available commands.");
+    TELNET_LOGE("Invalid command: %s", cmd.c_str());
 
     return false;
   }
 };
-

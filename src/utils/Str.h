@@ -15,7 +15,7 @@ namespace telnet {
  * if we need to process an unexpected size.
  *
  * We also need to use this if we want to manage a vecor of strings.
- * 
+ *
  * @ingroup string
  * @author Phil Schatzmann
  * @copyright GPLv3
@@ -23,6 +23,7 @@ namespace telnet {
 
 class Str : public StrView {
   friend class StrView;
+
  public:
   Str() = default;
 
@@ -59,13 +60,11 @@ class Str : public StrView {
   }
 
   /// Move assignment
-  Str &operator=(Str &&obj) {
-    return move(obj);
-  }
+  Str &operator=(Str &&obj) { return move(obj); }
 
   /// Copy assingment
   Str &operator=(Str &obj) {
-    //assert(&obj!=nullptr);
+    // assert(&obj!=nullptr);
     set(obj.c_str());
     return *this;
   };
@@ -129,7 +128,7 @@ class Str : public StrView {
     }
     // build new string
     char result[new_size + 1];
-    memset(result,0, new_size+1);
+    memset(result, 0, new_size + 1);
     for (size_t i = 0; i < len; i++) {
       urlEncodeChar(chars[i], temp, 4);
       strcat(result, temp);
@@ -171,7 +170,7 @@ class Str : public StrView {
     chars = nullptr;
   }
 
-  void swap(Str &other){
+  void swap(Str &other) {
     int tmp_len = len;
     int tmp_maxlen = maxlen;
     len = other.len;
@@ -181,11 +180,10 @@ class Str : public StrView {
     other.chars = other.vector.data();
   }
 
-
  protected:
   Vector<char> vector;
 
-  Str& move(Str &other) {
+  Str &move(Str &other) {
     swap(other);
     other.clear();
     return *this;
@@ -251,10 +249,7 @@ class Str : public StrView {
   }
 
   /// substring
-  Str substring(int len) {
-    return substring(0, len);
-  }
-
+  Str substring(int len) { return substring(0, len); }
 };
 
-}  // namespace audio_tools
+}  // namespace telnet

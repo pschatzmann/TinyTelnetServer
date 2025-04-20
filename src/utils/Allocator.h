@@ -1,8 +1,7 @@
 #pragma once
 #include <stdlib.h>
+#include "Logger.h"
 #include "../TinyTelnetServerConfig.h"
-
-#define LOGE(...)
 
 namespace telnet {
 
@@ -131,7 +130,7 @@ class AllocatorESP32 : public Allocator {
     if (size == 0) size = 1;
     result = heap_caps_calloc(1, size, caps);
     if (result == nullptr) {
-      LOGE("alloc failed for %zu bytes", size);
+      TELNET_LOGE("alloc failed for %zu bytes", size);
       stop();
     }
     return result;
@@ -159,7 +158,7 @@ class AllocatorPSRAM : public Allocator {
     void* result = nullptr;
     result = ps_calloc(1, size);
     if (result == nullptr) {
-      LOGE("allocateation failed for %zu bytes", size);
+      TELNET_LOGE("allocateation failed for %zu bytes", size);
       stop();
     }
     return result;
