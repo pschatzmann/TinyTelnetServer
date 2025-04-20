@@ -80,7 +80,7 @@ class TinyTelnetServer {
       if (client.connected()) {
         // process the new client with standard functionality
         if (client.available() > 3) {
-          TELNET_LOGI("available: %d", client.available());
+          TELNET_LOGI("available: %d bytes", client.available());
           char input[max_input_buffer_size];
           int len = readLine(client, input, max_input_buffer_size);
           // process command codes
