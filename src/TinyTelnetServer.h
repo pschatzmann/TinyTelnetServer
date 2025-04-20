@@ -61,19 +61,7 @@ class TinyTelnetServer {
   bool processCommand() {
     if (!is_active) return false;
     // reconnect
-    auto tmp = p_server->accept();
-    if (tmp.connected()) {
-      tmp.setTimeout(50);
-      //tmp.setNoDelay(true);
-      addClient(tmp);
-      TELNET_LOGI("%s", "New client connected");
-    }
-
-    // log change of active clients
-    if (active_clients != countActive()) {
-      active_clients = countActive();
-      TELNET_LOGI("active clients: %d", active_clients);
-    }
+    connectClients();
 
     // process all clients
     for (auto& client : clients) {
@@ -161,6 +149,7 @@ class TinyTelnetServer {
     return true;
   }
 
+  /// close callback
   static bool cmd_close(telnet::Str& cmd,
                         telnet::Vector<telnet::Str> parameters, Client& out,
                         TinyTelnetServer* self) {
@@ -169,6 +158,23 @@ class TinyTelnetServer {
     return true;
   }
 
+  /// Acccepts new clients 
+  void connectClients() {
+    auto tmp = p_server->accept();
+    if (tmp.connected()) {
+      tmp.setTimeout(CLIENT_TIMEOUT_MS);
+      addClient(tmp);
+      TELNET_LOGI("%s", "New client connected");
+    }
+
+    // log change of active clients
+    if (active_clients != countActive()) {
+      active_clients = countActive();
+      TELNET_LOGI("active clients: %d", active_clients);
+    }
+  }
+
+  /// Adds a new client to the list of clients
   void addClient(Client& client) {
     for (auto& c : clients) {
       if (!c.connected()) {
@@ -179,6 +185,7 @@ class TinyTelnetServer {
     clients.push_back(client);
   }
 
+  /// Parse and process the telnet commands 
   int parseTelnetCommands(char* cmds, int len, Client& client) {
     TELNET_LOGD("parseTelnetCommands: %d", len);
     int start = 0;
@@ -214,6 +221,7 @@ class TinyTelnetServer {
   // 34	LINEMODE	Line-oriented mode
   // 36	ENVIRONMENT	Send environment variables
 
+  /// Converts the telnet command to a string
   const char* controlStr(int cmd) {
     if (cmd == 253) return "DO";
     if (cmd == 254) return "DONT";
@@ -354,7 +362,7 @@ class TinyTelnetServer {
     }
 
     if (cmd.c_str() != nullptr && isalpha(cmd.c_str()[0])) {
-      char str[80];
+      char str[160];
       snprintf(str, sizeof(str), "Invalid command: '%s'", cmd.c_str());
       result.print(str);
       result.println("- type 'help' for a list of commands");

@@ -10,6 +10,11 @@
 #  define NO_CONNECT_DELAY_MS 10
 #endif
 
+/// Defines the client timeout in ms
+#ifndef CLIENT_TIMEOUT_MS
+#  define CLIENT_TIMEOUT_MS 50
+#endif
+
 /// PSRAM support
 #ifndef USE_ALLOCATOR
 #  define USE_ALLOCATOR true
