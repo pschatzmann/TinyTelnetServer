@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A simple wrapper to provide string functions on existing allocated char*. If the underlying char* is a const we do not allow any updates; The ownership of the char* must be managed externally!  
+<p>String View: A simple wrapper to provide string functions on existing allocated char*. If the underlying char* is a const we do not allow any updates; The ownership of the char* must be managed externally!  
  <a href="classtelnet_1_1_str_view.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_str_view_8h_source.html">StrView.h</a>&gt;</code></p>
@@ -87,7 +87,7 @@ Inheritance diagram for telnet::StrView:</div>
  <div class="center">
   <img src="classtelnet_1_1_str_view.png" usemap="#telnet::StrView_map" alt=""/>
   <map id="telnet::StrView_map" name="telnet::StrView_map">
-<area href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit..." alt="telnet::Str" shape="rect" coords="0,56,92,80"/>
+<area href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ..." alt="telnet::Str" shape="rect" coords="0,56,92,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -95,11 +95,11 @@ Inheritance diagram for telnet::StrView:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e2e74f70ca3e36fe9a1233b89f2794e"><td class="memItemLeft" align="right" valign="top"><a id="a4e2e74f70ca3e36fe9a1233b89f2794e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a4e2e74f70ca3e36fe9a1233b89f2794e">StrView</a> (char chars[], int maxlen, int len=0)</td></tr>
-<tr class="memdesc:a4e2e74f70ca3e36fe9a1233b89f2794e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> with the indicated buffer. <br /></td></tr>
+<tr class="memdesc:a4e2e74f70ca3e36fe9a1233b89f2794e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> with the indicated buffer. <br /></td></tr>
 <tr class="separator:a4e2e74f70ca3e36fe9a1233b89f2794e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a777679a56bdd1cb6fa9469b9e2fb1e"><td class="memItemLeft" align="right" valign="top"><a id="a1a777679a56bdd1cb6fa9469b9e2fb1e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a1a777679a56bdd1cb6fa9469b9e2fb1e">StrView</a> (const char *chars)</td></tr>
-<tr class="memdesc:a1a777679a56bdd1cb6fa9469b9e2fb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> for string constant. <br /></td></tr>
+<tr class="memdesc:a1a777679a56bdd1cb6fa9469b9e2fb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> for string constant. <br /></td></tr>
 <tr class="separator:a1a777679a56bdd1cb6fa9469b9e2fb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad967f5a7f2e212d0f8748d47a6bf43bd"><td class="memItemLeft" align="right" valign="top"><a id="ad967f5a7f2e212d0f8748d47a6bf43bd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#ad967f5a7f2e212d0f8748d47a6bf43bd">add</a> (const char *append)</td></tr>
@@ -297,7 +297,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const char c)</td></tr>
 <tr class="separator:a1305475ee1fc5184b15dc5fb2dbc80e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c0bd00a6cd5efa9a94170fdb2196c53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a2c0bd00a6cd5efa9a94170fdb2196c53">set</a> (const <a class="el" href="classtelnet_1_1_str_view.html">StrView</a> &amp;alt)</td></tr>
-<tr class="memdesc:a2c0bd00a6cd5efa9a94170fdb2196c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigs from another <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> value  <a href="classtelnet_1_1_str_view.html#a2c0bd00a6cd5efa9a94170fdb2196c53">More...</a><br /></td></tr>
+<tr class="memdesc:a2c0bd00a6cd5efa9a94170fdb2196c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigs from another <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> value  <a href="classtelnet_1_1_str_view.html#a2c0bd00a6cd5efa9a94170fdb2196c53">More...</a><br /></td></tr>
 <tr class="separator:a2c0bd00a6cd5efa9a94170fdb2196c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab155850d1ac58dc6d176e4bed93f7f"><td class="memItemLeft" align="right" valign="top"><a id="afab155850d1ac58dc6d176e4bed93f7f"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (double value, int precision=2, int withd=0)</td></tr>
@@ -317,14 +317,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#abd7e973b87a4cd589156c33dd20f3a47">startsWith</a> (const char *str)</td></tr>
 <tr class="memdesc:abd7e973b87a4cd589156c33dd20f3a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the string starts with the indicated substring <br /></td></tr>
 <tr class="separator:abd7e973b87a4cd589156c33dd20f3a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d0905797049acbd42a4ed184be1f7fa"><td class="memItemLeft" align="right" valign="top"><a id="a5d0905797049acbd42a4ed184be1f7fa"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a5d0905797049acbd42a4ed184be1f7fa">substring</a> (const char *from, int start, int end)</td></tr>
-<tr class="memdesc:a5d0905797049acbd42a4ed184be1f7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">copies a substring into the current string <br /></td></tr>
-<tr class="separator:a5d0905797049acbd42a4ed184be1f7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94866f3d5f673827bec6112dafa31bb0"><td class="memItemLeft" align="right" valign="top"><a id="a94866f3d5f673827bec6112dafa31bb0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a94866f3d5f673827bec6112dafa31bb0">substring</a> (<a class="el" href="classtelnet_1_1_str_view.html">StrView</a> &amp;from, int start, int end)</td></tr>
-<tr class="memdesc:a94866f3d5f673827bec6112dafa31bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">copies a substring into the current string <br /></td></tr>
-<tr class="separator:a94866f3d5f673827bec6112dafa31bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f571c1b17d9a437cc691b7413fa4f6"><td class="memItemLeft" align="right" valign="top"><a id="a99f571c1b17d9a437cc691b7413fa4f6"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a99f571c1b17d9a437cc691b7413fa4f6">substr</a> (const char *from, int start, int end)</td></tr>
+<tr class="memdesc:a99f571c1b17d9a437cc691b7413fa4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">inplace substring: copies a substring into the current string <br /></td></tr>
+<tr class="separator:a99f571c1b17d9a437cc691b7413fa4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b959313d2ec8249775290d60050afb"><td class="memItemLeft" align="right" valign="top"><a id="a01b959313d2ec8249775290d60050afb"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_str_view.html#a01b959313d2ec8249775290d60050afb">substr</a> (<a class="el" href="classtelnet_1_1_str_view.html">StrView</a> &amp;from, int start, int end)</td></tr>
+<tr class="memdesc:a01b959313d2ec8249775290d60050afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">inplace substring: copies a substring into the current string <br /></td></tr>
+<tr class="separator:a01b959313d2ec8249775290d60050afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5deb30ae0e69a008c68399f14d91c682"><td class="memItemLeft" align="right" valign="top"><a id="a5deb30ae0e69a008c68399f14d91c682"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classtelnet_1_1_str_view.html">StrView</a> &amp;str)</td></tr>
 <tr class="separator:a5deb30ae0e69a008c68399f14d91c682"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -407,7 +407,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>savedLen</b> = -1</td>
 <tr class="separator:a666c9833ddd2f7435576578720489660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple wrapper to provide string functions on existing allocated char*. If the underlying char* is a const we do not allow any updates; The ownership of the char* must be managed externally! </p>
+<div class="textblock"><p>String View: A simple wrapper to provide string functions on existing allocated char*. If the underlying char* is a const we do not allow any updates; The ownership of the char* must be managed externally! </p>
 <dl class="section author"><dt>Author</dt><dd>Phil Schatzmann </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPLv3 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -619,8 +619,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>savedLen</b> = -1</td>
 </div><div class="memdoc">
 
 <p>assigs a value </p>
-<p>if the <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> is a const we replace the pointer</p>
-<p>if the <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> is an external buffer we need to copy</p>
+<p>if the <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> is a const we replace the pointer</p>
+<p>if the <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> is an external buffer we need to copy</p>
 
 </div>
 </div>
@@ -648,9 +648,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>savedLen</b> = -1</td>
 </table>
 </div><div class="memdoc">
 
-<p>assigs from another <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> value </p>
-<p>if the <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> is a const we replace the pointer</p>
-<p>if the <a class="el" href="classtelnet_1_1_str.html" title="Str which keeps the data on the heap. We grow the allocated memory only if the copy source is not fit...">Str</a> is an external buffer we need to copy</p>
+<p>assigs from another <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> value </p>
+<p>if the <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> is a const we replace the pointer</p>
+<p>if the <a class="el" href="classtelnet_1_1_str.html" title="String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...">Str</a> is an external buffer we need to copy</p>
 
 </div>
 </div>

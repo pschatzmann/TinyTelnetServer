@@ -46,7 +46,7 @@ class TinyTelnetServer {
                   const char* parameter_help = "") {
     Command command;
     command.cmd = cmd;
-    command.cb = cb;
+    command.callback = cb;
     command.parameter_help = parameter_help;
     commands.push_back(command);
   }
@@ -81,10 +81,14 @@ class TinyTelnetServer {
   int port = 23;
   bool is_active = false;
 
+  /// TinyTelnetServer command
   struct Command {
+    /// command string
     const char* cmd;
+    /// example/information for parameters
     const char* parameter_help = "";
-    bool (*cb)(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
+    /// callback function
+    bool (*callback)(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                Print& out, TinyTelnetServer* self);
   };
 
@@ -188,7 +192,7 @@ class TinyTelnetServer {
         for (auto& parameter : parameters) {
           TELNET_LOGI("- Parameter: %s", parameter.c_str());
         }
-        return command.cb(cmd, parameters, result, this);
+        return command.callback(cmd, parameters, result, this);
       }
     }
     result.println("Invalid command: type 'help' for available commands.");
