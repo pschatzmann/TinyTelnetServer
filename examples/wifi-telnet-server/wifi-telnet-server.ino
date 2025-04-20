@@ -21,6 +21,7 @@ void login() {
   Serial.println(WiFi.localIP());
 }
 
+// Callback function for the led command
 bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, WiFiClient& out,
          TinyTelnetServer<WiFiServer, WiFiClient>* self) {
   if (parameters.size() != 1) {

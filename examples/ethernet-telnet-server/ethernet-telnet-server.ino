@@ -22,7 +22,7 @@ void login() {
   Serial.println(Ethernet.localIP());
 }
 
-// callback function for the led command
+// Callback function for the led command
 bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, EthernetClient& out,
          TinyTelnetServer<EthernetServer, EthernetClient>* self) {
   if (parameters.size() != 1) {
