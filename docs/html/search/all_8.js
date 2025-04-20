@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['lastindexof_32',['lastIndexOf',['../classtelnet_1_1_str_view.html#a929c4c27b6ec599797929998686b371e',1,'telnet::StrView']]],
-  ['length_33',['length',['../classtelnet_1_1_str_view.html#a80fb607d128833b405bde26127055c9b',1,'telnet::StrView']]],
-  ['log_34',['log',['../classtelnet_1_1_telnet_logger_class.html#af1b68f1633860b8ddf5c4a65be9586f4',1,'telnet::TelnetLoggerClass']]],
-  ['ltrim_35',['ltrim',['../classtelnet_1_1_str_view.html#a39f84b5a3a8b2e347b07240b6e65ed41',1,'telnet::StrView']]]
+  ['matches_42',['matches',['../classtelnet_1_1_str_view.html#ac49aa7fc6f4f3c8845533c349c4d6d23',1,'telnet::StrView']]],
+  ['maxlength_43',['maxLength',['../classtelnet_1_1_str_view.html#a2164bf0ea8c66c9f4d2617a9f8d45cfd',1,'telnet::StrView']]],
+  ['memory_20management_44',['Memory Management',['../group__memorymgmt.html',1,'']]]
 ];

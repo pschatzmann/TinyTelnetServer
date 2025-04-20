@@ -67,8 +67,11 @@ $(function() {
 <li>add()
 : <a class="el" href="classtelnet_1_1_str_view.html#a55a7d169eb3d3b0abfcd25a9c803248a">telnet::StrView</a>
 </li>
+<li>addClient()
+: <a class="el" href="class_tiny_telnet_server.html#a45975313ec92679c985b3980d5cae52c">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
 <li>addCommand()
-: <a class="el" href="class_tiny_telnet_server.html#a5a93ff8f54ede79ec7e509ac75c8cb35">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="class_tiny_telnet_server.html#a12bfa6c3732ed35798cc5f0d016d6fce">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>allocate()
 : <a class="el" href="classtelnet_1_1_allocator.html#a612877648cfcc198756dc1d98c393d80">telnet::Allocator</a>
@@ -78,7 +81,7 @@ $(function() {
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>begin()
-: <a class="el" href="classtelnet_1_1_telnet_logger_class.html#ae380a4ec6eeff44a6c343d12beab42b2">telnet::TelnetLoggerClass</a>
+: <a class="el" href="classtelnet_1_1_logger.html#a62771942788488b7df4ac738aa7933ea">telnet::Logger</a>
 , <a class="el" href="class_tiny_telnet_server.html#a819e0f165214a465cd3c511e2b5b57a8">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
@@ -92,14 +95,30 @@ $(function() {
 : <a class="el" href="classtelnet_1_1_str.html#a9bdd3306e0781632f0b18bdf451720e1">telnet::Str</a>
 , <a class="el" href="classtelnet_1_1_str_view.html#a55bed79047984f1d5fc4d161f7e7d49c">telnet::StrView</a>
 </li>
+<li>cmd_close()
+: <a class="el" href="class_tiny_telnet_server.html#ae4581c2a4ffa6941aa38f80427600e4a">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>cmd_help()
+: <a class="el" href="class_tiny_telnet_server.html#ae1ffa34e7a29b99ad291eb3d0a1de3a9">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>connectClients()
+: <a class="el" href="class_tiny_telnet_server.html#a9a262db4ac6695fd62a854aaf793ff6e">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
 <li>contains()
 : <a class="el" href="classtelnet_1_1_str_view.html#a71d698a978e986071798dc391c26493d">telnet::StrView</a>
+</li>
+<li>controlStr()
+: <a class="el" href="class_tiny_telnet_server.html#a6c6b6ac0f8ea80a763982d48c8efee4c">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>copyFrom()
 : <a class="el" href="classtelnet_1_1_str.html#a06bfb2d23a9c7286ee7eea9c3bbdebce">telnet::Str</a>
 </li>
 <li>count()
 : <a class="el" href="classtelnet_1_1_str_view.html#af0d4218664c7f32631a5e17de266423e">telnet::StrView</a>
+, <a class="el" href="class_tiny_telnet_server.html#a973df8ee8be8e77a5a9209d01badae01">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>countActive()
+: <a class="el" href="class_tiny_telnet_server.html#aa52d1f009b8faf3e5c7ce3bb09f0a3ce">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
 
@@ -141,13 +160,6 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>help()
-: <a class="el" href="class_tiny_telnet_server.html#aae58b34f4d3539687db510c379d33ecc">TinyTelnetServer&lt; Server, Client &gt;</a>
-</li>
-</ul>
-
-
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>indexOf()
 : <a class="el" href="classtelnet_1_1_str_view.html#a10ca0f0149f2face81350540afd819be">telnet::StrView</a>
@@ -180,7 +192,7 @@ $(function() {
 : <a class="el" href="classtelnet_1_1_str_view.html#a80fb607d128833b405bde26127055c9b">telnet::StrView</a>
 </li>
 <li>log()
-: <a class="el" href="classtelnet_1_1_telnet_logger_class.html#af1b68f1633860b8ddf5c4a65be9586f4">telnet::TelnetLoggerClass</a>
+: <a class="el" href="classtelnet_1_1_logger.html#a09bc1f34aa961060011685da4b7b073a">telnet::Logger</a>
 </li>
 <li>ltrim()
 : <a class="el" href="classtelnet_1_1_str_view.html#a39f84b5a3a8b2e347b07240b6e65ed41">telnet::StrView</a>
@@ -233,8 +245,14 @@ $(function() {
 <li>parseCommand()
 : <a class="el" href="class_tiny_telnet_server.html#a4158353514a4ab33ec56cdf726d91179">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
+<li>parseTelnetCommands()
+: <a class="el" href="class_tiny_telnet_server.html#a39ccf46f441e408a1b5fad675e3689b2">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
 <li>processCommand()
 : <a class="el" href="class_tiny_telnet_server.html#a4474ea2f398e6a55ba4f42e18bfcb3a2">TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>processTelnetCommand()
+: <a class="el" href="class_tiny_telnet_server.html#aa0e1644095a99fd3fb65d2ba05f27651">TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
 
@@ -257,7 +275,7 @@ $(function() {
 : <a class="el" href="classtelnet_1_1_str_view.html#afc816b3ce944b979cfc997a5a5601e06">telnet::StrView</a>
 </li>
 <li>resize()
-: <a class="el" href="classtelnet_1_1_telnet_logger_class.html#ad2f5f068819baa18944f9c8c4357ee62">telnet::TelnetLoggerClass</a>
+: <a class="el" href="classtelnet_1_1_logger.html#acc2a3cbbbe60bea001479d9a12a22ef6">telnet::Logger</a>
 </li>
 <li>rtrim()
 : <a class="el" href="classtelnet_1_1_str_view.html#ad63c901e884d6dde1a3ce97b47c9fe9a">telnet::StrView</a>

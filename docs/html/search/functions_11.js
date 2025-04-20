@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vector_161',['Vector',['../classtelnet_1_1_vector.html#a840a1aafe520ee64560e04d71df1fab1',1,'telnet::Vector::Vector(std::initializer_list&lt; T &gt; iniList)'],['../classtelnet_1_1_vector.html#a9dd31753ad5a470e523f196dcc123d25',1,'telnet::Vector::Vector(size_t len=0, Allocator &amp;allocator=DefaultAllocator)'],['../classtelnet_1_1_vector.html#abdaf5aeb3e69eb36cb0e5b2029efb5bd',1,'telnet::Vector::Vector(Allocator &amp;allocator)'],['../classtelnet_1_1_vector.html#a3dc5c50be194e40cd8ae03a9a1457211',1,'telnet::Vector::Vector(int size, T value, Allocator &amp;allocator=DefaultAllocator)'],['../classtelnet_1_1_vector.html#ab0edd1fbf80298a44dccaeea9572900d',1,'telnet::Vector::Vector(Vector&lt; T &gt; &amp;&amp;moveFrom)'],['../classtelnet_1_1_vector.html#aac0441b71a88bee764d6f1ef35d1af68',1,'telnet::Vector::Vector(Vector&lt; T &gt; &amp;copyFrom)'],['../classtelnet_1_1_vector.html#acc588b3fc93607e11f4d70bba1e22032',1,'telnet::Vector::Vector(TT(&amp;a)[N])'],['../classtelnet_1_1_vector.html#a9c71fedceb5ee008aa89cc2625bc28e6',1,'telnet::Vector::Vector(T *from, T *to, Allocator &amp;allocator=DefaultAllocator)']]]
+  ['_7estr_178',['~Str',['../classtelnet_1_1_str.html#a1576b60d81ff4d41f05cb039ec24babc',1,'telnet::Str']]],
+  ['_7evector_179',['~Vector',['../classtelnet_1_1_vector.html#aaa86997b12b98f0ea03fc25f95a29941',1,'telnet::Vector']]]
 ];

@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['parameter_5fhelp_46',['parameter_help',['../struct_tiny_telnet_server_1_1_command.html#a5d802dfb93a5d782d07bfc9cb994a99c',1,'TinyTelnetServer::Command']]],
-  ['parsecommand_47',['parseCommand',['../class_tiny_telnet_server.html#a4158353514a4ab33ec56cdf726d91179',1,'TinyTelnetServer']]],
-  ['processcommand_48',['processCommand',['../class_tiny_telnet_server.html#a4474ea2f398e6a55ba4f42e18bfcb3a2',1,'TinyTelnetServer::processCommand()'],['../class_tiny_telnet_server.html#a8048c34874806a6c4f17737677dfc21d',1,'TinyTelnetServer::processCommand(const char *input, Print &amp;result)'],['../class_tiny_telnet_server.html#af036e652486459e8b6f2f817f9eaa87f',1,'TinyTelnetServer::processCommand(telnet::Str &amp;cmd, telnet::Vector&lt; telnet::Str &gt; parameters, Print &amp;result)']]]
+  ['readline_57',['readLine',['../class_tiny_telnet_server.html#a1a041ab0abdc8b4a1b8699b10eeaf21b',1,'TinyTelnetServer']]],
+  ['remove_58',['remove',['../classtelnet_1_1_allocator.html#a3d45a5acf8f7322151926a4b1553be24',1,'telnet::Allocator::remove()'],['../classtelnet_1_1_str_view.html#a123b08e940a96faf768b51495dc482ce',1,'telnet::StrView::remove(const char *toRemove)']]],
+  ['removeall_59',['removeAll',['../classtelnet_1_1_str_view.html#a060ec485831cdb4fc8375648a68901a4',1,'telnet::StrView']]],
+  ['replace_60',['replace',['../classtelnet_1_1_str_view.html#a03c9e9a46cddb02dd0ed2291583066dc',1,'telnet::StrView']]],
+  ['replaceall_61',['replaceAll',['../classtelnet_1_1_str_view.html#afc816b3ce944b979cfc997a5a5601e06',1,'telnet::StrView']]],
+  ['resize_62',['resize',['../classtelnet_1_1_logger.html#acc2a3cbbbe60bea001479d9a12a22ef6',1,'telnet::Logger']]],
+  ['rtrim_63',['rtrim',['../classtelnet_1_1_str_view.html#ad63c901e884d6dde1a3ce97b47c9fe9a',1,'telnet::StrView']]]
 ];
