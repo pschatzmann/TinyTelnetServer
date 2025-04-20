@@ -7,8 +7,8 @@
 
 WiFiServer wifi;
 TinyTelnetServer<WiFiServer, WiFiClient> server(wifi);
-const char* ssid = "SSID";
-const char* password = "Password";
+const char* ssid = "ssid";
+const char* password = "pwd";
 
 void login() {
   WiFi.begin(ssid, password);
@@ -16,6 +16,7 @@ void login() {
   while (WiFi.status() != WL_CONNECTED) {
     delay(100);
   }
+  WiFi.setSleep(false);
   Serial.print("Connected to WiFi ");
   Serial.println(WiFi.localIP());
 }
@@ -23,17 +24,17 @@ void login() {
 bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, WiFiClient& out,
          TinyTelnetServer<WiFiServer, WiFiClient>* self) {
   if (parameters.size() != 1) {
-    out.println("led Error: Invalid number of parameters");
+    out.println(">led Error: Invalid number of parameters");
     return false;
   }
-  if (parameters[0] != "on" && parameters[0] != "off") {
+  if (!parameters[0].equals("on") && !parameters[0].equals("off")) {
     out.println(
-      "led Error: parameter value is not valid. It must be on or off");
+      ">led Error: parameter value is not valid. It must be on or off");
     return false;
   }
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, parameters[0] == "on" ? HIGH : LOW);
-  out.print("led: OK");
+  out.println(">led: OK\n");
   return true;
 }
 

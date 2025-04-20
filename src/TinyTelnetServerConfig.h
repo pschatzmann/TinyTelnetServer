@@ -7,7 +7,7 @@
 
 /// The delay in ms between two connection attempts
 #ifndef NO_CONNECT_DELAY_MS
-#  define NO_CONNECT_DELAY_MS 20
+#  define NO_CONNECT_DELAY_MS 10
 #endif
 
 /// PSRAM support
