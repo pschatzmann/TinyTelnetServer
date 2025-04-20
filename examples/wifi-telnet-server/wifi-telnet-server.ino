@@ -17,7 +17,7 @@ void login() {
     delay(100);
   }
   WiFi.setSleep(false);
-  Serial.print("Connected to WiFi ");
+  Serial.print("Connect with telnet ");
   Serial.println(WiFi.localIP());
 }
 

@@ -18,7 +18,7 @@ void login() {
   // start the Ethernet connection
   Ethernet.begin(mac, ip, gateway, subnet);
   Serial.println("Ethernet connected");
-  Serial.print("IP address: ");
+  Serial.print("Connect with telnet ");
   Serial.println(Ethernet.localIP());
 }
 
@@ -26,17 +26,17 @@ void login() {
 bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, EthernetClient& out,
          TinyTelnetServer<EthernetServer, EthernetClient>* self) {
   if (parameters.size() != 1) {
-    out.println("led Error: Invalid number of parameters");
+    out.println(">led Error: Invalid number of parameters");
     return false;
   }
   if (parameters[0] != "on" && parameters[0] != "off") {
     out.println(
-        "led Error: parameter value is not valid. It must be on or off");
+        ">led Error: parameter value is not valid. It must be on or off");
     return false;
   }
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, parameters[0] == "on" ? HIGH : LOW);
-  out.print("led: OK");
+  out.print(">led: OK");
   return true;
 }
 
