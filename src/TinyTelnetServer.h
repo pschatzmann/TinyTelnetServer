@@ -4,6 +4,7 @@
 #include "utils/Str.h"
 #include "utils/Vector.h"
 
+
 /**
  * @brief A simple telnet server for Arduino. Call the addCommand method to
  * register your commands.
@@ -146,10 +147,10 @@ class TinyTelnetServer {
     }
 
     // determine cmd
-    cmd.substring(input, 0, pos);
+    cmd.substr(input, 0, pos);
     telnet::Str tail;
     // determine parameters
-    tail.substring(input, pos + offset, end - offset);
+    tail.substr(input, pos + offset, end - offset);
     telnet::Str par;
 
     while (!tail.isEmpty()) {
@@ -157,7 +158,7 @@ class TinyTelnetServer {
       split(tail, par, tail, delimiter);
       /// remove quotes
       if (par.startsWith("\"") && par.endsWith("\"")) {
-        par.substring(par, 1, par.length() - 1);
+        par.substr(par, 1, par.length() - 1);
         par.trim();
       }
       parameters.push_back(par);
@@ -173,8 +174,8 @@ class TinyTelnetServer {
       head = str;
       tail = "";
     } else {
-      head.substring(str, 0, pos);
-      tail.substring(str, pos + 1, str.length());
+      head.substr(str, 0, pos);
+      tail.substr(str, pos + 1, str.length());
     }
   }
 
@@ -191,3 +192,4 @@ class TinyTelnetServer {
     return false;
   }
 };
+

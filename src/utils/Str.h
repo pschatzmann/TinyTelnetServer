@@ -6,7 +6,7 @@
 namespace telnet {
 
 /**
- * @brief Str which keeps the data on the heap. We grow the allocated
+ * @brief String which keeps the data on the heap. We grow the allocated
  * memory only if the copy source is not fitting.
  *
  * While it should be avoided to use a lot of heap allocatioins in
@@ -22,6 +22,7 @@ namespace telnet {
  */
 
 class Str : public StrView {
+  friend class StrView;
  public:
   Str() = default;
 
@@ -237,6 +238,23 @@ class Str : public StrView {
     ch = (szBuffer[0] << 4) | szBuffer[1];  // to change the BO to 10110000
     return ch;
   }
+
+  Str substring(int start, int end) {
+    Str result;
+    if (start < 0) start = 0;
+    if (end > this->len) end = this->len;
+    if (start > end) return result;
+    if (start == end) return result;
+    int len = end - start;
+    result.substr(this->chars, start, end);
+    return result;
+  }
+
+  /// substring
+  Str substring(int len) {
+    return substring(0, len);
+  }
+
 };
 
 }  // namespace audio_tools

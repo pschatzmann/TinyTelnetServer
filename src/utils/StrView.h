@@ -16,7 +16,7 @@
 namespace telnet {
 
 /**
- * @brief A simple  wrapper to provide string functions on existing allocated char*.
+ * @brief String View: A simple wrapper to provide string functions on existing allocated char*.
  * If the underlying char* is a const we do not allow any updates; The ownership
  * of the char* must be managed externally!
  * 
@@ -473,22 +473,9 @@ class StrView {
     }
   }
 
-  /// copies a substring into the current string
-  virtual void substring(StrView& from, int start, int end) {
-    if (end > start) {
-      int len = end - start;
-      grow(len);
-      if (this->chars != nullptr) {
-        len = len < this->maxlen ? len : this->maxlen;
-        strncpy(this->chars, from.chars + start, len);
-        this->len = len;
-        this->chars[len] = 0;
-      }
-    }
-  }
 
-  /// copies a substring into the current string
-  virtual void substring(const char* from, int start, int end) {
+  /// inplace substring: copies a substring into the current string
+  virtual bool substr(const char* from, int start, int end) {
     if (end > start) {
       int len = end - start;
       grow(len);
@@ -497,8 +484,16 @@ class StrView {
         this->chars[len] = 0;
         this->len = len;
       }
+      return true;
     }
+    return false;
   }
+  
+  /// inplace substring: copies a substring into the current string
+  virtual bool substr(StrView& from, int start, int end) {
+    return substr(from.c_str(), start, end);
+  }
+
 
   /// remove leading and traling spaces
   virtual void trim() {
