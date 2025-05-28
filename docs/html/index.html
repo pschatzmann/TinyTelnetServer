@@ -65,51 +65,161 @@ $(function() {
 <div class="title">TinyTelnetServer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> A simple Arduino library to easily build your custom Command Line Interface (CLI) via a serial and telnet server.</p>
-<p>By default a microcontroller does not support any telnet commands. Therefore I implemented a flexible functionality to register the commands that you want to provide.</p>
-<h2><a class="anchor" id="autotoc_md1"></a>
-Some Simple Examples</h2>
-<p>For <b>telnet</b>, I am providing an example that uses <a href="/examples/wifi-telnet-server/wifi-telnet-server.ino">WiFi.h</a> and one that relies on the <a href="/examples/ethernet-telnet-server/ethernet-telnet-server.ino">Ethernet.h</a></p>
-<p>For the <b>serial server</b> I am providing <a href="examples/serial-server/serial-server.ino">an example</a> that uses Serial.</p>
-<p>I am registering the led function: you can execute <em>help</em> to provide the list of all supported commands and <em>led(on)</em> or <em>led(off)</em> to switch the led on and off.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Predefined Command Handlers</h2>
-<p>As examples, I am also providing some predefined command handler implementations:</p>
-<ul>
-<li><a href="https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_k_a_radio_commands.html">KARadioCommands</a> API used by KARadio</li>
-<li><a href="https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_s_d_file_commands.html">SDFileCommands</a> CLI that supports all files commands</li>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <a href="https://www.arduino.cc/reference/en/libraries/"><img src="https://img.shields.io/badge/Arduino-Library-blue.svg" alt="Arduino Library" style="pointer-events: none;" class="inline"/></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a></p>
+<p>A lightweight Arduino library for creating custom Command Line Interfaces (CLI) via serial and telnet servers. This library makes it easy to add remote management capabilities to your microcontroller projects.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Overview</h1>
+<p>TinyTelnetServer provides a flexible framework to:</p><ul>
+<li>Create a telnet server for remote command execution</li>
+<li>Build a serial CLI for local control</li>
+<li>Define and register your own custom commands</li>
+<li>Access your device through standard telnet clients</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Documentation</h2>
+<p>By default, microcontrollers don't support telnet commands - this library fills that gap with minimal resource usage.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Features</h1>
 <ul>
-<li><a href="https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html">TinyTelnetServer</a> Telnet Server</li>
-<li><a href="https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_serial_server.html">TinySerialServer</a> Server using Streams, so you can use it with e.g. Serial</li>
+<li><b>Dual interface</b>: Works with both telnet and serial connections</li>
+<li><b>Custom commands</b>: Register your own functions as CLI commands</li>
+<li><b>Network support</b>: Works with both WiFi and Ethernet</li>
+<li><b>Predefined commands</b>: Ready-to-use file and audio control commands</li>
+<li><b>Extensible</b>: Easy to add new command sets</li>
+<li><b>Lightweight</b>: Optimized for resource-constrained devices</li>
 </ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Installation</h1>
 <h2><a class="anchor" id="autotoc_md4"></a>
-Support</h2>
-<p>I spent a lot of time to provide a comprehensive and complete documentation. So please read the documentation first and check the issues and discussions before posting any new ones on Github.</p>
-<p>Open <b>issues only for bugs</b> and if it is not a bug, use a discussion: Provide enough information about</p>
-<ul>
-<li>the selected scenario/sketch</li>
-<li>what exactly you are trying to do</li>
-<li>your hardware</li>
-<li>your software versions</li>
-<li>what exactly your problem is</li>
-<li>to enable others to understand and reproduce your issue.</li>
-</ul>
-<p>Finally, <b>don't send me any e-mails</b> or post questions on my personal website!</p>
+Arduino IDE</h2>
+<ol type="1">
+<li>Open Arduino IDE</li>
+<li>Navigate to Sketch &gt; Include Library &gt; Manage Libraries</li>
+<li>Search for "TinyTelnetServer"</li>
+<li>Click Install</li>
+</ol>
 <h2><a class="anchor" id="autotoc_md5"></a>
-Installation</h2>
-<p>You can download the library as zip and call include Library -&gt; zip library. Or you can git clone this project into the Arduino libraries folder e.g. with</p>
-<div class="fragment"><div class="line">cd  ~/Documents/Arduino/libraries</div>
+Manual Installation</h2>
+<div class="fragment"><div class="line">cd ~/Documents/Arduino/libraries</div>
 <div class="line">git clone https://github.com/pschatzmann/TinyTelnetServer.git</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
-Sponsor Me</h2>
-<p>This software is totally free, but you can make me happy by rewarding me with a treat</p>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+Quick Start</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Basic Telnet Server with WiFi</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;WiFi.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;TinyTelnetServer.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* ssid = <span class="stringliteral">&quot;your-ssid&quot;</span>;</div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* password = <span class="stringliteral">&quot;your-password&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">WiFiServer server(23);  <span class="comment">// Telnet standard port</span></div>
+<div class="line">TinyTelnetServer&lt;WiFiServer, WiFiClient&gt; telnetServer(server);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Example command function</span></div>
+<div class="line"><span class="keywordtype">bool</span> led_command(<a class="code" href="classtelnet_1_1_str.html">telnet::Str</a>&amp; cmd, <a class="code" href="classtelnet_1_1_vector.html">telnet::Vector&lt;telnet::Str&gt;</a> parameters, Print&amp; out, TinySerialServer* <span class="keyword">self</span>) {</div>
+<div class="line">  <span class="keywordflow">if</span> (parameters.size() &gt; 0) {</div>
+<div class="line">    <span class="keywordflow">if</span> (parameters[0] == <span class="stringliteral">&quot;on&quot;</span>) {</div>
+<div class="line">      digitalWrite(LED_BUILTIN, HIGH);</div>
+<div class="line">      out.println(<span class="stringliteral">&quot;LED turned ON&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (parameters[0] == <span class="stringliteral">&quot;off&quot;</span>) {</div>
+<div class="line">      digitalWrite(LED_BUILTIN, LOW);</div>
+<div class="line">      out.println(<span class="stringliteral">&quot;LED turned OFF&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  Serial.begin(115200);</div>
+<div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Connect to WiFi</span></div>
+<div class="line">  WiFi.begin(ssid, password);</div>
+<div class="line">  <span class="keywordflow">while</span> (WiFi.status() != WL_CONNECTED) {</div>
+<div class="line">    delay(500);</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;\nWiFi connected&quot;</span>);</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;IP address: &quot;</span> + WiFi.localIP().toString());</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Register commands</span></div>
+<div class="line">  telnetServer.addCommand(<span class="stringliteral">&quot;led&quot;</span>, led_command, <span class="stringliteral">&quot;led [on|off] - Control the LED&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Start the server</span></div>
+<div class="line">  telnetServer.begin();</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;Telnet server started&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  telnetServer.processCommand();</div>
+<div class="line">}</div>
+<div class="ttc" id="aclasstelnet_1_1_str_html"><div class="ttname"><a href="classtelnet_1_1_str.html">telnet::Str</a></div><div class="ttdoc">String which keeps the data on the heap. We grow the allocated memory only if the copy source is not ...</div><div class="ttdef"><b>Definition:</b> Str.h:24</div></div>
+<div class="ttc" id="aclasstelnet_1_1_vector_html"><div class="ttname"><a href="classtelnet_1_1_vector.html">telnet::Vector</a></div><div class="ttdoc">Vector implementation which provides the most important methods as defined by std::vector....</div><div class="ttdef"><b>Definition:</b> Vector.h:22</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
+Examples</h1>
+<p>The library includes several example sketches:</p>
+<ul>
+<li><b><a href="/examples/wifi-telnet-server/wifi-telnet-server.ino">WiFi Telnet Server</a></b>: Basic telnet server using WiFi</li>
+<li><b><a href="/examples/ethernet-telnet-server/ethernet-telnet-server.ino">Ethernet Telnet Server</a></b>: Basic telnet server using Ethernet</li>
+<li><b><a href="/examples/serial-server/serial-server.ino">Serial Server</a></b>: Command-line interface over Serial</li>
+<li><b><a href="/examples/wifi-telnet-fileserver/wifi-telnet-fileserver.ino">WiFi Telnet File Server</a></b>: File management commands over telnet</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Predefined Command Sets</h1>
+<p>The library includes ready-to-use command implementations:</p>
+<ul>
+<li><b><a href="https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_k_a_radio_commands.html">KARadioCommands</a></b>: Control internet radio playback</li>
+<li><b><a href="https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_s_d_file_commands.html">SDFileCommands</a></b>: File operations (ls, cat, mv, rm, mkdir, etc.)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Documentation</h1>
+<p>Comprehensive documentation is available:</p>
+<ul>
+<li><b><a href="https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html">TinyTelnetServer</a></b>: Telnet server implementation</li>
+<li><b><a href="https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_serial_server.html">TinySerialServer</a></b>: Serial interface implementation</li>
+<li><b><a href="https://pschatzmann.github.io/TinyTelnetServer/html/namespaces.html">Complete API Documentation</a></b>: Full library reference</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Creating Custom Commands</h1>
+<p>Creating your own commands is straightforward:</p>
+<div class="fragment"><div class="line"><span class="comment">// Command function signature</span></div>
+<div class="line"><span class="keywordtype">bool</span> my_command(<a class="code" href="classtelnet_1_1_str.html">telnet::Str</a>&amp; cmd, <a class="code" href="classtelnet_1_1_vector.html">telnet::Vector&lt;telnet::Str&gt;</a> parameters, Print&amp; out, TinySerialServer* <span class="keyword">self</span>) {</div>
+<div class="line">  <span class="comment">// Command implementation</span></div>
+<div class="line">  out.println(<span class="stringliteral">&quot;Hello from my custom command!&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Access parameters if provided</span></div>
+<div class="line">  <span class="keywordflow">if</span> (parameters.size() &gt; 0) {</div>
+<div class="line">    out.print(<span class="stringliteral">&quot;Parameter: &quot;</span>);</div>
+<div class="line">    out.println(parameters[0]);</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Return true for success, false for failure</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In setup()</span></div>
+<div class="line">telnetServer.addCommand(<span class="stringliteral">&quot;hello&quot;</span>, my_command, <span class="stringliteral">&quot;hello [name] - Greet a user&quot;</span>);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
+Support</h1>
+<p>Before opening issues, please:</p>
+<ol type="1">
+<li>Read the <a href="https://pschatzmann.github.io/TinyTelnetServer/html/index.html">documentation</a> thoroughly</li>
+<li>Check existing <a href="https://github.com/pschatzmann/TinyTelnetServer/issues">issues</a> and <a href="https://github.com/pschatzmann/TinyTelnetServer/discussions">discussions</a></li>
+</ol>
+<p>When reporting bugs, include:</p><ul>
+<li>The specific sketch/scenario you're using</li>
+<li>Your hardware details</li>
+<li>Software versions (Arduino IDE, board package, etc.)</li>
+<li>Clear steps to reproduce the issue</li>
+</ul>
+<p>For questions and discussions, please use the GitHub Discussions section rather than opening issues.</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+Sponsor This Project</h1>
+<p>If you find this library helpful, consider supporting its development:</p>
 <ul>
 <li><a href="https://www.buymeacoffee.com/philschatzh">Buy me a coffee</a></li>
-<li><a href="https://paypal.me/pschatzmann?country.x=CH&amp;locale.x=en_US">Paypal me</a> </li>
+<li><a href="https://paypal.me/pschatzmann?country.x=CH&amp;locale.x=en_US">PayPal</a></li>
 </ul>
+<h1><a class="anchor" id="autotoc_md14"></a>
+License</h1>
+<p>This project is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0">GNU General Public License v3.0</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

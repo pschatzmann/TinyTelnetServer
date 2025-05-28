@@ -117,7 +117,7 @@ Comprehensive documentation is available:
 
 - **[TinyTelnetServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html)**: Telnet server implementation
 - **[TinySerialServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_serial_server.html)**: Serial interface implementation
-- **[Complete API Documentation](https://pschatzmann.github.io/TinyTelnetServer/html/index.html)**: Full library reference
+- **[Complete API Documentation](https://pschatzmann.github.io/TinyTelnetServer/html/namespaces.html)**: Full library reference
 
 ## Creating Custom Commands
 
@@ -167,5 +167,5 @@ If you find this library helpful, consider supporting its development:
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0).
-```
+
 
