@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sdfilecommands_95',['SDFileCommands',['../md_src_commands__s_d_file_commands.html',1,'(Global Namespace)'],['../classtelnet_1_1_s_d_file_commands.html#af15cdd3eb72e9777155539a592205d7d',1,'telnet::SDFileCommands::SDFileCommands()'],['../classtelnet_1_1_s_d_file_commands.html',1,'SDFileCommands']]],
+  ['sdfilecommands_95',['SDFileCommands',['../md_src__commands__s_d_file_commands.html',1,'(Global Namespace)'],['../classtelnet_1_1_s_d_file_commands.html#af15cdd3eb72e9777155539a592205d7d',1,'telnet::SDFileCommands::SDFileCommands()'],['../classtelnet_1_1_s_d_file_commands.html',1,'SDFileCommands']]],
   ['set_96',['set',['../classtelnet_1_1_str_view.html#a9bbc18f63643cb591ff963a68d2bd4f4',1,'telnet::StrView::set(const char *alt)'],['../classtelnet_1_1_str_view.html#ad28bbc47059375f6907e4566d6b511ba',1,'telnet::StrView::set(const StrView &amp;alt)'],['../classtelnet_1_1_str_view.html#a4e2c83e70ef7e8a3a11aae085991a462',1,'telnet::StrView::set(char chars[], int maxlen, int len=0, bool isConst=false)']]],
   ['setchars_97',['setChars',['../classtelnet_1_1_str.html#ac8b499f862b47f549d37ebd233287447',1,'telnet::Str']]],
   ['seterrorcallback_98',['setErrorCallback',['../classtelnet_1_1_tiny_serial_server.html#a7345d1ff9a045dc8b4b5929fc191dbdc',1,'telnet::TinySerialServer']]],
