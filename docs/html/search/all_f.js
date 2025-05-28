@@ -1,8 +1,8 @@
 var searchData=
 [
   ['telnet_111',['telnet',['../namespacetelnet.html',1,'']]],
-  ['tinyserialserver_112',['TinySerialServer',['../classtelnet_1_1_tiny_serial_server.html',1,'TinySerialServer'],['../classtelnet_1_1_tiny_serial_server.html#ae8bdd5877441d40322c8c3c8b07d2c5e',1,'telnet::TinySerialServer::TinySerialServer()']]],
-  ['tinytelnetserver_113',['TinyTelnetServer',['../index.html',1,'(Global Namespace)'],['../classtelnet_1_1_tiny_telnet_server.html',1,'TinyTelnetServer&lt; Server, Client &gt;']]],
+  ['tinyserialserver_112',['TinySerialServer',['../classtelnet_1_1_tiny_serial_server.html',1,'TinySerialServer'],['../classtelnet_1_1_tiny_serial_server.html#abbba7798d1c36ad8bb83376857f96604',1,'telnet::TinySerialServer::TinySerialServer()=default'],['../classtelnet_1_1_tiny_serial_server.html#ae8bdd5877441d40322c8c3c8b07d2c5e',1,'telnet::TinySerialServer::TinySerialServer(Stream &amp;stream)']]],
+  ['tinytelnetserver_113',['TinyTelnetServer',['../index.html',1,'(Global Namespace)'],['../classtelnet_1_1_tiny_telnet_server.html',1,'TinyTelnetServer&lt; Server, Client &gt;'],['../classtelnet_1_1_tiny_telnet_server.html#a771675a828014027bca6021884c7c833',1,'telnet::TinyTelnetServer::TinyTelnetServer()']]],
   ['tobinary_114',['toBinary',['../classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66',1,'telnet::StrView']]],
   ['todouble_115',['toDouble',['../classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522',1,'telnet::StrView']]],
   ['tofloat_116',['toFloat',['../classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4',1,'telnet::StrView']]],

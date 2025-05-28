@@ -14,6 +14,7 @@ namespace telnet {
 template <class Server, class Client>
 class TinyTelnetServer : public TinySerialServer {
  public:
+  /// Default Constructor that expects a class Server, class Client as template parameters
   TinyTelnetServer(Server& server) {
     p_server = &server;
     // register help command

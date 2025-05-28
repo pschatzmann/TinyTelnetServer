@@ -14,8 +14,9 @@ namespace telnet {
 
 class TinySerialServer {
  public:
+  /// Enpty constructor
   TinySerialServer() = default;
-  /// Default constructor
+  /// Default constructor that expects a Stream reference
   TinySerialServer(Stream& stream) { setStream(stream); }
 
   /// Defines the stream to be used

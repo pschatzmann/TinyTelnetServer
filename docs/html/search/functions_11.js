@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7estr_258',['~Str',['../classtelnet_1_1_str.html#a22ffecb7b91d0724f96002526c834ec9',1,'telnet::Str']]],
-  ['_7evector_259',['~Vector',['../classtelnet_1_1_vector.html#a33fc4934cb870683ae08af71594844c7',1,'telnet::Vector']]]
+  ['_7estr_259',['~Str',['../classtelnet_1_1_str.html#a22ffecb7b91d0724f96002526c834ec9',1,'telnet::Str']]],
+  ['_7evector_260',['~Vector',['../classtelnet_1_1_vector.html#a33fc4934cb870683ae08af71594844c7',1,'telnet::Vector']]]
 ];
