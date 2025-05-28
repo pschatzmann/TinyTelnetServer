@@ -25,7 +25,8 @@ As examples, I am also providing some predefined command handler implementations
 
 ### Documentation
 
-- [TinyTelnetServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html)
+- [TinyTelnetServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html) Telnet Server
+- [TinySerialServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_serial_server.html) Server using Streams, so you can use it with e.g. Serial
 
 
 ### Support
