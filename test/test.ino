@@ -27,18 +27,8 @@ void login() {
 // Callback function for the led command
 bool ping(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
          TinySerialServer* self) {
-  out.println("pong");
+  out.println(">pong");
   out.println();
-  return true;
-}
-
-bool bye(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
-         TinySerialServer* self) {
-  out.println("Bye");
-  out.flush();
-  delay(100); // give some time to flush
-  Client& client = (Client&)out;
-  client.stop();
   return true;
 }
 
@@ -52,10 +42,7 @@ void setup() {
   login();
 
   // register a command
-  server.addCommand("ping", ping);
-  server.addCommand("exit", bye);
-  server.addCommand("end", bye);
-  server.addCommand("bye", bye);
+  server.addCommand("ping", ping, ": (no parameters) - just replys with pong");
 
   // start server
   server.begin();

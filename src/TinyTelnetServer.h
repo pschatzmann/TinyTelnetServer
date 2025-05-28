@@ -18,10 +18,7 @@ class TinyTelnetServer : public TinySerialServer {
     p_server = &server;
     // register help command
     addCommand("help", cmd_help);
-    addCommand("close", cmd_close);
-    addCommand("bye", cmd_close);
-    addCommand("exit", cmd_close);
-    addCommand("end", cmd_close);
+    addCommand("bye", cmd_close, ": (no parameters) - Closes the session");
   }
   /// Start the server
   bool begin() override {

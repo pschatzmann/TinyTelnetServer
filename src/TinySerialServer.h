@@ -96,16 +96,40 @@ class TinySerialServer {
 
   telnet::Vector<Command> commands;
 
+  /// Finds a command by name
+  Command* findCommand(const char* cmd) {
+    for (auto& command : commands) {
+      if (strcmp(command.cmd, cmd) == 0) {
+        return &command;
+      }
+    }
+    return nullptr;
+  }
+
   /// help callback
   static bool cmd_help(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                        Print& out, TinySerialServer* self) {
-    out.println("\nAvailable commands:");
-    for (auto& command : self->commands) {
-      out.print(command.cmd);
-      out.print(command.parameter_help);
-      out.print("\t");
+    if (parameters.size() == 0) {
+      out.println("\nAvailable commands:");
+      for (auto& command : self->commands) {
+        out.print(command.cmd);
+        out.print("\t");
+      }
+      out.println("\n");
+    } else {
+      const char* help_cmd = parameters[0].c_str();
+      Command* command = self->findCommand(help_cmd);
+      if (command != nullptr && !StrView(command->parameter_help).isEmpty()) {
+        out.print(">Command: ");
+        out.print(command->cmd);
+        out.println(command->parameter_help);
+      } else {
+        out.print(">Command: ");
+        out.print(command->cmd);
+        out.println(": No help available");
+      }
+      out.println();
     }
-    out.println("\n");
 
     return true;
   }
@@ -225,4 +249,4 @@ class TinySerialServer {
   }
 };
 
-}
+}  // namespace telnet
