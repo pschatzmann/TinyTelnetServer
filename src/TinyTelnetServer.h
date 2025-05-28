@@ -18,7 +18,7 @@ class TinyTelnetServer : public TinySerialServer {
     p_server = &server;
     // register help command
     addCommand("help", cmd_help);
-    addCommand("bye", cmd_close, ": (no parameters) - Closes the session");
+    addCommand("bye", cmd_bye, ": (no parameters) - Closes the session");
   }
   /// Start the server
   bool begin() override {
@@ -87,6 +87,16 @@ class TinyTelnetServer : public TinySerialServer {
     return count;
   }
 
+  /// close callback: you can register it with addCommand under different names
+  static bool cmd_bye(telnet::Str& cmd,
+                        telnet::Vector<telnet::Str> parameters, Print& out,
+                        TinySerialServer* self) {
+    Client& client = (Client&)out;
+    client.println("Bye");
+    client.stop();
+    return true;
+  }
+
  protected:
   Server* p_server = nullptr;
   telnet::Vector<Client> clients;
@@ -103,16 +113,6 @@ class TinyTelnetServer : public TinySerialServer {
   const char STATUS = 5;
   const char LINEMODE = 34;
   int active_clients = 0;
-
-  /// close callback
-  static bool cmd_close(telnet::Str& cmd,
-                        telnet::Vector<telnet::Str> parameters, Print& out,
-                        TinySerialServer* self) {
-    Client& client = (Client&)out;
-    client.println("Bye");
-    client.stop();
-    return true;
-  }
 
   bool processCommand(const char* input, Client& result) {
     return TinySerialServer::processCommand(input, (Print&)result);
