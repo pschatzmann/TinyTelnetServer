@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['matches_68',['matches',['../classtelnet_1_1_str_view.html#ac49aa7fc6f4f3c8845533c349c4d6d23',1,'telnet::StrView']]],
-  ['maxlength_69',['maxLength',['../classtelnet_1_1_str_view.html#a2164bf0ea8c66c9f4d2617a9f8d45cfd',1,'telnet::StrView']]],
-  ['memory_20management_70',['Memory Management',['../group__memorymgmt.html',1,'']]]
+  ['matches_69',['matches',['../classtelnet_1_1_str_view.html#ac49aa7fc6f4f3c8845533c349c4d6d23',1,'telnet::StrView']]],
+  ['maxlength_70',['maxLength',['../classtelnet_1_1_str_view.html#a2164bf0ea8c66c9f4d2617a9f8d45cfd',1,'telnet::StrView']]],
+  ['memory_20management_71',['Memory Management',['../group__memorymgmt.html',1,'']]]
 ];

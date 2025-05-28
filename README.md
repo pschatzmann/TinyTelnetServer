@@ -17,10 +17,10 @@ I am registering the led function: you can execute _help_ to provide the list of
 
 ### Predefined Command Handlers
 
-As examples, I am providing some predefined command handler implementations 
+As examples, I am also providing some predefined command handler implementations: 
 
-- [KARadioCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_k_a_radio_commands.html)
-- [SDFileCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_s_d_file_commands.html)
+- [KARadioCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_k_a_radio_commands.html) API used by KARadio
+- [SDFileCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_s_d_file_commands.html) CLI that supports all files commands
 
 
 ### Documentation
