@@ -41,8 +41,9 @@ void setup() {
   // login to Wifi
   login();
 
-  // register a command
+  // register a commands
   server.addCommand("ping", ping, ": (no parameters) - just replys with pong");
+  server.addCommand("exit", TinyTelnetServer<WiFiServer, WiFiClient>::cmd_bye,": synonym to bye");
 
   // start server
   server.begin();
