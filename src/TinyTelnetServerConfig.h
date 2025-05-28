@@ -30,6 +30,7 @@
 #  define MAX_LOG_MSG_SIZE 160
 #endif
 
+/// Automatically include the telnet namespace
 #if defined(ARDUINO) || defined(USE_TELNET_NS)
 namespace telnet {}
 using namespace telnet;

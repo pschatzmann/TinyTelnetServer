@@ -32,6 +32,25 @@ void login() {
 }
 
 // Callback function for the led command
+bool ping(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+         TinySerialServer* self) {
+  out.println("pong");
+  out.println();
+  return true;
+}
+
+// Callback function for the bye command
+bool bye(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+         TinySerialServer* self) {
+  out.println("Bye");
+  out.flush();
+  delay(100); // give some time to flush
+  Client& client = (Client&)out;
+  client.stop();
+  return true;
+}
+
+// Callback function for the led command
 bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
          TinySerialServer* self) {
   if (parameters.size() != 1) {
@@ -57,8 +76,12 @@ void setup() {
   // login to Wifi
   login();
 
-  // register a command
+  // register any commands
   server.addCommand("led", led, "(on|off)");
+  server.addCommand("ping", ping);
+  server.addCommand("exit", bye);
+  server.addCommand("end", bye);
+  server.addCommand("bye", bye);
 
   // start server
   server.begin();
