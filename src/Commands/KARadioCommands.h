@@ -1,8 +1,8 @@
 #pragma once
 #include "AudioTools.h"
 #include "TinySerialServer.h"
-#include "utils/Logger.h"
-#include "utils/Str.h"
+#include "Utils/Logger.h"
+#include "Utils/Str.h"
 
 namespace telnet {
 

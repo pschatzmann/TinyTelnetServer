@@ -1,7 +1,7 @@
 #pragma once
-#include "utils/Logger.h"
-#include "utils/Str.h"
-#include "utils/Vector.h"
+#include "Utils/Logger.h"
+#include "Utils/Str.h"
+#include "Utils/Vector.h"
 
 namespace telnet {
 

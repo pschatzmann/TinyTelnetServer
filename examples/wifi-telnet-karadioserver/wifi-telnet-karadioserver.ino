@@ -16,7 +16,7 @@
 #include "SPI.h"
 #include "TinyTelnetServer.h"
 #include "WiFi.h"
-#include "commands/KARadioCommands.h"
+#include "Commands/KARadioCommands.h"
 
 WiFiServer wifi(23);
 TinyTelnetServer<WiFiServer, WiFiClient> server(wifi);
