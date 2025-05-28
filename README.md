@@ -19,13 +19,14 @@ I am registering the led function: you can execute _help_ to provide the list of
 
 As examples, I am providing some predefined command handler implementations 
 
-- KARadioCommands
-- SDFileCommands
+- [KARadioCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_k_a_radio_commands.html)
+- [SDFileCommands](https://pschatzmann.github.io/TinyTelnetServer/html/classtelnet_1_1_s_d_file_commands.html)
 
 
 ### Documentation
 
-- [Class Docoumentation](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html)
+- [TinyTelnetServer](https://pschatzmann.github.io/TinyTelnetServer/html/class_tiny_telnet_server.html)
+
 
 ### Support
 
