@@ -1,22 +1,21 @@
 #pragma once
 #include "Client.h"
+#include "TinySerialServer.h"
 #include "TinyTelnetServerConfig.h"
-#include "utils/Logger.h"
-#include "utils/Str.h"
-#include "utils/Vector.h"
+
+namespace telnet {
 
 /**
  * @brief A simple telnet server for Arduino. Call the addCommand method to
  * register your commands.
- *
  * @author Phil Schatzmann
+ * @copyright GPLv3
  */
 template <class Server, class Client>
-class TinyTelnetServer {
+class TinyTelnetServer : public TinySerialServer {
  public:
-  TinyTelnetServer(Server& server, int port = 23) {
+  TinyTelnetServer(Server& server) {
     p_server = &server;
-    this->port = port;
     // register help command
     addCommand("help", cmd_help);
     addCommand("close", cmd_close);
@@ -25,46 +24,35 @@ class TinyTelnetServer {
     addCommand("end", cmd_close);
   }
   /// Start the server
-  bool begin() {
-    p_server->begin(port);
+  bool begin() override {
+    p_server->begin();
     is_active = true;
     return is_active;
   }
 
-  /// Stop the server
-  void end() {
+  /// End the processing: warning: this method does not call end on the server because this is 
+  /// not available for all server implementations
+  void end() override {
     is_active = false;
     for (auto& client : clients) {
       client.stop();
-      client.end();
     }
     clients.clear();
-    if (p_server) {
-      p_server->stop();
-    }
-  }
-
-  /// Add a new command
-  void addCommand(const char* cmd,
-                  bool (*cb)(telnet::Str& cmd,
-                             telnet::Vector<telnet::Str> parameters,
-                             Client& out, TinyTelnetServer* self),
-                  const char* parameter_help = "") {
-    Command command;
-    command.cmd = cmd;
-    command.callback = cb;
-    command.parameter_help = parameter_help;
-    commands.push_back(command);
+    // Commented out because not available for EthernetServer!
+    // if (p_server) {
+    //   p_server->end();
+    // }
   }
 
   /// proccess the next command: call in loop()
-  bool processCommand() {
+  bool processCommand() override {
     if (!is_active) return false;
+    
     // reconnect
     connectClients();
 
     // process all clients
-    for (auto& client : clients) {
+    for (Client& client : clients) {
       if (client.connected()) {
         // process the new client with standard functionality
         if (client.available() > 3) {
@@ -89,10 +77,10 @@ class TinyTelnetServer {
   }
 
   /// provide number of clients
-  int count(){ return clients.size();} 
+  int count() { return clients.size(); }
 
   /// provide number of active clients
-  int countActive(){ 
+  int countActive() {
     int count = 0;
     for (auto& client : clients) {
       if (client.connected()) {
@@ -102,14 +90,11 @@ class TinyTelnetServer {
     return count;
   }
 
-
  protected:
   Server* p_server = nullptr;
   telnet::Vector<Client> clients;
   int no_connect_delay = NO_CONNECT_DELAY_MS;
-  int max_input_buffer_size = MAX_INPUT_BUFFER_SIZE;
   int port = 23;
-  bool is_active = false;
   const char SE = 240;
   const char SB = 250;
   const char IAC = 255;
@@ -122,43 +107,21 @@ class TinyTelnetServer {
   const char LINEMODE = 34;
   int active_clients = 0;
 
-  /// TinyTelnetServer command
-  struct Command {
-    /// command string
-    const char* cmd;
-    /// example/information for parameters
-    const char* parameter_help = "";
-    /// callback function
-    bool (*callback)(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
-                     Client& out, TinyTelnetServer* self);
-  };
-
-  telnet::Vector<Command> commands;
-
-  /// help callback
-  static bool cmd_help(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
-                       Client& out, TinyTelnetServer* self) {
-    out.println("\nAvailable commands:");
-    for (auto& command : self->commands) {
-      out.print(command.cmd);
-      out.print(command.parameter_help);
-      out.print("\t");
-    }
-    out.println("\n");
-
-    return true;
-  }
-
   /// close callback
   static bool cmd_close(telnet::Str& cmd,
-                        telnet::Vector<telnet::Str> parameters, Client& out,
-                        TinyTelnetServer* self) {
-    out.println("Bye");
-    out.stop();
+                        telnet::Vector<telnet::Str> parameters, Print& out,
+                        TinySerialServer* self) {
+    Client& client = (Client&)out;
+    client.println("Bye");
+    client.stop();
     return true;
   }
 
-  /// Acccepts new clients 
+  bool processCommand(const char* input, Client& result) {
+    return TinySerialServer::processCommand(input, (Print&)result);
+  }
+
+  /// Acccepts new clients
   void connectClients() {
     auto tmp = p_server->accept();
     if (tmp.connected()) {
@@ -185,8 +148,8 @@ class TinyTelnetServer {
     clients.push_back(client);
   }
 
-  /// Parse and process the telnet commands 
-  int parseTelnetCommands(char* cmds, int len, Client& client) {
+  /// Parse and process the telnet commands
+  int parseTelnetCommands(char* cmds, int len, Print& client) {
     TELNET_LOGD("parseTelnetCommands: %d", len);
     int start = 0;
     char cmd[80];
@@ -235,7 +198,7 @@ class TinyTelnetServer {
   }
 
   /// Process telnet protocol command
-  void processTelnetCommand(char* cmd, int len, Client& client) {
+  void processTelnetCommand(char* cmd, int len, Print& client) {
     assert(cmd[0] == IAC);
     TELNET_LOGD("telnet cmd:%s %d (len=%d)", controlStr(cmd[1]), cmd[2], len);
     // confirm all do request
@@ -266,101 +229,10 @@ class TinyTelnetServer {
     }
   }
 
-  /// Reads a line delimited by '\n' from the Stream
-  int readLine(Stream& in, char* str, int max) {
-    memset(str, 0, max);
-    int index = 0;
-    if (in.available() > 0) {
-      index = in.readBytesUntil('\n', str, max);
-      str[index - 1] = '\0';  // null termination character
-    }
-    return index - 1;
-  }
-
-  /// Processes the command and returns the result output via Client
-  bool processCommand(const char* input, Client& result) {
-    telnet::Str cmd;
-    telnet::Vector<telnet::Str> parameters;
-    parseCommand(input, cmd, parameters);
-    if (cmd.isEmpty()) {
-      return false;
-    }
-    return processCommand(cmd, parameters, result);
-  }
-
-  /// Parses the command and parameters: syntax: cmd(param1,param2,...) or cmd
-  /// par1 par2 ...
-  bool parseCommand(const char* input, telnet::Str& cmd,
-                    telnet::Vector<telnet::Str>& parameters) {
-    cmd = input;
-    char delimiter;
-    int offset;
-    int end;
-    // check if function or list syntax
-    int pos = cmd.indexOf('(');
-    if (pos != -1) {
-      delimiter = ',';
-      offset = 1;
-      end = cmd.indexOf(')');
-      if (end == -1) {
-        return false;
-      }
-    } else {
-      pos = cmd.indexOf(' ');
-      delimiter = ' ';
-      offset = 0;
-      end = cmd.length();
-    }
-
-    // determine cmd
-    cmd.substr(input, 0, pos);
-    telnet::Str tail = "";
-    assert(tail.isEmpty());
-    // determine parameters
-    if (pos > 0) tail.substr(input, pos + offset, end);
-    telnet::Str par = "";
-    TELNET_LOGI("cmd: '%s'", cmd.c_str());
-
-    while (!tail.isEmpty()) {
-      tail.trim();
-      split(tail, par, tail, delimiter);
-      /// remove quotes
-      if (par.startsWith("\"") && par.endsWith("\"")) {
-        par.substr(par, 1, par.length());
-        par.trim();
-      }
-      TELNET_LOGI("- par: '%s'", par.c_str());
-      parameters.push_back(par);
-    }
-    return true;
-  }
-
-  // / Splits the string into head and tail at the first comma
-  void split(telnet::Str& str, telnet::Str& head, telnet::Str& tail,
-             char sep = ',') {
-    int pos = str.indexOf(sep);
-    if (pos == -1) {
-      head = str;
-      tail = "";
-    } else {
-      head.substr(str, 0, pos);
-      tail.substr(str, pos + 1, str.length());
-    }
-  }
-
-  /// process the command
-  bool processCommand(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
-                      Client& result) {
-    for (auto& command : commands) {
-      if (cmd.equalsIgnoreCase(command.cmd)) {
-        TELNET_LOGI("Command: '%s'", cmd.c_str());
-        for (auto& parameter : parameters) {
-          TELNET_LOGI("- Parameter: '%s'", parameter.c_str());
-        }
-        return command.callback(cmd, parameters, result, this);
-      }
-    }
-
+  /// Handle undefined commands
+  virtual bool processCommandUndefined(telnet::Str& cmd,
+                                       telnet::Vector<telnet::Str> parameters,
+                                       Print& result) {
     if (cmd.c_str() != nullptr && isalpha(cmd.c_str()[0])) {
       char str[160];
       snprintf(str, sizeof(str), "Invalid command: '%s'", cmd.c_str());
@@ -369,9 +241,11 @@ class TinyTelnetServer {
       TELNET_LOGE("%s", str);
     } else {
       int start = parseTelnetCommands((char*)cmd.c_str(), cmd.length(), result);
-      TELNET_LOGE("Not Processed: %s", cmd.c_str()+start);
+      TELNET_LOGE("Not Processed: %s", cmd.c_str() + start);
     }
 
     return false;
   }
 };
+
+}

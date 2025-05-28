@@ -1,11 +1,21 @@
+/**
+ * @file wifi-telnet-server.ino
+ * @brief Example for TinyTelnetServer with Ethernet.
+ * This example demonstrates how to create a simple telnet server using the
+ * TinyTelnetServer library. It includes a command to control an LED.
+ * The server listens for incoming telnet connections and processes commands
+ * sent by the client.
+ * @author Phil Schatzmann
+ * @copyright GPLv3
+ */
 #include "TinyTelnetServer.h"
 #include "WiFi.h"
 
 #ifndef LED_BUILTIN
-#  define LED_BUILTIN 22
+#define LED_BUILTIN 22
 #endif
 
-WiFiServer wifi;
+WiFiServer wifi(23);
 TinyTelnetServer<WiFiServer, WiFiClient> server(wifi);
 const char* ssid = "ssid";
 const char* password = "pwd";
@@ -22,15 +32,15 @@ void login() {
 }
 
 // Callback function for the led command
-bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, WiFiClient& out,
-         TinyTelnetServer<WiFiServer, WiFiClient>* self) {
+bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+         TinySerialServer* self) {
   if (parameters.size() != 1) {
     out.println(">led Error: Invalid number of parameters");
     return false;
   }
   if (!parameters[0].equals("on") && !parameters[0].equals("off")) {
     out.println(
-      ">led Error: parameter value is not valid. It must be on or off");
+        ">led Error: parameter value is not valid. It must be on or off");
     return false;
   }
   pinMode(LED_BUILTIN, OUTPUT);
@@ -54,6 +64,4 @@ void setup() {
   server.begin();
 }
 
-void loop() {
-  server.processCommand();
-}
+void loop() { server.processCommand(); }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logger_97',['Logger',['../classtelnet_1_1_logger.html',1,'telnet']]]
+  ['karadiocommands_132',['KARadioCommands',['../classtelnet_1_1_k_a_radio_commands.html',1,'telnet']]]
 ];

@@ -1,9 +1,17 @@
+/** 
+ *  @file ethernet-telnet-server.ino
+ *  @brief Example for TinyTelnetServer with Ethernet
+ *  @author Phil Schatzmann
+ *  @date 2023-10-01
+ *  @license MIT
+ */
 #include <Ethernet.h>
 #include <SPI.h>
+
 #include "TinyTelnetServer.h"
 
 #ifndef LED_BUILTIN
-#  define LED_BUILTIN 22
+#define LED_BUILTIN 22
 #endif
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
@@ -23,8 +31,8 @@ void login() {
 }
 
 // Callback function for the led command
-bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, EthernetClient& out,
-         TinyTelnetServer<EthernetServer, EthernetClient>* self) {
+bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
+         TinySerialServer* self) {
   if (parameters.size() != 1) {
     out.println(">led Error: Invalid number of parameters");
     return false;

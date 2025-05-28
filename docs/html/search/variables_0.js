@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['callback_180',['callback',['../struct_tiny_telnet_server_1_1_command.html#a2b388095586eb9bd9b5030c3c8f2a4f6',1,'TinyTelnetServer::Command']]],
-  ['cmd_181',['cmd',['../struct_tiny_telnet_server_1_1_command.html#a2529526e8f6e1b6216f9ce5af9494cd6',1,'TinyTelnetServer::Command']]]
+  ['callback_252',['callback',['../structtelnet_1_1_tiny_serial_server_1_1_command.html#a6b9408a07b1ef78c8605ec7d60780d47',1,'telnet::TinySerialServer::Command']]],
+  ['cmd_253',['cmd',['../structtelnet_1_1_tiny_serial_server_1_1_command.html#a070a1ec5b488cb16f875c45331f3a3a9',1,'telnet::TinySerialServer::Command']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['command_95',['Command',['../struct_tiny_telnet_server_1_1_command.html',1,'TinyTelnetServer']]]
+  ['command_130',['Command',['../structtelnet_1_1_tiny_serial_server_1_1_command.html',1,'telnet::TinySerialServer']]]
 ];

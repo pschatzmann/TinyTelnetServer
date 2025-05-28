@@ -29,3 +29,8 @@
 #ifndef MAX_LOG_MSG_SIZE
 #  define MAX_LOG_MSG_SIZE 160
 #endif
+
+#if defined(ARDUINO) || defined(USE_TELNET_NS)
+namespace telnet {}
+using namespace telnet;
+#endif

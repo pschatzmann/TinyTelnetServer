@@ -68,10 +68,14 @@ $(function() {
 : <a class="el" href="classtelnet_1_1_str_view.html#a55a7d169eb3d3b0abfcd25a9c803248a">telnet::StrView</a>
 </li>
 <li>addClient()
-: <a class="el" href="class_tiny_telnet_server.html#a45975313ec92679c985b3980d5cae52c">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a9e739cc914cd6f955b69205e5c1d6c41">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>addCommand()
-: <a class="el" href="class_tiny_telnet_server.html#a12bfa6c3732ed35798cc5f0d016d6fce">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#aeb9c25c66397db1e1e7aae1a6832ae8c">telnet::TinySerialServer</a>
+</li>
+<li>addCommands()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#ad7b944df5a662310e04dbc1cbab6b45c">telnet::KARadioCommands</a>
+, <a class="el" href="classtelnet_1_1_s_d_file_commands.html#afbb35e5c4b2b775989972637b3b88afd">telnet::SDFileCommands</a>
 </li>
 <li>allocate()
 : <a class="el" href="classtelnet_1_1_allocator.html#a612877648cfcc198756dc1d98c393d80">telnet::Allocator</a>
@@ -82,7 +86,8 @@ $(function() {
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>begin()
 : <a class="el" href="classtelnet_1_1_logger.html#a62771942788488b7df4ac738aa7933ea">telnet::Logger</a>
-, <a class="el" href="class_tiny_telnet_server.html#a819e0f165214a465cd3c511e2b5b57a8">TinyTelnetServer&lt; Server, Client &gt;</a>
+, <a class="el" href="classtelnet_1_1_tiny_serial_server.html#ac64498a56671937819dd65ad65abf070">telnet::TinySerialServer</a>
+, <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a06f0e6bcfb22da7eb7c639ffba8781c4">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
 
@@ -95,37 +100,107 @@ $(function() {
 : <a class="el" href="classtelnet_1_1_str.html#a9bdd3306e0781632f0b18bdf451720e1">telnet::Str</a>
 , <a class="el" href="classtelnet_1_1_str_view.html#a55bed79047984f1d5fc4d161f7e7d49c">telnet::StrView</a>
 </li>
+<li>cmd_boot()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a28787d77fa420eefeee7b18df2daac42">telnet::KARadioCommands</a>
+</li>
+<li>cmd_cat()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a1b15d9cd98d77419dbcfe40bbabc784d">telnet::SDFileCommands</a>
+</li>
 <li>cmd_close()
-: <a class="el" href="class_tiny_telnet_server.html#ae4581c2a4ffa6941aa38f80427600e4a">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#ad3f5b75c13b851bb0833dbd72e152cf6">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>cmd_cp()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a4800ecb6956e90b78c226814ba221c0a">telnet::SDFileCommands</a>
+</li>
+<li>cmd_df()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a2eceeacbb18e11d2fcd2d3c37fbf48e4">telnet::SDFileCommands</a>
+</li>
+<li>cmd_error()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a6f289d84dc4a0fdea24cdaf11c13be8a">telnet::KARadioCommands</a>
+</li>
+<li>cmd_head()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a669d04fbb3dd90ffff8f79291acc4cc5">telnet::SDFileCommands</a>
 </li>
 <li>cmd_help()
-: <a class="el" href="class_tiny_telnet_server.html#ae1ffa34e7a29b99ad291eb3d0a1de3a9">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a88bc766063456eb3fb6f2f0ee3b187ea">telnet::TinySerialServer</a>
+</li>
+<li>cmd_info()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a6b56ff44d39ebd4b0557b8b361f958fb">telnet::KARadioCommands</a>
+</li>
+<li>cmd_instant()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#ae172baac39bb15e7fecb797110d0e0bb">telnet::KARadioCommands</a>
+</li>
+<li>cmd_list()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a805024988e64576f1845f647ddd39627">telnet::KARadioCommands</a>
+</li>
+<li>cmd_ls()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a9c8868e1e6c4b3709283bcf0b6d8b2df">telnet::SDFileCommands</a>
+</li>
+<li>cmd_mkdir()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a9ebdc9750065c3559ac11307ba989505">telnet::SDFileCommands</a>
+</li>
+<li>cmd_mv()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a1e589334fcbd25531766f187cc7b226e">telnet::SDFileCommands</a>
+</li>
+<li>cmd_next()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a238c57b758c94c40b187ad8286079ca3">telnet::KARadioCommands</a>
+</li>
+<li>cmd_play()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a54dfb292c09af936530b82359e8680cd">telnet::KARadioCommands</a>
+</li>
+<li>cmd_prev()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#ab6fd4f0ed583762541fc210829a4a9e2">telnet::KARadioCommands</a>
+</li>
+<li>cmd_rm()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a3e8ac73767f4d8fee3f601c1e4bc3b19">telnet::SDFileCommands</a>
+</li>
+<li>cmd_stop()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a51f12ca076aeabf043ce641782808ba9">telnet::KARadioCommands</a>
+</li>
+<li>cmd_touch()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a4f307f13c188ac012641ed13e42360b9">telnet::SDFileCommands</a>
+</li>
+<li>cmd_version()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#ab6d604b5e818e5f580e23e7fe5f7b322">telnet::KARadioCommands</a>
+</li>
+<li>cmd_voldown()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a8817cecf97a21f6e8ac26c6e774156bf">telnet::KARadioCommands</a>
+</li>
+<li>cmd_volume()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a4b3449a6528fc37357e4ea896fac274f">telnet::KARadioCommands</a>
+</li>
+<li>cmd_volup()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a35b401e002ce2a11a4a4042634835e4d">telnet::KARadioCommands</a>
+</li>
+<li>cmd_write()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a67aa67fd9d31920394cadf7adb11dca0">telnet::SDFileCommands</a>
 </li>
 <li>connectClients()
-: <a class="el" href="class_tiny_telnet_server.html#a9a262db4ac6695fd62a854aaf793ff6e">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a00b4aee764e76de138bf761e818a5a84">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>contains()
 : <a class="el" href="classtelnet_1_1_str_view.html#a71d698a978e986071798dc391c26493d">telnet::StrView</a>
 </li>
 <li>controlStr()
-: <a class="el" href="class_tiny_telnet_server.html#a6c6b6ac0f8ea80a763982d48c8efee4c">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a5d43925c8b53c48bdc383986e77dc12e">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>copyFrom()
 : <a class="el" href="classtelnet_1_1_str.html#a06bfb2d23a9c7286ee7eea9c3bbdebce">telnet::Str</a>
 </li>
 <li>count()
 : <a class="el" href="classtelnet_1_1_str_view.html#af0d4218664c7f32631a5e17de266423e">telnet::StrView</a>
-, <a class="el" href="class_tiny_telnet_server.html#a973df8ee8be8e77a5a9209d01badae01">TinyTelnetServer&lt; Server, Client &gt;</a>
+, <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a09c2cdb2c59bbaefab237e617313244f">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>countActive()
-: <a class="el" href="class_tiny_telnet_server.html#aa52d1f009b8faf3e5c7ce3bb09f0a3ce">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a223c2415b767ebeaadfb3298e12ed97e">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>end()
-: <a class="el" href="class_tiny_telnet_server.html#ad02bf2bc22e990d51e80f792ed31fda8">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a6ae71883989aa2d30b19806acfba9cd8">telnet::TinySerialServer</a>
+, <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a2f4e31a9465f83cbaab8589920624888">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>endsWith()
 : <a class="el" href="classtelnet_1_1_str_view.html#acc6bf1a73e267fb8cc955d0a346e75ea">telnet::StrView</a>
@@ -153,6 +228,9 @@ $(function() {
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>getReference()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a198e617b42c9a2868c3ea7d63c69e6c6">telnet::TinySerialServer</a>
+</li>
 <li>grow()
 : <a class="el" href="classtelnet_1_1_str.html#a4d448aa2ea354763195bfa7e0921d4f5">telnet::Str</a>
 , <a class="el" href="classtelnet_1_1_str_view.html#af3f63de08dfe63c207a3aa883898d339">telnet::StrView</a>
@@ -243,23 +321,31 @@ $(function() {
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>parseCommand()
-: <a class="el" href="class_tiny_telnet_server.html#a4158353514a4ab33ec56cdf726d91179">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a049543bdaf2cec0da4368c932a18275b">telnet::TinySerialServer</a>
 </li>
 <li>parseTelnetCommands()
-: <a class="el" href="class_tiny_telnet_server.html#a39ccf46f441e408a1b5fad675e3689b2">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#a764ae97e1bc76865cf75489733a5aca4">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>printURL()
+: <a class="el" href="classtelnet_1_1_k_a_radio_commands.html#a28c118f82f6afae60e71707a52befc59">telnet::KARadioCommands</a>
 </li>
 <li>processCommand()
-: <a class="el" href="class_tiny_telnet_server.html#a4474ea2f398e6a55ba4f42e18bfcb3a2">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#adf15e2203b73833d71d3c3dbbcd9ed74">telnet::TinySerialServer</a>
+, <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#ad9841cf552008d71844566d2c89f94ed">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
+</li>
+<li>processCommandUndefined()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a8be9d4c27cbc1ab5dc86155353efdb1b">telnet::TinySerialServer</a>
+, <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#ad5f66000b9473b6c2ac28c4e4cd4ed62">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 <li>processTelnetCommand()
-: <a class="el" href="class_tiny_telnet_server.html#aa0e1644095a99fd3fb65d2ba05f27651">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_telnet_server.html#ad46f96b3e227eeb6e88750c56f2a0a18">telnet::TinyTelnetServer&lt; Server, Client &gt;</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>readLine()
-: <a class="el" href="class_tiny_telnet_server.html#a1a041ab0abdc8b4a1b8699b10eeaf21b">TinyTelnetServer&lt; Server, Client &gt;</a>
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a93cf6b541e2732b2f710e34e8b2e7b6e">telnet::TinySerialServer</a>
 </li>
 <li>remove()
 : <a class="el" href="classtelnet_1_1_allocator.html#a3d45a5acf8f7322151926a4b1553be24">telnet::Allocator</a>
@@ -267,6 +353,9 @@ $(function() {
 </li>
 <li>removeAll()
 : <a class="el" href="classtelnet_1_1_str_view.html#a060ec485831cdb4fc8375648a68901a4">telnet::StrView</a>
+</li>
+<li>removeDirectory()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a2a01cd79a82887de0f547a7cecc675d0">telnet::SDFileCommands</a>
 </li>
 <li>replace()
 : <a class="el" href="classtelnet_1_1_str_view.html#a03c9e9a46cddb02dd0ed2291583066dc">telnet::StrView</a>
@@ -284,6 +373,9 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SDFileCommands()
+: <a class="el" href="classtelnet_1_1_s_d_file_commands.html#a90d8ba58cbe0634c9f58c6d261f34c91">telnet::SDFileCommands</a>
+</li>
 <li>set()
 : <a class="el" href="classtelnet_1_1_str_view.html#a20dc72965e4db47764f9aaea64e57032">telnet::StrView</a>
 </li>
@@ -295,6 +387,18 @@ $(function() {
 </li>
 <li>setLengthUndo()
 : <a class="el" href="classtelnet_1_1_str_view.html#a57322e7eb9eaa99024169a340425e251">telnet::StrView</a>
+</li>
+<li>setMaxInputBufferSize()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a67ef1d49ea6f7daab96a825e944ea164">telnet::TinySerialServer</a>
+</li>
+<li>setReference()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a9bba6c163fd57fa49803315ecd338d01">telnet::TinySerialServer</a>
+</li>
+<li>setRemoveQuotes()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a9c46ff6cd5b28267941c3d94baa5da8e">telnet::TinySerialServer</a>
+</li>
+<li>setStream()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#af16df8f6e9fa6b8254ee92f9792d7ca1">telnet::TinySerialServer</a>
 </li>
 <li>startsWith()
 : <a class="el" href="classtelnet_1_1_str_view.html#abd7e973b87a4cd589156c33dd20f3a47">telnet::StrView</a>
@@ -315,6 +419,9 @@ $(function() {
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>TinySerialServer()
+: <a class="el" href="classtelnet_1_1_tiny_serial_server.html#a780d25df1549fa8beb4eb4e51b7b6022">telnet::TinySerialServer</a>
+</li>
 <li>toBinary()
 : <a class="el" href="classtelnet_1_1_str_view.html#ac4747cf1d0607cef44f3f8d315ac0810">telnet::StrView</a>
 </li>

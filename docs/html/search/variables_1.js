@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameter_5fhelp_182',['parameter_help',['../struct_tiny_telnet_server_1_1_command.html#a5d802dfb93a5d782d07bfc9cb994a99c',1,'TinyTelnetServer::Command']]]
+  ['parameter_5fhelp_254',['parameter_help',['../structtelnet_1_1_tiny_serial_server_1_1_command.html#a0e8fe8770f2f86edc7facde663fd8a32',1,'telnet::TinySerialServer::Command']]]
 ];

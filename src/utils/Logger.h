@@ -1,6 +1,7 @@
 #pragma once
 #include "../TinyTelnetServerConfig.h"
 #include "Arduino.h"
+#include <stdarg.h>
 
 /// Log levels for the TelnetServer
 enum class TinyTelnetLogLevel { Debug, Info, Warning, Error };
