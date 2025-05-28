@@ -7,6 +7,7 @@
 #include "TinyTelnetServer.h"
 #include "WiFi.h"
 
+// port 23 needs root privileges on Linux: so we use a different port
 const int port = 9023;
 WiFiServer wifi(port);
 TinyTelnetServer<WiFiServer, WiFiClient> server(wifi);

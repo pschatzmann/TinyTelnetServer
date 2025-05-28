@@ -53,7 +53,11 @@ bool led(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters, Print& out,
   }
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, parameters[0] == "on" ? HIGH : LOW);
-  out.println(">led: OK\n");
+
+  out.print(">led ");
+  out.print(parameters[0].c_str());
+  out.println(": OK\n");
+
   return true;
 }
 
@@ -66,8 +70,8 @@ void setup() {
   login();
 
   // register any commands
-  server.addCommand("led", led, "(on|off)");
-  server.addCommand("ping", ping);
+  server.addCommand("led", led, " (on|off): Turns the LED on or off");
+  server.addCommand("ping", ping, ": (no parameters) - just replys with pong");
 
   // start server
   server.begin();
