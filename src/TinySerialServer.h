@@ -65,8 +65,10 @@ class TinySerialServer {
   /// Remove quotes from the parameters
   void setRemoveQuotes(bool remove) { is_remove_quotes = remove; }
 
+  /// Remove quotes from the parameters ?
   bool getRemoveQuotes() { return is_remove_quotes; }
 
+  /// Defines an error callback
   void setErrorCallback(bool (*cb)(telnet::Str& cmd,
                                    telnet::Vector<telnet::Str> parameters,
                                    Print& out, TinySerialServer* self)) {

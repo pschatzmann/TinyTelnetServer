@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['add_146',['add',['../classtelnet_1_1_str_view.html#a55a7d169eb3d3b0abfcd25a9c803248a',1,'telnet::StrView::add(int value)'],['../classtelnet_1_1_str_view.html#a1bc78bdbc04cbdb8dfc300ac84ef6c74',1,'telnet::StrView::add(double value, int precision=2, int withd=0)'],['../classtelnet_1_1_str_view.html#ad967f5a7f2e212d0f8748d47a6bf43bd',1,'telnet::StrView::add(const char *append)'],['../classtelnet_1_1_str_view.html#ab3d1fbe22af937305f10ecfe02f92166',1,'telnet::StrView::add(const char c)']]],
-  ['addclient_147',['addClient',['../classtelnet_1_1_tiny_telnet_server.html#a9e739cc914cd6f955b69205e5c1d6c41',1,'telnet::TinyTelnetServer']]],
-  ['addcommand_148',['addCommand',['../classtelnet_1_1_tiny_serial_server.html#aeb9c25c66397db1e1e7aae1a6832ae8c',1,'telnet::TinySerialServer']]],
-  ['addcommands_149',['addCommands',['../classtelnet_1_1_k_a_radio_commands.html#ad7b944df5a662310e04dbc1cbab6b45c',1,'telnet::KARadioCommands::addCommands()'],['../classtelnet_1_1_s_d_file_commands.html#afbb35e5c4b2b775989972637b3b88afd',1,'telnet::SDFileCommands::addCommands()']]],
-  ['allocate_150',['allocate',['../classtelnet_1_1_allocator.html#a612877648cfcc198756dc1d98c393d80',1,'telnet::Allocator']]]
+  ['add_148',['add',['../classtelnet_1_1_str_view.html#af145c57539dd93a7875d325160f3ccf3',1,'telnet::StrView::add(int value)'],['../classtelnet_1_1_str_view.html#ada7f3f476500471b1d768531442f7d21',1,'telnet::StrView::add(double value, int precision=2, int withd=0)'],['../classtelnet_1_1_str_view.html#a84499f0dfa1c8794f5c8b47cfb1019f6',1,'telnet::StrView::add(const char *append)'],['../classtelnet_1_1_str_view.html#a6b0504614868c1f5900a52eb852ab454',1,'telnet::StrView::add(const char c)']]],
+  ['addclient_149',['addClient',['../classtelnet_1_1_tiny_telnet_server.html#a9a978d5c0efa841ca71ec354a26c84bc',1,'telnet::TinyTelnetServer']]],
+  ['addcommand_150',['addCommand',['../classtelnet_1_1_tiny_serial_server.html#af8911b60f3cd05b7c29c16afbbb5d3af',1,'telnet::TinySerialServer']]],
+  ['addcommands_151',['addCommands',['../classtelnet_1_1_k_a_radio_commands.html#a1d05f917e45f4673a895ea5effc573a7',1,'telnet::KARadioCommands::addCommands()'],['../classtelnet_1_1_s_d_file_commands.html#a1d05f917e45f4673a895ea5effc573a7',1,'telnet::SDFileCommands::addCommands()']]],
+  ['allocate_152',['allocate',['../classtelnet_1_1_allocator.html#a61444acca87cb94cc35f366fa09bcc46',1,'telnet::Allocator']]]
 ];

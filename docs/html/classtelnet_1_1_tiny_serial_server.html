@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TinyTelnetServer: telnet::TinySerialServer Class Reference</title>
+<title>TinyTelnetServer: TinySerialServer Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classtelnet_1_1_tiny_serial_server-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">telnet::TinySerialServer Class Reference</div>  </div>
+<div class="title">TinySerialServer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -82,12 +82,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_tiny_serial_server_8h_source.html">TinySerialServer.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for telnet::TinySerialServer:</div>
+Inheritance diagram for TinySerialServer:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classtelnet_1_1_tiny_serial_server.png" usemap="#telnet::TinySerialServer_map" alt=""/>
-  <map id="telnet::TinySerialServer_map" name="telnet::TinySerialServer_map">
-<area href="classtelnet_1_1_tiny_telnet_server.html" title="A simple telnet server for Arduino. Call the addCommand method to register your commands." alt="telnet::TinyTelnetServer&lt; Server, Client &gt;" shape="rect" coords="0,56,249,80"/>
+  <img src="classtelnet_1_1_tiny_serial_server.png" usemap="#TinySerialServer_map" alt=""/>
+  <map id="TinySerialServer_map" name="TinySerialServer_map">
+<area href="classtelnet_1_1_tiny_telnet_server.html" title="A simple telnet server for Arduino. Call the addCommand method to register your commands." alt="TinyTelnetServer&lt; Server, Client &gt;" shape="rect" coords="0,56,213,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -99,120 +99,122 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a780d25df1549fa8beb4eb4e51b7b6022"><td class="memItemLeft" align="right" valign="top"><a id="a780d25df1549fa8beb4eb4e51b7b6022"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a780d25df1549fa8beb4eb4e51b7b6022">TinySerialServer</a> (Stream &amp;stream)</td></tr>
-<tr class="memdesc:a780d25df1549fa8beb4eb4e51b7b6022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
-<tr class="separator:a780d25df1549fa8beb4eb4e51b7b6022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9c25c66397db1e1e7aae1a6832ae8c"><td class="memItemLeft" align="right" valign="top"><a id="aeb9c25c66397db1e1e7aae1a6832ae8c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#aeb9c25c66397db1e1e7aae1a6832ae8c">addCommand</a> (const char *cmd, bool(*cb)(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self), const char *parameter_help=&quot;&quot;)</td></tr>
-<tr class="memdesc:aeb9c25c66397db1e1e7aae1a6832ae8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new command. <br /></td></tr>
-<tr class="separator:aeb9c25c66397db1e1e7aae1a6832ae8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac64498a56671937819dd65ad65abf070"><td class="memItemLeft" align="right" valign="top"><a id="ac64498a56671937819dd65ad65abf070"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#ac64498a56671937819dd65ad65abf070">begin</a> ()</td></tr>
-<tr class="memdesc:ac64498a56671937819dd65ad65abf070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the server. <br /></td></tr>
-<tr class="separator:ac64498a56671937819dd65ad65abf070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ae71883989aa2d30b19806acfba9cd8"><td class="memItemLeft" align="right" valign="top"><a id="a6ae71883989aa2d30b19806acfba9cd8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a6ae71883989aa2d30b19806acfba9cd8">end</a> ()</td></tr>
-<tr class="memdesc:a6ae71883989aa2d30b19806acfba9cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the server. <br /></td></tr>
-<tr class="separator:a6ae71883989aa2d30b19806acfba9cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a198e617b42c9a2868c3ea7d63c69e6c6"><td class="memItemLeft" align="right" valign="top"><a id="a198e617b42c9a2868c3ea7d63c69e6c6"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a198e617b42c9a2868c3ea7d63c69e6c6">getReference</a> ()</td></tr>
-<tr class="memdesc:a198e617b42c9a2868c3ea7d63c69e6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference object which can be used in the callback. <br /></td></tr>
-<tr class="separator:a198e617b42c9a2868c3ea7d63c69e6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8649bbb4c41724fb7093a2be3134fc"><td class="memItemLeft" align="right" valign="top"><a id="a4b8649bbb4c41724fb7093a2be3134fc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getRemoveQuotes</b> ()</td></tr>
-<tr class="separator:a4b8649bbb4c41724fb7093a2be3134fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf15e2203b73833d71d3c3dbbcd9ed74"><td class="memItemLeft" align="right" valign="top"><a id="adf15e2203b73833d71d3c3dbbcd9ed74"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#adf15e2203b73833d71d3c3dbbcd9ed74">processCommand</a> ()</td></tr>
-<tr class="memdesc:adf15e2203b73833d71d3c3dbbcd9ed74"><td class="mdescLeft">&#160;</td><td class="mdescRight">proccess the next command: call in loop() <br /></td></tr>
-<tr class="separator:adf15e2203b73833d71d3c3dbbcd9ed74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24ae35f1c647a6270e7a31af8a661f1"><td class="memItemLeft" align="right" valign="top"><a id="ae24ae35f1c647a6270e7a31af8a661f1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setErrorCallback</b> (bool(*cb)(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self))</td></tr>
-<tr class="separator:ae24ae35f1c647a6270e7a31af8a661f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ef1d49ea6f7daab96a825e944ea164"><td class="memItemLeft" align="right" valign="top"><a id="a67ef1d49ea6f7daab96a825e944ea164"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a67ef1d49ea6f7daab96a825e944ea164">setMaxInputBufferSize</a> (int size)</td></tr>
-<tr class="memdesc:a67ef1d49ea6f7daab96a825e944ea164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the input buffer size: default is MAX_INPUT_BUFFER_SIZE (256) <br /></td></tr>
-<tr class="separator:a67ef1d49ea6f7daab96a825e944ea164"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bba6c163fd57fa49803315ecd338d01"><td class="memItemLeft" align="right" valign="top"><a id="a9bba6c163fd57fa49803315ecd338d01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a9bba6c163fd57fa49803315ecd338d01">setReference</a> (void *reference)</td></tr>
-<tr class="memdesc:a9bba6c163fd57fa49803315ecd338d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a reference object which can be used in the callback. <br /></td></tr>
-<tr class="separator:a9bba6c163fd57fa49803315ecd338d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c46ff6cd5b28267941c3d94baa5da8e"><td class="memItemLeft" align="right" valign="top"><a id="a9c46ff6cd5b28267941c3d94baa5da8e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a9c46ff6cd5b28267941c3d94baa5da8e">setRemoveQuotes</a> (bool remove)</td></tr>
-<tr class="memdesc:a9c46ff6cd5b28267941c3d94baa5da8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove quotes from the parameters. <br /></td></tr>
-<tr class="separator:a9c46ff6cd5b28267941c3d94baa5da8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af16df8f6e9fa6b8254ee92f9792d7ca1"><td class="memItemLeft" align="right" valign="top"><a id="af16df8f6e9fa6b8254ee92f9792d7ca1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#af16df8f6e9fa6b8254ee92f9792d7ca1">setStream</a> (Stream &amp;stream)</td></tr>
-<tr class="memdesc:af16df8f6e9fa6b8254ee92f9792d7ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the stream to be used. <br /></td></tr>
-<tr class="separator:af16df8f6e9fa6b8254ee92f9792d7ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bdd5877441d40322c8c3c8b07d2c5e"><td class="memItemLeft" align="right" valign="top"><a id="ae8bdd5877441d40322c8c3c8b07d2c5e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#ae8bdd5877441d40322c8c3c8b07d2c5e">TinySerialServer</a> (Stream &amp;stream)</td></tr>
+<tr class="memdesc:ae8bdd5877441d40322c8c3c8b07d2c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:ae8bdd5877441d40322c8c3c8b07d2c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8911b60f3cd05b7c29c16afbbb5d3af"><td class="memItemLeft" align="right" valign="top"><a id="af8911b60f3cd05b7c29c16afbbb5d3af"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#af8911b60f3cd05b7c29c16afbbb5d3af">addCommand</a> (const char *cmd, bool(*cb)(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self), const char *parameter_help=&quot;&quot;)</td></tr>
+<tr class="memdesc:af8911b60f3cd05b7c29c16afbbb5d3af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new command. <br /></td></tr>
+<tr class="separator:af8911b60f3cd05b7c29c16afbbb5d3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f45551c10ca30a0bc7f447e70188b1"><td class="memItemLeft" align="right" valign="top"><a id="a50f45551c10ca30a0bc7f447e70188b1"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a50f45551c10ca30a0bc7f447e70188b1">begin</a> ()</td></tr>
+<tr class="memdesc:a50f45551c10ca30a0bc7f447e70188b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the server. <br /></td></tr>
+<tr class="separator:a50f45551c10ca30a0bc7f447e70188b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc34417a19a7b70626d19c41072d72a5"><td class="memItemLeft" align="right" valign="top"><a id="adc34417a19a7b70626d19c41072d72a5"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#adc34417a19a7b70626d19c41072d72a5">end</a> ()</td></tr>
+<tr class="memdesc:adc34417a19a7b70626d19c41072d72a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the server. <br /></td></tr>
+<tr class="separator:adc34417a19a7b70626d19c41072d72a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d884b24e7706e72a8ad57f37c259744"><td class="memItemLeft" align="right" valign="top"><a id="a1d884b24e7706e72a8ad57f37c259744"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a1d884b24e7706e72a8ad57f37c259744">getReference</a> ()</td></tr>
+<tr class="memdesc:a1d884b24e7706e72a8ad57f37c259744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference object which can be used in the callback. <br /></td></tr>
+<tr class="separator:a1d884b24e7706e72a8ad57f37c259744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="memItemLeft" align="right" valign="top"><a id="aca0af5b5ab2ee4fc92e965ed73413cce"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#aca0af5b5ab2ee4fc92e965ed73413cce">getRemoveQuotes</a> ()</td></tr>
+<tr class="memdesc:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove quotes from the parameters ? <br /></td></tr>
+<tr class="separator:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a541291ab5b21c0b8edb4a01a261682ef"><td class="memItemLeft" align="right" valign="top"><a id="a541291ab5b21c0b8edb4a01a261682ef"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a541291ab5b21c0b8edb4a01a261682ef">processCommand</a> ()</td></tr>
+<tr class="memdesc:a541291ab5b21c0b8edb4a01a261682ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">proccess the next command: call in loop() <br /></td></tr>
+<tr class="separator:a541291ab5b21c0b8edb4a01a261682ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7345d1ff9a045dc8b4b5929fc191dbdc"><td class="memItemLeft" align="right" valign="top"><a id="a7345d1ff9a045dc8b4b5929fc191dbdc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a7345d1ff9a045dc8b4b5929fc191dbdc">setErrorCallback</a> (bool(*cb)(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self))</td></tr>
+<tr class="memdesc:a7345d1ff9a045dc8b4b5929fc191dbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an error callback. <br /></td></tr>
+<tr class="separator:a7345d1ff9a045dc8b4b5929fc191dbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205cb30c12c8ab2cd8eb135f42611399"><td class="memItemLeft" align="right" valign="top"><a id="a205cb30c12c8ab2cd8eb135f42611399"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a205cb30c12c8ab2cd8eb135f42611399">setMaxInputBufferSize</a> (int size)</td></tr>
+<tr class="memdesc:a205cb30c12c8ab2cd8eb135f42611399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the input buffer size: default is MAX_INPUT_BUFFER_SIZE (256) <br /></td></tr>
+<tr class="separator:a205cb30c12c8ab2cd8eb135f42611399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af18f354e3db7c08b67f6751e63b76245"><td class="memItemLeft" align="right" valign="top"><a id="af18f354e3db7c08b67f6751e63b76245"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#af18f354e3db7c08b67f6751e63b76245">setReference</a> (void *reference)</td></tr>
+<tr class="memdesc:af18f354e3db7c08b67f6751e63b76245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a reference object which can be used in the callback. <br /></td></tr>
+<tr class="separator:af18f354e3db7c08b67f6751e63b76245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="memItemLeft" align="right" valign="top"><a id="a979fbf2c8e4efb741bbd1922c14fcb61"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a979fbf2c8e4efb741bbd1922c14fcb61">setRemoveQuotes</a> (bool remove)</td></tr>
+<tr class="memdesc:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove quotes from the parameters. <br /></td></tr>
+<tr class="separator:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea3110016f67d3dcb9793fcae72288f"><td class="memItemLeft" align="right" valign="top"><a id="a4ea3110016f67d3dcb9793fcae72288f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a4ea3110016f67d3dcb9793fcae72288f">setStream</a> (Stream &amp;stream)</td></tr>
+<tr class="memdesc:a4ea3110016f67d3dcb9793fcae72288f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the stream to be used. <br /></td></tr>
+<tr class="separator:a4ea3110016f67d3dcb9793fcae72288f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8a1cf2317f9a27bd1f99a1b1e7502c2d"><td class="memItemLeft" align="right" valign="top"><a id="a8a1cf2317f9a27bd1f99a1b1e7502c2d"></a>
-<a class="el" href="structtelnet_1_1_tiny_serial_server_1_1_command.html">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a8a1cf2317f9a27bd1f99a1b1e7502c2d">findCommand</a> (const char *cmd)</td></tr>
-<tr class="memdesc:a8a1cf2317f9a27bd1f99a1b1e7502c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a command by name. <br /></td></tr>
-<tr class="separator:a8a1cf2317f9a27bd1f99a1b1e7502c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a049543bdaf2cec0da4368c932a18275b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a049543bdaf2cec0da4368c932a18275b">parseCommand</a> (const char *input, <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; &amp;parameters)</td></tr>
-<tr class="separator:a049543bdaf2cec0da4368c932a18275b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7da36ddbea67f6ae1c2cf836fb35864"><td class="memItemLeft" align="right" valign="top"><a id="aa7da36ddbea67f6ae1c2cf836fb35864"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#aa7da36ddbea67f6ae1c2cf836fb35864">processCommand</a> (const char *input, Print &amp;result)</td></tr>
-<tr class="memdesc:aa7da36ddbea67f6ae1c2cf836fb35864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the command and returns the result output via Client. <br /></td></tr>
-<tr class="separator:aa7da36ddbea67f6ae1c2cf836fb35864"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34ab605335363a690a6df66222677003"><td class="memItemLeft" align="right" valign="top"><a id="a34ab605335363a690a6df66222677003"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a34ab605335363a690a6df66222677003">processCommand</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;result)</td></tr>
-<tr class="memdesc:a34ab605335363a690a6df66222677003"><td class="mdescLeft">&#160;</td><td class="mdescRight">process the command <br /></td></tr>
-<tr class="separator:a34ab605335363a690a6df66222677003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8be9d4c27cbc1ab5dc86155353efdb1b"><td class="memItemLeft" align="right" valign="top"><a id="a8be9d4c27cbc1ab5dc86155353efdb1b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a8be9d4c27cbc1ab5dc86155353efdb1b">processCommandUndefined</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;result)</td></tr>
-<tr class="memdesc:a8be9d4c27cbc1ab5dc86155353efdb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle undefined commands. <br /></td></tr>
-<tr class="separator:a8be9d4c27cbc1ab5dc86155353efdb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93cf6b541e2732b2f710e34e8b2e7b6e"><td class="memItemLeft" align="right" valign="top"><a id="a93cf6b541e2732b2f710e34e8b2e7b6e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a93cf6b541e2732b2f710e34e8b2e7b6e">readLine</a> (Stream &amp;in, char *str, int max)</td></tr>
-<tr class="memdesc:a93cf6b541e2732b2f710e34e8b2e7b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line delimited by '<br  />
+<tr class="memitem:a9b2d37d24441e8cf9661f598a183457b"><td class="memItemLeft" align="right" valign="top"><a id="a9b2d37d24441e8cf9661f598a183457b"></a>
+<a class="el" href="structtelnet_1_1_tiny_serial_server_1_1_command.html">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a9b2d37d24441e8cf9661f598a183457b">findCommand</a> (const char *cmd)</td></tr>
+<tr class="memdesc:a9b2d37d24441e8cf9661f598a183457b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a command by name. <br /></td></tr>
+<tr class="separator:a9b2d37d24441e8cf9661f598a183457b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ead8665bef34375e758f31bd08ec553"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a6ead8665bef34375e758f31bd08ec553">parseCommand</a> (const char *input, <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; &amp;parameters)</td></tr>
+<tr class="separator:a6ead8665bef34375e758f31bd08ec553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a75ad5aebfedb6abb4a3fa0a4168fc"><td class="memItemLeft" align="right" valign="top"><a id="a33a75ad5aebfedb6abb4a3fa0a4168fc"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a33a75ad5aebfedb6abb4a3fa0a4168fc">processCommand</a> (const char *input, Print &amp;result)</td></tr>
+<tr class="memdesc:a33a75ad5aebfedb6abb4a3fa0a4168fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the command and returns the result output via Client. <br /></td></tr>
+<tr class="separator:a33a75ad5aebfedb6abb4a3fa0a4168fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a358c357e2889acd7e7e215a5a162e6e1"><td class="memItemLeft" align="right" valign="top"><a id="a358c357e2889acd7e7e215a5a162e6e1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a358c357e2889acd7e7e215a5a162e6e1">processCommand</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;result)</td></tr>
+<tr class="memdesc:a358c357e2889acd7e7e215a5a162e6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">process the command <br /></td></tr>
+<tr class="separator:a358c357e2889acd7e7e215a5a162e6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c80da8366c4d410321ebf41413a895f"><td class="memItemLeft" align="right" valign="top"><a id="a2c80da8366c4d410321ebf41413a895f"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a2c80da8366c4d410321ebf41413a895f">processCommandUndefined</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;result)</td></tr>
+<tr class="memdesc:a2c80da8366c4d410321ebf41413a895f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle undefined commands. <br /></td></tr>
+<tr class="separator:a2c80da8366c4d410321ebf41413a895f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383fc172ea8b7b09d1ded527047b07de"><td class="memItemLeft" align="right" valign="top"><a id="a383fc172ea8b7b09d1ded527047b07de"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a383fc172ea8b7b09d1ded527047b07de">readLine</a> (Stream &amp;in, char *str, int max)</td></tr>
+<tr class="memdesc:a383fc172ea8b7b09d1ded527047b07de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line delimited by '<br  />
 ' from the Stream. <br /></td></tr>
-<tr class="separator:a93cf6b541e2732b2f710e34e8b2e7b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726bc16b8e07246bec5481d84a3ae80d"><td class="memItemLeft" align="right" valign="top"><a id="a726bc16b8e07246bec5481d84a3ae80d"></a>
+<tr class="separator:a383fc172ea8b7b09d1ded527047b07de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303bb813bdcfa603fcb92f4008738744"><td class="memItemLeft" align="right" valign="top"><a id="a303bb813bdcfa603fcb92f4008738744"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;str, <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;head, <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;tail, char sep=',')</td></tr>
-<tr class="separator:a726bc16b8e07246bec5481d84a3ae80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a303bb813bdcfa603fcb92f4008738744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a88bc766063456eb3fb6f2f0ee3b187ea"><td class="memItemLeft" align="right" valign="top"><a id="a88bc766063456eb3fb6f2f0ee3b187ea"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a88bc766063456eb3fb6f2f0ee3b187ea">cmd_help</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
-<tr class="memdesc:a88bc766063456eb3fb6f2f0ee3b187ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">help callback <br /></td></tr>
-<tr class="separator:a88bc766063456eb3fb6f2f0ee3b187ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ee9e05dce864dcd241b088edfcbd82e"><td class="memItemLeft" align="right" valign="top"><a id="a6ee9e05dce864dcd241b088edfcbd82e"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a6ee9e05dce864dcd241b088edfcbd82e">cmd_help</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
+<tr class="memdesc:a6ee9e05dce864dcd241b088edfcbd82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">help callback <br /></td></tr>
+<tr class="separator:a6ee9e05dce864dcd241b088edfcbd82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a0a2a70224218ff1021d53e87ca6b5918"><td class="memItemLeft" align="right" valign="top"><a id="a0a2a70224218ff1021d53e87ca6b5918"></a>
+<tr class="memitem:a8c23f43581980c0ca9f82b8e40140452"><td class="memItemLeft" align="right" valign="top"><a id="a8c23f43581980c0ca9f82b8e40140452"></a>
 <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="structtelnet_1_1_tiny_serial_server_1_1_command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
-<tr class="separator:a0a2a70224218ff1021d53e87ca6b5918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65d4400959de1cb130d9880569e2df2"><td class="memItemLeft" align="right" valign="top"><a id="aa65d4400959de1cb130d9880569e2df2"></a>
+<tr class="separator:a8c23f43581980c0ca9f82b8e40140452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebbb5499be4d8aa2ea36275f63a31da2"><td class="memItemLeft" align="right" valign="top"><a id="aebbb5499be4d8aa2ea36275f63a31da2"></a>
 bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>error_callback</b> )(<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self) = nullptr</td></tr>
-<tr class="separator:aa65d4400959de1cb130d9880569e2df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a440be4b25c9f0ad7fdc5fdd8851581d9"><td class="memItemLeft" align="right" valign="top"><a id="a440be4b25c9f0ad7fdc5fdd8851581d9"></a>
+<tr class="separator:aebbb5499be4d8aa2ea36275f63a31da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407c3efba665d276a38229f905bef352"><td class="memItemLeft" align="right" valign="top"><a id="a407c3efba665d276a38229f905bef352"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_active</b> = false</td></tr>
-<tr class="separator:a440be4b25c9f0ad7fdc5fdd8851581d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71ba8eb0dbb4429b25c263418edc94c2"><td class="memItemLeft" align="right" valign="top"><a id="a71ba8eb0dbb4429b25c263418edc94c2"></a>
+<tr class="separator:a407c3efba665d276a38229f905bef352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6638a785808fb6a0faef07a4309751ba"><td class="memItemLeft" align="right" valign="top"><a id="a6638a785808fb6a0faef07a4309751ba"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_remove_quotes</b> = true</td></tr>
-<tr class="separator:a71ba8eb0dbb4429b25c263418edc94c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8956f0101b024af8b8ee482cb08c2d2f"><td class="memItemLeft" align="right" valign="top"><a id="a8956f0101b024af8b8ee482cb08c2d2f"></a>
+<tr class="separator:a6638a785808fb6a0faef07a4309751ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8151ed6fce8ac4681ff14a37ef22c31"><td class="memItemLeft" align="right" valign="top"><a id="ac8151ed6fce8ac4681ff14a37ef22c31"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>max_input_buffer_size</b> = MAX_INPUT_BUFFER_SIZE</td></tr>
-<tr class="separator:a8956f0101b024af8b8ee482cb08c2d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb1996643f8525e25285dddbd143d7d"><td class="memItemLeft" align="right" valign="top"><a id="a0cb1996643f8525e25285dddbd143d7d"></a>
+<tr class="separator:ac8151ed6fce8ac4681ff14a37ef22c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8678dd3f1d38752d798bf2c4527ffd"><td class="memItemLeft" align="right" valign="top"><a id="adc8678dd3f1d38752d798bf2c4527ffd"></a>
 void *&#160;</td><td class="memItemRight" valign="bottom"><b>p_reference</b> = nullptr</td></tr>
-<tr class="separator:a0cb1996643f8525e25285dddbd143d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e18040e7cf9637459627f3bee12a99"><td class="memItemLeft" align="right" valign="top"><a id="ab2e18040e7cf9637459627f3bee12a99"></a>
+<tr class="separator:adc8678dd3f1d38752d798bf2c4527ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c87619d514c8c9627dc94e5e278a530"><td class="memItemLeft" align="right" valign="top"><a id="a7c87619d514c8c9627dc94e5e278a530"></a>
 Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>p_stream</b> = nullptr</td></tr>
-<tr class="separator:ab2e18040e7cf9637459627f3bee12a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7c87619d514c8c9627dc94e5e278a530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simple serial server for Arduino. Call the addCommand method to register your commands. </p>
 <dl class="section author"><dt>Author</dt><dd>Phil Schatzmann </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPLv3 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a049543bdaf2cec0da4368c932a18275b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a049543bdaf2cec0da4368c932a18275b">&#9670;&nbsp;</a></span>parseCommand()</h2>
+<a id="a6ead8665bef34375e758f31bd08ec553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ead8665bef34375e758f31bd08ec553">&#9670;&nbsp;</a></span>parseCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +223,7 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>p_stream</b> = nu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool telnet::TinySerialServer::parseCommand </td>
+          <td class="memname">bool parseCommand </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>input</em>, </td>
