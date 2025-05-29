@@ -52,6 +52,9 @@ void setup() {
   // setup logger
   TinyTelnetLogger.begin(Serial, TinyTelnetLogLevel::Info);
 
+  // setup SD card
+  setupSD();
+
   // login to Wifi
   login();
 

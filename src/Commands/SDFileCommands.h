@@ -49,7 +49,7 @@ class SDFileCommands {
    * @param server The TinySerialServer to register commands with
    */
   void addCommands(TinySerialServer& server) {
-    server.addCommand("ls", cmd_ls, "DIRECTORY");
+    server.addCommand("ls", cmd_ls, "[DIRECTORY]");
     server.addCommand("cat", cmd_cat, "FLENAME");
     server.addCommand("mv", cmd_mv, "SOURCE DESTINATION");
     server.addCommand("cp", cmd_cp, "SOURCE DESTINATION");
@@ -408,13 +408,15 @@ class SDFileCommands {
     out.println("Type      Size");
     
 
-    int start = path_str.length();
-    if (!path_str.endsWith("/")) {
-      start++;
-    }
+    int start = 0;
 
     File entry;
     while (entry = dir.openNextFile()) {
+      if (StrView(entry.name()).startsWith(path)) {
+        start = strlen(path);
+        if (entry.name()[start] == '/') 
+          start++;
+      }
       // Skip hidden files
       if (entry.name()[start] == '.') {
         continue;  

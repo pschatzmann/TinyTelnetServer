@@ -63,12 +63,6 @@ class TinySerialServer {
   /// Returns the reference object which can be used in the callback
   void* getReference() { return p_reference; }
 
-  /// Remove quotes from the parameters
-  void setRemoveQuotes(bool remove) { is_remove_quotes = remove; }
-
-  /// Remove quotes from the parameters ?
-  bool getRemoveQuotes() { return is_remove_quotes; }
-
   /// Defines an error callback
   void setErrorCallback(bool (*cb)(telnet::Str& cmd,
                                    telnet::Vector<telnet::Str> parameters,
@@ -81,7 +75,6 @@ class TinySerialServer {
   Stream* p_stream = nullptr;
   bool is_active = false;
   void* p_reference = nullptr;
-  bool is_remove_quotes = true;
   bool (*error_callback)(telnet::Str& cmd,
                          telnet::Vector<telnet::Str> parameters, Print& out,
                          TinySerialServer* self) = nullptr;
@@ -127,6 +120,7 @@ class TinySerialServer {
       if (command != nullptr && !StrView(command->parameter_help).isEmpty()) {
         out.print(">Command: ");
         out.print(command->cmd);
+        out.print(" ");
         out.println(command->parameter_help);
       } else {
         out.print(">Command: ");
@@ -146,6 +140,11 @@ class TinySerialServer {
     if (in.available() > 0) {
       index = in.readBytesUntil('\n', str, max);
       str[index - 1] = '\0';  // null termination character
+      // special logic for Windows line endings
+      if (str[index - 2] == '\r') {
+        str[index - 2] = '\0';  // remove carriage return if present
+        index--;
+      }
     }
     return index - 1;
   }
@@ -201,11 +200,7 @@ class TinySerialServer {
     while (!tail.isEmpty()) {
       tail.trim();
       split(tail, par, tail, delimiter);
-      /// remove quotes
-      if (is_remove_quotes && par.startsWith("\"") && par.endsWith("\"")) {
-        par.substr(par, 1, par.length());
-        par.trim();
-      }
+      par.trim();
       TELNET_LOGI("- par: '%s'", par.c_str());
       parameters.push_back(par);
     }
@@ -215,12 +210,24 @@ class TinySerialServer {
   // / Splits the string into head and tail at the first comma
   void split(telnet::Str& str, telnet::Str& head, telnet::Str& tail,
              char sep = ',') {
+
+    // Use single quotes for aruments with spaces
     int pos = str.indexOf(sep);
+    int start = 0;
+    if (str.startsWith("'")){
+      pos = str.indexOf("'", 1);
+      start = 1;  // Skip the first quote
+    }
+    if (str.startsWith("\"")){
+      pos = str.indexOf("\"", 1);
+      start = 1;  // Skip the first quote
+    }
+
     if (pos == -1) {
       head = str;
       tail = "";
     } else {
-      head.substr(str, 0, pos);
+      head.substr(str, start, pos);
       tail.substr(str, pos + 1, str.length());
     }
   }
