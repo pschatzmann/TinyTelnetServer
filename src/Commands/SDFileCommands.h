@@ -7,6 +7,7 @@ namespace telnet {
 
 // Current directory
 static String current_dir = "/";  // Default to root directory
+static int max_file_length = 60;
 
 /**
  * @brief Class providing SD card file commands for TinyTelnetServer
@@ -35,6 +36,11 @@ class SDFileCommands {
   SDFileCommands() = default;
   /// Default constructor
   SDFileCommands(TinySerialServer& server) { addCommands(server); }
+
+  /// Defines the maximum length for file names
+  void setMaxFileLength(int len) {
+    max_file_length = len;
+  }
 
   /**
    *
@@ -366,7 +372,6 @@ class SDFileCommands {
    */
   static bool cmd_ls(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                      Print& out, TinySerialServer* self) {
-    int maxlen = 60;
     // Default to root directory if no path is specified
     String path_str = current_dir;
     const char* path = path_str.c_str();
@@ -397,7 +402,7 @@ class SDFileCommands {
     out.println(path);
     out.println();
     out.print("Name");
-    for (int j=0;j<maxlen - 4;j++) {
+    for (int j=0;j<max_file_length - 4;j++) {
       out.print(" ");
     }
     out.println("Type      Size");
@@ -420,7 +425,7 @@ class SDFileCommands {
 
       // Padding
       int nameLen = strlen(name);
-      for (int i = nameLen; i < maxlen; i++) {
+      for (int i = nameLen; i < max_file_length; i++) {
         out.print(" ");
       }
 
