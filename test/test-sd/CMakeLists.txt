@@ -26,8 +26,8 @@ set_source_files_properties(test-sd.ino PROPERTIES LANGUAGE CXX)
 add_executable (test-sd test-sd.ino)
 
 # set preprocessor defines
-target_compile_definitions(arduino_emulator PUBLIC -DDEFINE_MAIN)
-target_compile_definitions(test-sd PUBLIC -DARDUINO -DIS_DESKTOP)
+target_compile_definitions(arduino_emulator PUBLIC -DDEFINE_MAIN -DUSE_FILESYSTEM)
+target_compile_definitions(test-sd PUBLIC -DARDUINO -DIS_DESKTOP -DUSE_FILESYSTEM)
 
 # specify libraries
 target_link_libraries(test-sd tiny-telnet arduino_emulator )

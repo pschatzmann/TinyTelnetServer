@@ -246,6 +246,7 @@ class TinySerialServer {
     snprintf(str, sizeof(str), "Invalid command: '%s'", cmd.c_str());
     result.print(str);
     result.println("- type 'help' for a list of commands");
+    result.println();
     TELNET_LOGE("%s", str);
 
     return false;

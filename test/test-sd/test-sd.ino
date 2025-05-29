@@ -20,7 +20,8 @@
 #define PIN_SD_CARD_MOSI 15
 #define PIN_SD_CARD_CLK 14
 
-WiFiServer wifi(23);
+const int port = 9023;
+WiFiServer wifi(port);
 TinyTelnetServer<WiFiServer, WiFiClient> server(wifi);
 SDFileCommands sdFileCommands(server);
 const char* ssid = "ssid";
@@ -34,7 +35,9 @@ void login() {
   }
   WiFi.setSleep(false);
   Serial.print("Connect with telnet ");
-  Serial.println(WiFi.localIP());
+  Serial.print(WiFi.localIP());
+  Serial.print(" ");
+  Serial.println(port);
 }
 
 bool setupSD() {
