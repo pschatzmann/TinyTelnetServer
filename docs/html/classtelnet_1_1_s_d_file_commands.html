@@ -87,8 +87,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af15cdd3eb72e9777155539a592205d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:af15cdd3eb72e9777155539a592205d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d05f917e45f4673a895ea5effc573a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a1d05f917e45f4673a895ea5effc573a7">addCommands</a> (<a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> &amp;server)</td></tr>
-<tr class="memdesc:a1d05f917e45f4673a895ea5effc573a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register file commands with the server.  <a href="classtelnet_1_1_s_d_file_commands.html#a1d05f917e45f4673a895ea5effc573a7">More...</a><br /></td></tr>
+<tr class="memdesc:a1d05f917e45f4673a895ea5effc573a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register file commands (inspired by linux) with the server.  <a href="classtelnet_1_1_s_d_file_commands.html#a1d05f917e45f4673a895ea5effc573a7">More...</a><br /></td></tr>
 <tr class="separator:a1d05f917e45f4673a895ea5effc573a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcec0acdc3f960ec0176173efd620d89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#afcec0acdc3f960ec0176173efd620d89">addCommandsWindows</a> (<a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> &amp;server)</td></tr>
+<tr class="memdesc:afcec0acdc3f960ec0176173efd620d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register file commands (inspired by Windows) with the server.  <a href="classtelnet_1_1_s_d_file_commands.html#afcec0acdc3f960ec0176173efd620d89">More...</a><br /></td></tr>
+<tr class="separator:afcec0acdc3f960ec0176173efd620d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b71aa60cb127101197a004005b85b28"><td class="memItemLeft" align="right" valign="top"><a id="a5b71aa60cb127101197a004005b85b28"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a5b71aa60cb127101197a004005b85b28">setMaxFileLength</a> (int len)</td></tr>
+<tr class="memdesc:a5b71aa60cb127101197a004005b85b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the maximum length for file names. <br /></td></tr>
+<tr class="separator:a5b71aa60cb127101197a004005b85b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -96,6 +103,9 @@ Static Public Member Functions</h2></td></tr>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a56956b854f7c4dfc74a8835f47fb616e">cmd_cat</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
 <tr class="memdesc:a56956b854f7c4dfc74a8835f47fb616e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display contents of a file. <br /></td></tr>
 <tr class="separator:a56956b854f7c4dfc74a8835f47fb616e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be94110dd9f37016ce62e22a9b7635c"><td class="memItemLeft" align="right" valign="top"><a id="a7be94110dd9f37016ce62e22a9b7635c"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>cmd_cd</b> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
+<tr class="separator:a7be94110dd9f37016ce62e22a9b7635c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0876999cc0b6389060de067387b04c55"><td class="memItemLeft" align="right" valign="top"><a id="a0876999cc0b6389060de067387b04c55"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a0876999cc0b6389060de067387b04c55">cmd_cp</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
 <tr class="memdesc:a0876999cc0b6389060de067387b04c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a file. <br /></td></tr>
@@ -120,9 +130,11 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a63a3a823bf57b753dbb08c675a38700f">cmd_mv</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
 <tr class="memdesc:a63a3a823bf57b753dbb08c675a38700f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move/rename a file. <br /></td></tr>
 <tr class="separator:a63a3a823bf57b753dbb08c675a38700f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ba4aecdb8147acd8d4e5895c6a04d18"><td class="memItemLeft" align="right" valign="top"><a id="a2ba4aecdb8147acd8d4e5895c6a04d18"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a2ba4aecdb8147acd8d4e5895c6a04d18">cmd_rm</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
-<tr class="memdesc:a2ba4aecdb8147acd8d4e5895c6a04d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a file or directory. <br /></td></tr>
+<tr class="memitem:abf56c4cb84a5745ad9316f2e008d0499"><td class="memItemLeft" align="right" valign="top"><a id="abf56c4cb84a5745ad9316f2e008d0499"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>cmd_pwd</b> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
+<tr class="separator:abf56c4cb84a5745ad9316f2e008d0499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba4aecdb8147acd8d4e5895c6a04d18"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a2ba4aecdb8147acd8d4e5895c6a04d18">cmd_rm</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
+<tr class="memdesc:a2ba4aecdb8147acd8d4e5895c6a04d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a file or directory.  <a href="classtelnet_1_1_s_d_file_commands.html#a2ba4aecdb8147acd8d4e5895c6a04d18">More...</a><br /></td></tr>
 <tr class="separator:a2ba4aecdb8147acd8d4e5895c6a04d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289dfb90287a5fa16f9a47b9c9406f91"><td class="memItemLeft" align="right" valign="top"><a id="a289dfb90287a5fa16f9a47b9c9406f91"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a289dfb90287a5fa16f9a47b9c9406f91">cmd_touch</a> (<a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;cmd, <a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt; parameters, Print &amp;out, <a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *self)</td></tr>
@@ -135,14 +147,20 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a016111e378ad18f923723171063b8372"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a016111e378ad18f923723171063b8372">dirUp</a> (const char *current)</td></tr>
+<tr class="separator:a016111e378ad18f923723171063b8372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeac6a1c46382586c5ad7133a8028b5ce"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#aeac6a1c46382586c5ad7133a8028b5ce">removeDirectory</a> (const char *dirPath, Print &amp;out)</td></tr>
 <tr class="memdesc:aeac6a1c46382586c5ad7133a8028b5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a directory and all its contents recursively.  <a href="classtelnet_1_1_s_d_file_commands.html#aeac6a1c46382586c5ad7133a8028b5ce">More...</a><br /></td></tr>
 <tr class="separator:aeac6a1c46382586c5ad7133a8028b5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d8f17217e4db51364b33653dc10735"><td class="memItemLeft" align="right" valign="top"><a id="a87d8f17217e4db51364b33653dc10735"></a>
+static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_s_d_file_commands.html#a87d8f17217e4db51364b33653dc10735">resolveName</a> (const char *path)</td></tr>
+<tr class="memdesc:a87d8f17217e4db51364b33653dc10735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve relative path name. <br /></td></tr>
+<tr class="separator:a87d8f17217e4db51364b33653dc10735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class providing SD card file commands for <a class="el" href="classtelnet_1_1_tiny_telnet_server.html" title="A simple telnet server for Arduino. Call the addCommand method to register your commands.">TinyTelnetServer</a>. </p>
 <p>Implements common file operations:</p><ul>
-<li>ls/dir: List directory contents</li>
+<li>ls: List directory contents</li>
 <li>cat: Display file contents</li>
 <li>mv: Move/rename files</li>
 <li>rm: Remove files/directories</li>
@@ -152,7 +170,10 @@ Static Protected Member Functions</h2></td></tr>
 <li>touch: Create empty files or update timestamps</li>
 <li>write: Write text to files</li>
 <li>head: Display first lines of a file</li>
+<li>pwd: print current directopy</li>
+<li>cd: change directory</li>
 </ul>
+<p>The SD API does nto support cd and pwd, so we simulate this functionality.</p>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPLv3 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1d05f917e45f4673a895ea5effc573a7"></a>
@@ -179,13 +200,125 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Register file commands with the server. </p>
+<p>Register file commands (inspired by linux) with the server. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The <a class="el" href="classtelnet_1_1_tiny_serial_server.html" title="A simple serial server for Arduino. Call the addCommand method to register your commands.">TinySerialServer</a> to register commands with </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="afcec0acdc3f960ec0176173efd620d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcec0acdc3f960ec0176173efd620d89">&#9670;&nbsp;</a></span>addCommandsWindows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addCommandsWindows </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> &amp;&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register file commands (inspired by Windows) with the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The <a class="el" href="classtelnet_1_1_tiny_serial_server.html" title="A simple serial server for Arduino. Call the addCommand method to register your commands.">TinySerialServer</a> to register commands with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ba4aecdb8147acd8d4e5895c6a04d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba4aecdb8147acd8d4e5895c6a04d18">&#9670;&nbsp;</a></span>cmd_rm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool cmd_rm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtelnet_1_1_vector.html">telnet::Vector</a>&lt; <a class="el" href="classtelnet_1_1_str.html">telnet::Str</a> &gt;&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Print &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtelnet_1_1_tiny_serial_server.html">TinySerialServer</a> *&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove a file or directory. </p>
+<p>resolve file name</p>
+
+</div>
+</div>
+<a id="a016111e378ad18f923723171063b8372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a016111e378ad18f923723171063b8372">&#9670;&nbsp;</a></span>dirUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static String dirUp </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Move one path level up Returns the parent directory of the current directory </p>
 
 </div>
 </div>

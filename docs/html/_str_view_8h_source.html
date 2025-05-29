@@ -485,345 +485,349 @@ $(function() {
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        this-&gt;len = len;</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      }</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    }</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  }</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
-<div class="line"><a name="l00495"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">  495</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">substr</a>(<a class="code" href="classtelnet_1_1_str_view.html">StrView</a>&amp; from, <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end) {</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classtelnet_1_1_str_view.html#a9785c9a79490ae59dfe50c235e06f948">substr</a>(from.<a class="code" href="classtelnet_1_1_str_view.html#a9ccdbd62a9a4ce6642622d748894728e">c_str</a>(), start, end);</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  }</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
-<div class="line"><a name="l00500"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">  500</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">trim</a>() {</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <a class="code" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">rtrim</a>();</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <a class="code" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">ltrim</a>();</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  }</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">  507</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">count</a>(<span class="keywordtype">char</span> c, <span class="keywordtype">int</span> startPos) {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = startPos; j &lt; len; j++) {</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;      <span class="keywordflow">if</span> (chars[j] != c) {</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        <span class="keywordflow">return</span> j;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      }</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    }</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  }</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
-<div class="line"><a name="l00517"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">  517</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">ltrim</a>() {</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordtype">int</span> n = <a class="code" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">count</a>(<span class="charliteral">&#39; &#39;</span>, 0);</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordflow">if</span> (n &gt; 0) *<span class="keyword">this</span> &lt;&lt; n;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;  }</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
-<div class="line"><a name="l00524"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">  524</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">rtrim</a>() {</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      <span class="keywordflow">while</span> (isspace(chars[len])) {</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        len--;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        chars[len] = 0;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      }</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  }</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
-<div class="line"><a name="l00535"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">  535</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">clear</a>() {</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span> &amp;&amp; !<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      chars[0] = 0;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    }</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    len = 0;</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  }</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
-<div class="line"><a name="l00543"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">  543</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">isOnHeap</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; </div>
-<div class="line"><a name="l00546"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">  546</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>() { <span class="keywordflow">return</span> is_const; }</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
-<div class="line"><a name="l00549"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">  549</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">insert</a>(<span class="keywordtype">int</span> pos, <span class="keyword">const</span> <span class="keywordtype">char</span>* str) {</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      <span class="keywordtype">int</span> insert_len = strlen(str);</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      <a class="code" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">grow</a>(this-&gt;<a class="code" href="classtelnet_1_1_str_view.html#a4c78c47ce1c204f9d233485b8036ac0e">length</a>() + insert_len);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;      <span class="keywordtype">int</span> move_len = this-&gt;len - pos + 1;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      memmove(chars + pos + insert_len, chars + pos, move_len);</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;      strncpy(chars + pos, str, insert_len);</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    }</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;  }</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
-<div class="line"><a name="l00560"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">  560</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">equalsIgnoreCase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* alt)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">size_t</span>)len != strlen(alt)) {</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    }</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;      <span class="keywordflow">if</span> (tolower(chars[j]) != tolower(alt[j])) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    }</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  }</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160; </div>
-<div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">  571</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">toInt</a>() {</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;      result = atoi(chars);</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    }</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;  }</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
-<div class="line"><a name="l00580"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">  580</a></span>&#160;  <span class="keywordtype">long</span> <a class="code" href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">toLong</a>() {</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="keywordtype">long</span> result = 0;</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;      result = atol(chars);</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    }</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  }</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
-<div class="line"><a name="l00589"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">  589</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">toDouble</a>() {</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordtype">double</span> result = 0;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    <span class="keywordtype">char</span>* eptr;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      result = strtod(chars, &amp;eptr);</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    }</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;  }</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00599"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">  599</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">toFloat</a>() {</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keywordtype">float</span> result = 0;</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <span class="keywordtype">char</span>* eptr;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="preprocessor">#ifdef USE_STRTOD</span></div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;      result = strtof(chars, &amp;eptr);</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      result = strtod(chars, &amp;eptr);</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    }</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;  }</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00613"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">  613</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">toLowerCase</a>() {</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        chars[j] = tolower(chars[j]);</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;      }</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    }</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  }</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160; </div>
-<div class="line"><a name="l00622"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">  622</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">toUpperCase</a>() {</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        chars[j] = toupper(chars[j]);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;      }</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    }</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  }</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; </div>
-<div class="line"><a name="l00631"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">  631</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">toBinary</a>(<span class="keywordtype">void</span> <span class="keyword">const</span>* <span class="keyword">const</span> ptr, <span class="keywordtype">size_t</span> <span class="keyword">const</span> size) {</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">char</span> result[160];</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* b = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)ptr;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> byte;</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keywordtype">int</span> i, j, idx = 0;</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">for</span> (i = size - 1; i &gt;= 0; i--) {</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;      <span class="keywordflow">for</span> (j = 7; j &gt;= 0; j--) {</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;        <span class="keywordtype">byte</span> = (b[i] &gt;&gt; j) &amp; 1;</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        result[idx++] = <span class="keywordtype">byte</span> ? <span class="charliteral">&#39;1&#39;</span> : <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;      }</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    }</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    result[idx] = 0;</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  }</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <span class="keywordtype">bool</span> containsNumber() {</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      <span class="keywordflow">if</span> (isdigit(chars[j])) {</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      }</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    }</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  }</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
-<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">  657</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">isInteger</a>() {</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">bool</span> result = containsNumber();</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">int</span> minus_count = 0;</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <span class="keywordtype">char</span> c = chars[j];</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      <span class="keywordflow">if</span> (!isdigit(c)) {</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keywordflow">switch</span> (c) {</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;            minus_count++;</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            <span class="keywordflow">if</span> (minus_count &gt; 1) {</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;              result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;            }</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;            result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        }</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      }</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    }</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  }</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
-<div class="line"><a name="l00680"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">  680</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">numberOfDecimals</a>() {</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordtype">int</span> pos = <a class="code" href="classtelnet_1_1_str_view.html#aee2206b824ab694471714e3fdc981652">indexOf</a>(<span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    <span class="keywordflow">if</span> (pos &gt;= 0) {</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = pos + 1; j &lt; len; j++) {</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        <span class="keywordflow">if</span> (isdigit(chars[j])) {</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;          pos++;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;          <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        }</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;      }</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    }</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  }</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;  <span class="comment">// Returns true if the string is a number</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;  <span class="keywordtype">bool</span> isNumber() {</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordtype">bool</span> result = containsNumber();</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordtype">int</span> dot_count = 0;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordtype">int</span> minus_count = 0;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      <span class="keywordtype">char</span> c = chars[j];</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      <span class="keywordflow">if</span> (!isdigit(c)) {</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        <span class="keywordflow">switch</span> (c) {</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            minus_count++;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            <span class="keywordflow">if</span> (minus_count &gt; 1) {</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;              result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            }</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;.&#39;</span>:</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            dot_count++;</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;            <span class="keywordflow">if</span> (dot_count &gt; 1) {</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;              result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;            }</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      }</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    }</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;  }</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;  <span class="keywordtype">char</span>* chars = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;  <span class="keywordtype">bool</span> is_const = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;  <span class="keywordtype">int</span> len = 0;</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;  <span class="keywordtype">int</span> maxlen = 0;</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;  <span class="keywordtype">int</span> savedLen = -1;</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <span class="keywordtype">char</span> savedChar;</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160; </div>
-<div class="line"><a name="l00734"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">  734</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">grow</a>(<span class="keywordtype">int</span> newMaxLen) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160; </div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span>* itoa(<span class="keywordtype">int</span> n, <span class="keywordtype">char</span> s[]) {</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    <span class="keywordtype">int</span> i, sign;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="keywordflow">if</span> ((sign = n) &lt; 0) <span class="comment">/* record sign */</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      n = -n;           <span class="comment">/* make n positive */</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    i = 0;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="keywordflow">do</span> {                     <span class="comment">/* generate digits in reverse order */</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;      s[i++] = n % 10 + <span class="charliteral">&#39;0&#39;</span>; <span class="comment">/* get next digit */</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    } <span class="keywordflow">while</span> ((n /= 10) &gt; 0); <span class="comment">/* delete it */</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    <span class="keywordflow">if</span> (sign &lt; 0) s[i++] = <span class="charliteral">&#39;-&#39;</span>;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    s[i] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    reverse(s);</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  }</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160; </div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> reverse(<span class="keywordtype">char</span> s[]) {</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordtype">int</span> i, j;</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="keywordtype">char</span> c;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      this-&gt;chars[0] = 0;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;      this-&gt;len = 0;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    }</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  }</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
+<div class="line"><a name="l00498"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">  498</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">substr</a>(<a class="code" href="classtelnet_1_1_str_view.html">StrView</a>&amp; from, <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end) {</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classtelnet_1_1_str_view.html#a9785c9a79490ae59dfe50c235e06f948">substr</a>(from.<a class="code" href="classtelnet_1_1_str_view.html#a9ccdbd62a9a4ce6642622d748894728e">c_str</a>(), start, end);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  }</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00503"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">  503</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">trim</a>() {</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <a class="code" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">rtrim</a>();</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <a class="code" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">ltrim</a>();</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    len = strlen(chars);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;  }</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
+<div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">  511</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">count</a>(<span class="keywordtype">char</span> c, <span class="keywordtype">int</span> startPos) {</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = startPos; j &lt; len; j++) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      <span class="keywordflow">if</span> (chars[j] != c) {</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="keywordflow">return</span> j;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      }</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    }</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  }</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">  521</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">ltrim</a>() {</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordtype">int</span> n = <a class="code" href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">count</a>(<span class="charliteral">&#39; &#39;</span>, 0);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">if</span> (n &gt; 0) *<span class="keyword">this</span> &lt;&lt; n;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;  }</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">  528</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">rtrim</a>() {</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">if</span> (chars == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;      <span class="keywordflow">while</span> (isspace(chars[len])) {</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        len--;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        chars[len] = 0;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      }</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    }</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;  }</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00539"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">  539</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">clear</a>() {</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span> &amp;&amp; !<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;      chars[0] = 0;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    }</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    len = 0;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;  }</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
+<div class="line"><a name="l00547"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">  547</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">isOnHeap</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">  550</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>() { <span class="keywordflow">return</span> is_const; }</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
+<div class="line"><a name="l00553"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">  553</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">insert</a>(<span class="keywordtype">int</span> pos, <span class="keyword">const</span> <span class="keywordtype">char</span>* str) {</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">isConst</a>()) {</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;      <span class="keywordtype">int</span> insert_len = strlen(str);</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      <a class="code" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">grow</a>(this-&gt;<a class="code" href="classtelnet_1_1_str_view.html#a4c78c47ce1c204f9d233485b8036ac0e">length</a>() + insert_len);</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      <span class="keywordtype">int</span> move_len = this-&gt;len - pos + 1;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;      memmove(chars + pos + insert_len, chars + pos, move_len);</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;      strncpy(chars + pos, str, insert_len);</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    }</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  }</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">  564</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">equalsIgnoreCase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* alt)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">size_t</span>)len != strlen(alt)) {</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    }</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;      <span class="keywordflow">if</span> (tolower(chars[j]) != tolower(alt[j])) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    }</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  }</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">  575</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">toInt</a>() {</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      result = atoi(chars);</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    }</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;  }</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
+<div class="line"><a name="l00584"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">  584</a></span>&#160;  <span class="keywordtype">long</span> <a class="code" href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">toLong</a>() {</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordtype">long</span> result = 0;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;      result = atol(chars);</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;  }</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
+<div class="line"><a name="l00593"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">  593</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">toDouble</a>() {</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordtype">double</span> result = 0;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordtype">char</span>* eptr;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      result = strtod(chars, &amp;eptr);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    }</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  }</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
+<div class="line"><a name="l00603"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">  603</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">toFloat</a>() {</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="keywordtype">float</span> result = 0;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordtype">char</span>* eptr;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classtelnet_1_1_str_view.html#a6969fa34d073611e0b789cd68eec7ae3">isEmpty</a>()) {</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="preprocessor">#ifdef USE_STRTOD</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      result = strtof(chars, &amp;eptr);</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      result = strtod(chars, &amp;eptr);</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  }</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
+<div class="line"><a name="l00617"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">  617</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">toLowerCase</a>() {</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        chars[j] = tolower(chars[j]);</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;      }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    }</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  }</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; </div>
+<div class="line"><a name="l00626"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">  626</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">toUpperCase</a>() {</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordflow">if</span> (chars != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        chars[j] = toupper(chars[j]);</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;      }</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    }</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  }</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
+<div class="line"><a name="l00635"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">  635</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">toBinary</a>(<span class="keywordtype">void</span> <span class="keyword">const</span>* <span class="keyword">const</span> ptr, <span class="keywordtype">size_t</span> <span class="keyword">const</span> size) {</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">char</span> result[160];</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* b = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)ptr;</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> byte;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordtype">int</span> i, j, idx = 0;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordflow">for</span> (i = size - 1; i &gt;= 0; i--) {</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;      <span class="keywordflow">for</span> (j = 7; j &gt;= 0; j--) {</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        <span class="keywordtype">byte</span> = (b[i] &gt;&gt; j) &amp; 1;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        result[idx++] = <span class="keywordtype">byte</span> ? <span class="charliteral">&#39;1&#39;</span> : <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;      }</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    }</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    result[idx] = 0;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  }</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordtype">bool</span> containsNumber() {</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;      <span class="keywordflow">if</span> (isdigit(chars[j])) {</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      }</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    }</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  }</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
+<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">  661</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">isInteger</a>() {</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordtype">bool</span> result = containsNumber();</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordtype">int</span> minus_count = 0;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <span class="keywordtype">char</span> c = chars[j];</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      <span class="keywordflow">if</span> (!isdigit(c)) {</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        <span class="keywordflow">switch</span> (c) {</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            minus_count++;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;            <span class="keywordflow">if</span> (minus_count &gt; 1) {</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;              result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;            }</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;          <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;            result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        }</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      }</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    }</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;  }</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
+<div class="line"><a name="l00684"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">  684</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">numberOfDecimals</a>() {</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordtype">int</span> pos = <a class="code" href="classtelnet_1_1_str_view.html#aee2206b824ab694471714e3fdc981652">indexOf</a>(<span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">if</span> (pos &gt;= 0) {</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = pos + 1; j &lt; len; j++) {</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        <span class="keywordflow">if</span> (isdigit(chars[j])) {</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;          pos++;</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;        }</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      }</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    }</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;  }</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160; </div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;  <span class="comment">// Returns true if the string is a number</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;  <span class="keywordtype">bool</span> isNumber() {</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keywordtype">bool</span> result = containsNumber();</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keywordtype">int</span> dot_count = 0;</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="keywordtype">int</span> minus_count = 0;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; len; j++) {</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      <span class="keywordtype">char</span> c = chars[j];</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;      <span class="keywordflow">if</span> (!isdigit(c)) {</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        <span class="keywordflow">switch</span> (c) {</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            minus_count++;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;            <span class="keywordflow">if</span> (minus_count &gt; 1) {</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;              result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;            }</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          <span class="keywordflow">case</span> <span class="charliteral">&#39;.&#39;</span>:</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;            dot_count++;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;            <span class="keywordflow">if</span> (dot_count &gt; 1) {</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;              result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            }</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;          <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;            result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        }</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      }</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    }</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;  }</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160; </div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;  <span class="keywordtype">char</span>* chars = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <span class="keywordtype">bool</span> is_const = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;  <span class="keywordtype">int</span> len = 0;</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;  <span class="keywordtype">int</span> maxlen = 0;</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;  <span class="keywordtype">int</span> savedLen = -1;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  <span class="keywordtype">char</span> savedChar;</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00738"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">  738</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">grow</a>(<span class="keywordtype">int</span> newMaxLen) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span>* itoa(<span class="keywordtype">int</span> n, <span class="keywordtype">char</span> s[]) {</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="keywordtype">int</span> i, sign;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="keywordflow">if</span> ((sign = n) &lt; 0) <span class="comment">/* record sign */</span></div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;      n = -n;           <span class="comment">/* make n positive */</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    i = 0;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keywordflow">do</span> {                     <span class="comment">/* generate digits in reverse order */</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;      s[i++] = n % 10 + <span class="charliteral">&#39;0&#39;</span>; <span class="comment">/* get next digit */</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    } <span class="keywordflow">while</span> ((n /= 10) &gt; 0); <span class="comment">/* delete it */</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keywordflow">if</span> (sign &lt; 0) s[i++] = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    s[i] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    reverse(s);</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;  }</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordflow">for</span> (i = 0, j = strlen(s) - 1; i &lt; j; i++, j--) {</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;      c = s[i];</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;      s[i] = s[j];</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;      s[j] = c;</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    }</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  }</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
-<div class="line"><a name="l00761"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">  761</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">floatToString</a>(<span class="keywordtype">char</span>* outstr, <span class="keywordtype">double</span> val, <span class="keywordtype">int</span> precision,</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                             <span class="keywordtype">int</span> widthp) {</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keywordtype">char</span> temp[16];</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    <span class="keywordtype">double</span> roundingFactor = 0.5;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mult = 1;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; precision; i++) {</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;      roundingFactor /= 10.0;</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;      mult *= 10;</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    }</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    temp[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    outstr[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    <span class="keywordflow">if</span> (val &lt; 0.0) {</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;      strcpy(outstr, <span class="stringliteral">&quot;-\0&quot;</span>);</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;      val = -val;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    }</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160; </div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    val += roundingFactor;</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160; </div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    strcat(outstr, itoa(<span class="keywordtype">int</span>(val), temp));  <span class="comment">// prints the int part</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <span class="keywordflow">if</span> (precision &gt; 0) {</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;      strcat(outstr, <span class="stringliteral">&quot;.\0&quot;</span>);  </div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frac;</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mult = 1;</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;      <span class="keywordtype">int</span> padding = precision - 1;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;      <span class="keywordflow">while</span> (precision--) mult *= 10;</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;      <span class="keywordflow">if</span> (val &gt;= 0)</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        frac = (val - int(val)) * mult;</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        frac = (int(val) - val) * mult;</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frac1 = frac;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160; </div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;      <span class="keywordflow">while</span> (frac1 /= 10) padding--;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;      <span class="keywordflow">while</span> (padding--) strcat(outstr, <span class="stringliteral">&quot;0\0&quot;</span>);</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> reverse(<span class="keywordtype">char</span> s[]) {</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    <span class="keywordtype">int</span> i, j;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    <span class="keywordtype">char</span> c;</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160; </div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    <span class="keywordflow">for</span> (i = 0, j = strlen(s) - 1; i &lt; j; i++, j--) {</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;      c = s[i];</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;      s[i] = s[j];</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;      s[j] = c;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    }</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  }</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160; </div>
+<div class="line"><a name="l00765"></a><span class="lineno"><a class="line" href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">  765</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">char</span>* <a class="code" href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">floatToString</a>(<span class="keywordtype">char</span>* outstr, <span class="keywordtype">double</span> val, <span class="keywordtype">int</span> precision,</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                             <span class="keywordtype">int</span> widthp) {</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    <span class="keywordtype">char</span> temp[16];</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160; </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    <span class="keywordtype">double</span> roundingFactor = 0.5;</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mult = 1;</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; precision; i++) {</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;      roundingFactor /= 10.0;</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;      mult *= 10;</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    }</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    temp[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    outstr[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160; </div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="keywordflow">if</span> (val &lt; 0.0) {</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;      strcpy(outstr, <span class="stringliteral">&quot;-\0&quot;</span>);</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;      val = -val;</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    }</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    val += roundingFactor;</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160; </div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;    strcat(outstr, itoa(<span class="keywordtype">int</span>(val), temp));  <span class="comment">// prints the int part</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    <span class="keywordflow">if</span> (precision &gt; 0) {</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;      strcat(outstr, <span class="stringliteral">&quot;.\0&quot;</span>);  </div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frac;</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mult = 1;</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;      <span class="keywordtype">int</span> padding = precision - 1;</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;      <span class="keywordflow">while</span> (precision--) mult *= 10;</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; </div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;      <span class="keywordflow">if</span> (val &gt;= 0)</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        frac = (val - int(val)) * mult;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        frac = (int(val) - val) * mult;</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frac1 = frac;</div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;      strcat(outstr, itoa(frac, temp));</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    }</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160; </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    <span class="keywordflow">if</span> ((widthp != 0) &amp;&amp; ((<span class="keywordtype">size_t</span>)widthp &gt;= strlen(outstr))) {</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;      <span class="keywordtype">int</span> J = 0;</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;      J = widthp - strlen(outstr);</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160; </div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;      <span class="keywordflow">for</span> (i = 0; i &lt; J; i++) {</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        temp[i] = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;      }</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;      <span class="keywordflow">while</span> (frac1 /= 10) padding--;</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;      <span class="keywordflow">while</span> (padding--) strcat(outstr, <span class="stringliteral">&quot;0\0&quot;</span>);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;      strcat(outstr, itoa(frac, temp));</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    }</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    <span class="keywordflow">if</span> ((widthp != 0) &amp;&amp; ((<span class="keywordtype">size_t</span>)widthp &gt;= strlen(outstr))) {</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;      <span class="keywordtype">int</span> J = 0;</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;      J = widthp - strlen(outstr);</div>
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160; </div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;      temp[i++] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;      strcat(temp, outstr);</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;      strcpy(outstr, temp);</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    }</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    <span class="keywordflow">return</span> outstr;</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;  }</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160; </div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> strncmp_i(<span class="keyword">const</span> <span class="keywordtype">char</span>* s1, <span class="keyword">const</span> <span class="keywordtype">char</span>* s2, <span class="keywordtype">int</span> n) {</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;      <span class="keywordflow">if</span> (tolower(*s1) != tolower(*s2++))</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;        <span class="keywordflow">return</span> (*(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)s1 - *(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)--s2);</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;      <span class="keywordflow">if</span> (*s1++ == 0) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    } <span class="keywordflow">while</span> (--n != 0);</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;  }</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;};</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; </div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;}  <span class="comment">// namespace telnet</span></div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;      <span class="keywordflow">for</span> (i = 0; i &lt; J; i++) {</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;        temp[i] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;      }</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160; </div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;      temp[i++] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;      strcat(temp, outstr);</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;      strcpy(outstr, temp);</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    }</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160; </div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keywordflow">return</span> outstr;</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;  }</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; </div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> strncmp_i(<span class="keyword">const</span> <span class="keywordtype">char</span>* s1, <span class="keyword">const</span> <span class="keywordtype">char</span>* s2, <span class="keywordtype">int</span> n) {</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;      <span class="keywordflow">if</span> (tolower(*s1) != tolower(*s2++))</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;        <span class="keywordflow">return</span> (*(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)s1 - *(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)--s2);</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;      <span class="keywordflow">if</span> (*s1++ == 0) <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    } <span class="keywordflow">while</span> (--n != 0);</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;  }</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;};</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; </div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;}  <span class="comment">// namespace telnet</span></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html"><div class="ttname"><a href="classtelnet_1_1_str_view.html">telnet::StrView</a></div><div class="ttdoc">String View: A simple wrapper to provide string functions on existing allocated char*....</div><div class="ttdef"><b>Definition:</b> StrView.h:29</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a0efbed3fb099fe426767cdb9e2e4f700"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a0efbed3fb099fe426767cdb9e2e4f700">telnet::StrView::operator=</a></div><div class="ttdeci">virtual void operator=(char *str)</div><div class="ttdoc">we can assign a char*</div><div class="ttdef"><b>Definition:</b> StrView.h:325</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a0ffa149b980b770d4e770c7464edf5f1"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a0ffa149b980b770d4e770c7464edf5f1">telnet::StrView::StrView</a></div><div class="ttdeci">StrView(const char *chars)</div><div class="ttdoc">Creates a Str for string constant.</div><div class="ttdef"><b>Definition:</b> StrView.h:34</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a121dcd3a7cd975ef3aae9fe71ae7fa3c"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a121dcd3a7cd975ef3aae9fe71ae7fa3c">telnet::StrView::equals</a></div><div class="ttdeci">virtual bool equals(const char *str)</div><div class="ttdoc">checks if the string equals indicated parameter string</div><div class="ttdef"><b>Definition:</b> StrView.h:168</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a16ef995f4c62ef0f05d955fd7b0539eb"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">telnet::StrView::grow</a></div><div class="ttdeci">virtual bool grow(int newMaxLen)</div><div class="ttdoc">only supported in subclasses</div><div class="ttdef"><b>Definition:</b> StrView.h:734</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a16ef995f4c62ef0f05d955fd7b0539eb"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a16ef995f4c62ef0f05d955fd7b0539eb">telnet::StrView::grow</a></div><div class="ttdeci">virtual bool grow(int newMaxLen)</div><div class="ttdoc">only supported in subclasses</div><div class="ttdef"><b>Definition:</b> StrView.h:738</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a2a244dec4382ed6c18fcd66caca0554f"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a2a244dec4382ed6c18fcd66caca0554f">telnet::StrView::operator=</a></div><div class="ttdeci">virtual void operator=(char c)</div><div class="ttdoc">we can assign a char</div><div class="ttdef"><b>Definition:</b> StrView.h:328</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a2d2c60de54f22ce44b12700de8a77edb"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a2d2c60de54f22ce44b12700de8a77edb">telnet::StrView::operator+=</a></div><div class="ttdeci">virtual void operator+=(const char *str)</div><div class="ttdoc">adds a substring at the end of the string</div><div class="ttdef"><b>Definition:</b> StrView.h:349</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a36ea1ac4ff77d39eeed580726d77316e"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a36ea1ac4ff77d39eeed580726d77316e">telnet::StrView::endsWith</a></div><div class="ttdeci">virtual bool endsWith(const char *str)</div><div class="ttdoc">checks if the string ends with the indicated substring</div><div class="ttdef"><b>Definition:</b> StrView.h:181</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a3c4aa3bd42775b444d80f6f57cc3eeae"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">telnet::StrView::equalsIgnoreCase</a></div><div class="ttdeci">virtual bool equalsIgnoreCase(const char *alt) const</div><div class="ttdoc">Compares the string ignoring the case.</div><div class="ttdef"><b>Definition:</b> StrView.h:560</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a3c4aa3bd42775b444d80f6f57cc3eeae"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae">telnet::StrView::equalsIgnoreCase</a></div><div class="ttdeci">virtual bool equalsIgnoreCase(const char *alt) const</div><div class="ttdoc">Compares the string ignoring the case.</div><div class="ttdef"><b>Definition:</b> StrView.h:564</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a4024239cd6061f72171222ea9cac57ba"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4024239cd6061f72171222ea9cac57ba">telnet::StrView::operator!=</a></div><div class="ttdeci">virtual bool operator!=(const StrView &amp;alt) const</div><div class="ttdoc">checks if the indicated string is different from the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:372</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a47a971585836b0cd992f6436d9292114"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">telnet::StrView::isInteger</a></div><div class="ttdeci">bool isInteger()</div><div class="ttdoc">Returns true if the string is an integer.</div><div class="ttdef"><b>Definition:</b> StrView.h:657</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a47a971585836b0cd992f6436d9292114"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a47a971585836b0cd992f6436d9292114">telnet::StrView::isInteger</a></div><div class="ttdeci">bool isInteger()</div><div class="ttdoc">Returns true if the string is an integer.</div><div class="ttdef"><b>Definition:</b> StrView.h:661</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a4c78c47ce1c204f9d233485b8036ac0e"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4c78c47ce1c204f9d233485b8036ac0e">telnet::StrView::length</a></div><div class="ttdeci">virtual int length()</div><div class="ttdef"><b>Definition:</b> StrView.h:386</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a4c9f09eb658e0b0d1ce261d078f27b66"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">telnet::StrView::toBinary</a></div><div class="ttdeci">static const char * toBinary(void const *const ptr, size_t const size)</div><div class="ttdoc">provides a binary string represntation</div><div class="ttdef"><b>Definition:</b> StrView.h:631</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a4c9f09eb658e0b0d1ce261d078f27b66"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66">telnet::StrView::toBinary</a></div><div class="ttdeci">static const char * toBinary(void const *const ptr, size_t const size)</div><div class="ttdoc">provides a binary string represntation</div><div class="ttdef"><b>Definition:</b> StrView.h:635</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a4d912d72c5b53c32cd108e88f08abeb6"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4d912d72c5b53c32cd108e88f08abeb6">telnet::StrView::operator=</a></div><div class="ttdeci">virtual void operator=(double val)</div><div class="ttdoc">we can assign a double</div><div class="ttdef"><b>Definition:</b> StrView.h:331</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a4e2c83e70ef7e8a3a11aae085991a462"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4e2c83e70ef7e8a3a11aae085991a462">telnet::StrView::set</a></div><div class="ttdeci">virtual void set(char chars[], int maxlen, int len=0, bool isConst=false)</div><div class="ttdoc">assigns a memory buffer</div><div class="ttdef"><b>Definition:</b> StrView.h:117</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a4edf448f8cda7d86772db2fe9cb40ea6"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a4edf448f8cda7d86772db2fe9cb40ea6">telnet::StrView::maxLength</a></div><div class="ttdeci">virtual int maxLength()</div><div class="ttdoc">provides the maximum length of the string</div><div class="ttdef"><b>Definition:</b> StrView.h:392</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a56a7f9947a65550e3790ae568b10c045"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">telnet::StrView::isOnHeap</a></div><div class="ttdeci">virtual bool isOnHeap()</div><div class="ttdoc">checks if the string is on the heap</div><div class="ttdef"><b>Definition:</b> StrView.h:543</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a56a7f9947a65550e3790ae568b10c045"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a56a7f9947a65550e3790ae568b10c045">telnet::StrView::isOnHeap</a></div><div class="ttdeci">virtual bool isOnHeap()</div><div class="ttdoc">checks if the string is on the heap</div><div class="ttdef"><b>Definition:</b> StrView.h:547</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a59cd76cd53162d7d050c437663352bc5"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a59cd76cd53162d7d050c437663352bc5">telnet::StrView::startsWith</a></div><div class="ttdeci">virtual bool startsWith(const char *str)</div><div class="ttdoc">checks if the string starts with the indicated substring</div><div class="ttdef"><b>Definition:</b> StrView.h:174</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a5ba52096c21d1dec49f347177d19e258"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a5ba52096c21d1dec49f347177d19e258">telnet::StrView::operator==</a></div><div class="ttdeci">virtual bool operator==(const char *alt) const</div><div class="ttdoc">checks if the indicated string is equal to the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:367</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a5c5b2a4a09be620b963ce4507fac7f37"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a5c5b2a4a09be620b963ce4507fac7f37">telnet::StrView::operator+=</a></div><div class="ttdeci">virtual void operator+=(double value)</div><div class="ttdoc">adds a double at the end of the string</div><div class="ttdef"><b>Definition:</b> StrView.h:355</div></div>
@@ -831,19 +835,19 @@ $(function() {
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a6b0504614868c1f5900a52eb852ab454"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a6b0504614868c1f5900a52eb852ab454">telnet::StrView::add</a></div><div class="ttdeci">virtual void add(const char c)</div><div class="ttdoc">adds a character</div><div class="ttdef"><b>Definition:</b> StrView.h:159</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a6b12a09a006bfbf22cf72bd40b186923"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a6b12a09a006bfbf22cf72bd40b186923">telnet::StrView::nIndexOf</a></div><div class="ttdeci">virtual int nIndexOf(const char c, int n)</div><div class="ttdoc">searches for the nth occurence of the indicated character</div><div class="ttdef"><b>Definition:</b> StrView.h:273</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a70c5d010957bf4d2ed80b589e7974397"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a70c5d010957bf4d2ed80b589e7974397">telnet::StrView::operator+=</a></div><div class="ttdeci">virtual void operator+=(int value)</div><div class="ttdoc">adds a int at the end of the string</div><div class="ttdef"><b>Definition:</b> StrView.h:352</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a717798b8ae5a730ac320e99a71d72522"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">telnet::StrView::toDouble</a></div><div class="ttdeci">double toDouble()</div><div class="ttdoc">Converts the string to a double.</div><div class="ttdef"><b>Definition:</b> StrView.h:589</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a72aad8dbcd88f71fc56274f23040c2eb"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">telnet::StrView::substr</a></div><div class="ttdeci">virtual bool substr(StrView &amp;from, int start, int end)</div><div class="ttdoc">inplace substring: copies a substring into the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:495</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a717798b8ae5a730ac320e99a71d72522"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522">telnet::StrView::toDouble</a></div><div class="ttdeci">double toDouble()</div><div class="ttdoc">Converts the string to a double.</div><div class="ttdef"><b>Definition:</b> StrView.h:593</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a72aad8dbcd88f71fc56274f23040c2eb"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb">telnet::StrView::substr</a></div><div class="ttdeci">virtual bool substr(StrView &amp;from, int start, int end)</div><div class="ttdoc">inplace substring: copies a substring into the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:498</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a72bf72375cc4a5f931517d69b42b9d3c"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a72bf72375cc4a5f931517d69b42b9d3c">telnet::StrView::operator==</a></div><div class="ttdeci">virtual bool operator==(const StrView &amp;alt) const</div><div class="ttdoc">checks if the indicated string is equal to the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:361</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a72c701b627c222f397e4d2e38ab310b5"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a72c701b627c222f397e4d2e38ab310b5">telnet::StrView::contains</a></div><div class="ttdeci">virtual bool contains(const char *str)</div><div class="ttdoc">checks if the string contains a substring</div><div class="ttdef"><b>Definition:</b> StrView.h:283</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a74015cf369c4225c2e556e6365427c39"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a74015cf369c4225c2e556e6365427c39">telnet::StrView::lastIndexOf</a></div><div class="ttdeci">virtual int lastIndexOf(const char *cont)</div><div class="ttdoc">provides the position of the last occurrence of the indicated substring</div><div class="ttdef"><b>Definition:</b> StrView.h:300</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a76da0d105a721fafd7ce1cd2def377dc"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">telnet::StrView::rtrim</a></div><div class="ttdeci">virtual void rtrim()</div><div class="ttdoc">remove trailing spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:524</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a76da0d105a721fafd7ce1cd2def377dc"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a76da0d105a721fafd7ce1cd2def377dc">telnet::StrView::rtrim</a></div><div class="ttdeci">virtual void rtrim()</div><div class="ttdoc">remove trailing spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:528</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a7bd16e5f5f215c7ff2a48ea8e4024396"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a7bd16e5f5f215c7ff2a48ea8e4024396">telnet::StrView::replaceAll</a></div><div class="ttdeci">virtual bool replaceAll(const char *toReplace, const char *replaced)</div><div class="ttdoc">Replaces all instances of toReplace with replaced.</div><div class="ttdef"><b>Definition:</b> StrView.h:423</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a84499f0dfa1c8794f5c8b47cfb1019f6"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a84499f0dfa1c8794f5c8b47cfb1019f6">telnet::StrView::add</a></div><div class="ttdeci">virtual void add(const char *append)</div><div class="ttdoc">adds a string</div><div class="ttdef"><b>Definition:</b> StrView.h:147</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a84ed111fd3a0268437c8e3cfe56cf1d6"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">telnet::StrView::floatToString</a></div><div class="ttdeci">static char * floatToString(char *outstr, double val, int precision, int widthp)</div><div class="ttdef"><b>Definition:</b> StrView.h:761</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a943139c86181bafa601216f68120fd9d"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">telnet::StrView::count</a></div><div class="ttdeci">virtual int count(char c, int startPos)</div><div class="ttdoc">count number of indicated characters as position</div><div class="ttdef"><b>Definition:</b> StrView.h:507</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a94c47191b77f4120c246078a7ceba283"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">telnet::StrView::numberOfDecimals</a></div><div class="ttdeci">int numberOfDecimals()</div><div class="ttdoc">Determines the number of decimals in the number string.</div><div class="ttdef"><b>Definition:</b> StrView.h:680</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a84ed111fd3a0268437c8e3cfe56cf1d6"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6">telnet::StrView::floatToString</a></div><div class="ttdeci">static char * floatToString(char *outstr, double val, int precision, int widthp)</div><div class="ttdef"><b>Definition:</b> StrView.h:765</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a943139c86181bafa601216f68120fd9d"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a943139c86181bafa601216f68120fd9d">telnet::StrView::count</a></div><div class="ttdeci">virtual int count(char c, int startPos)</div><div class="ttdoc">count number of indicated characters as position</div><div class="ttdef"><b>Definition:</b> StrView.h:511</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a94c47191b77f4120c246078a7ceba283"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283">telnet::StrView::numberOfDecimals</a></div><div class="ttdeci">int numberOfDecimals()</div><div class="ttdoc">Determines the number of decimals in the number string.</div><div class="ttdef"><b>Definition:</b> StrView.h:684</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a9561273c1d7b1b056b3af2fdf693283f"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a9561273c1d7b1b056b3af2fdf693283f">telnet::StrView::setLength</a></div><div class="ttdeci">virtual void setLength(int len, bool addZero=true)</div><div class="ttdoc">limits the length of the string (by adding a delimiting 0)</div><div class="ttdef"><b>Definition:</b> StrView.h:461</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_a956b07c2f06dbbd4a45bc77be5085932"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">telnet::StrView::trim</a></div><div class="ttdeci">virtual void trim()</div><div class="ttdoc">remove leading and traling spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:500</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_a956b07c2f06dbbd4a45bc77be5085932"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932">telnet::StrView::trim</a></div><div class="ttdeci">virtual void trim()</div><div class="ttdoc">remove leading and traling spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:503</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a9785c9a79490ae59dfe50c235e06f948"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a9785c9a79490ae59dfe50c235e06f948">telnet::StrView::substr</a></div><div class="ttdeci">virtual bool substr(const char *from, int start, int end)</div><div class="ttdoc">inplace substring: copies a substring into the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:480</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a9bb076e75d0839bada78ea6274831b7a"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a9bb076e75d0839bada78ea6274831b7a">telnet::StrView::operator=</a></div><div class="ttdeci">virtual void operator=(int value)</div><div class="ttdoc">we can assign an int</div><div class="ttdef"><b>Definition:</b> StrView.h:334</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_a9bbc18f63643cb591ff963a68d2bd4f4"><div class="ttname"><a href="classtelnet_1_1_str_view.html#a9bbc18f63643cb591ff963a68d2bd4f4">telnet::StrView::set</a></div><div class="ttdeci">virtual void set(const char *alt)</div><div class="ttdoc">assigs a value</div><div class="ttdef"><b>Definition:</b> StrView.h:50</div></div>
@@ -852,27 +856,27 @@ $(function() {
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_aa96a84437bc58d39bada5d59eab66dcf"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aa96a84437bc58d39bada5d59eab66dcf">telnet::StrView::operator=</a></div><div class="ttdeci">virtual void operator=(const char *str)</div><div class="ttdoc">we can assign a const char*</div><div class="ttdef"><b>Definition:</b> StrView.h:322</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_aa9ab03d53ab842a432dd332d5fe5cbfd"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aa9ab03d53ab842a432dd332d5fe5cbfd">telnet::StrView::replace</a></div><div class="ttdeci">virtual bool replace(const char *toReplace, const char *replaced)</div><div class="ttdoc">Replaces the first instance of toReplace with replaced.</div><div class="ttdef"><b>Definition:</b> StrView.h:395</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_aab2b269ca972c9a955d9783983b7a973"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aab2b269ca972c9a955d9783983b7a973">telnet::StrView::StrView</a></div><div class="ttdeci">StrView(char chars[], int maxlen, int len=0)</div><div class="ttdoc">Creates a Str with the indicated buffer.</div><div class="ttdef"><b>Definition:</b> StrView.h:45</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_aae048282c7011eedc2e0492f6421ea73"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">telnet::StrView::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdoc">clears the string by setting the terminating 0 at the beginning</div><div class="ttdef"><b>Definition:</b> StrView.h:535</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_ab829689f28f070c86c61a702d2efdd41"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">telnet::StrView::toLong</a></div><div class="ttdeci">long toLong()</div><div class="ttdoc">Converts the string to an long.</div><div class="ttdef"><b>Definition:</b> StrView.h:580</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_ab8b1977a1bbcd17a0f55714ac2cb50dc"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">telnet::StrView::ltrim</a></div><div class="ttdeci">virtual void ltrim()</div><div class="ttdoc">remove leading spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:517</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_aae048282c7011eedc2e0492f6421ea73"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aae048282c7011eedc2e0492f6421ea73">telnet::StrView::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdoc">clears the string by setting the terminating 0 at the beginning</div><div class="ttdef"><b>Definition:</b> StrView.h:539</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_ab829689f28f070c86c61a702d2efdd41"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41">telnet::StrView::toLong</a></div><div class="ttdeci">long toLong()</div><div class="ttdoc">Converts the string to an long.</div><div class="ttdef"><b>Definition:</b> StrView.h:584</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_ab8b1977a1bbcd17a0f55714ac2cb50dc"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ab8b1977a1bbcd17a0f55714ac2cb50dc">telnet::StrView::ltrim</a></div><div class="ttdeci">virtual void ltrim()</div><div class="ttdoc">remove leading spaces</div><div class="ttdef"><b>Definition:</b> StrView.h:521</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ab9782b5988236272374d58e37e79b792"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ab9782b5988236272374d58e37e79b792">telnet::StrView::matches</a></div><div class="ttdeci">virtual bool matches(const char *pattern)</div><div class="ttdef"><b>Definition:</b> StrView.h:196</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_abf0d87db13532ab2153e084d22c85ac5"><div class="ttname"><a href="classtelnet_1_1_str_view.html#abf0d87db13532ab2153e084d22c85ac5">telnet::StrView::nIndexOf</a></div><div class="ttdeci">virtual int nIndexOf(const char *cont, int n)</div><div class="ttdoc">searches for the nth occurence of the indicated character</div><div class="ttdef"><b>Definition:</b> StrView.h:312</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_acb592cab880e5f65b2e31efbf976f5e4"><div class="ttname"><a href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">telnet::StrView::toFloat</a></div><div class="ttdeci">float toFloat()</div><div class="ttdoc">Converts the string to a float.</div><div class="ttdef"><b>Definition:</b> StrView.h:599</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_acb592cab880e5f65b2e31efbf976f5e4"><div class="ttname"><a href="classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4">telnet::StrView::toFloat</a></div><div class="ttdeci">float toFloat()</div><div class="ttdoc">Converts the string to a float.</div><div class="ttdef"><b>Definition:</b> StrView.h:603</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_accb2e0871d6f6ad52053f62c58b1cc21"><div class="ttname"><a href="classtelnet_1_1_str_view.html#accb2e0871d6f6ad52053f62c58b1cc21">telnet::StrView::removeAll</a></div><div class="ttdeci">virtual void removeAll(const char *toRemove)</div><div class="ttdoc">removes the indicated substring from the string</div><div class="ttdef"><b>Definition:</b> StrView.h:445</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ad22eaab0dacd5e2bbc5e3e0eebd90235"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ad22eaab0dacd5e2bbc5e3e0eebd90235">telnet::StrView::operator&lt;&lt;</a></div><div class="ttdeci">virtual void operator&lt;&lt;(int n)</div><div class="ttdoc">shift characters to the right -&gt; we just move the pointer</div><div class="ttdef"><b>Definition:</b> StrView.h:337</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ad2398aedf2b539a7f37ae4c9130266ae"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ad2398aedf2b539a7f37ae4c9130266ae">telnet::StrView::endsWithIgnoreCase</a></div><div class="ttdeci">virtual bool endsWithIgnoreCase(const char *str)</div><div class="ttdoc">checks if the string ends with the indicated substring</div><div class="ttdef"><b>Definition:</b> StrView.h:188</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ad28bbc47059375f6907e4566d6b511ba"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ad28bbc47059375f6907e4566d6b511ba">telnet::StrView::set</a></div><div class="ttdeci">virtual void set(const StrView &amp;alt)</div><div class="ttdoc">assigs from another Str value</div><div class="ttdef"><b>Definition:</b> StrView.h:69</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_ad2db9dcf09114103856937735e91a2ea"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">telnet::StrView::toInt</a></div><div class="ttdeci">int toInt()</div><div class="ttdoc">Converts the string to an int.</div><div class="ttdef"><b>Definition:</b> StrView.h:571</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_ad2db9dcf09114103856937735e91a2ea"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea">telnet::StrView::toInt</a></div><div class="ttdeci">int toInt()</div><div class="ttdoc">Converts the string to an int.</div><div class="ttdef"><b>Definition:</b> StrView.h:575</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ada7f3f476500471b1d768531442f7d21"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ada7f3f476500471b1d768531442f7d21">telnet::StrView::add</a></div><div class="ttdeci">virtual void add(double value, int precision=2, int withd=0)</div><div class="ttdoc">adds a double value</div><div class="ttdef"><b>Definition:</b> StrView.h:138</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_adc736a9ff3c54b9a6ad3e44ec61f4a42"><div class="ttname"><a href="classtelnet_1_1_str_view.html#adc736a9ff3c54b9a6ad3e44ec61f4a42">telnet::StrView::indexOf</a></div><div class="ttdeci">virtual int indexOf(const char *cont, int start=0)</div><div class="ttdef"><b>Definition:</b> StrView.h:287</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_ae28bed73407bfc585ca56a12503d2e34"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ae28bed73407bfc585ca56a12503d2e34">telnet::StrView::remove</a></div><div class="ttdeci">virtual void remove(const char *toRemove)</div><div class="ttdoc">removes the indicated substring from the string</div><div class="ttdef"><b>Definition:</b> StrView.h:432</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_ae7bbead3f07130d4bab2b78efe62147e"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">telnet::StrView::isConst</a></div><div class="ttdeci">virtual bool isConst()</div><div class="ttdoc">checks if the string is a constant that must not be changed</div><div class="ttdef"><b>Definition:</b> StrView.h:546</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_aea77e43270869fc69c84d014587e4fd0"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">telnet::StrView::insert</a></div><div class="ttdeci">virtual void insert(int pos, const char *str)</div><div class="ttdoc">inserts a substring into the string</div><div class="ttdef"><b>Definition:</b> StrView.h:549</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_ae7bbead3f07130d4bab2b78efe62147e"><div class="ttname"><a href="classtelnet_1_1_str_view.html#ae7bbead3f07130d4bab2b78efe62147e">telnet::StrView::isConst</a></div><div class="ttdeci">virtual bool isConst()</div><div class="ttdoc">checks if the string is a constant that must not be changed</div><div class="ttdef"><b>Definition:</b> StrView.h:550</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_aea77e43270869fc69c84d014587e4fd0"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aea77e43270869fc69c84d014587e4fd0">telnet::StrView::insert</a></div><div class="ttdeci">virtual void insert(int pos, const char *str)</div><div class="ttdoc">inserts a substring into the string</div><div class="ttdef"><b>Definition:</b> StrView.h:553</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_aee2206b824ab694471714e3fdc981652"><div class="ttname"><a href="classtelnet_1_1_str_view.html#aee2206b824ab694471714e3fdc981652">telnet::StrView::indexOf</a></div><div class="ttdeci">virtual int indexOf(const char c, int start=0)</div><div class="ttdef"><b>Definition:</b> StrView.h:263</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_af145c57539dd93a7875d325160f3ccf3"><div class="ttname"><a href="classtelnet_1_1_str_view.html#af145c57539dd93a7875d325160f3ccf3">telnet::StrView::add</a></div><div class="ttdeci">virtual void add(int value)</div><div class="ttdoc">adds a int value</div><div class="ttdef"><b>Definition:</b> StrView.h:129</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_afc42761ebe86bc3b28282ba6b95b988c"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">telnet::StrView::toLowerCase</a></div><div class="ttdeci">void toLowerCase()</div><div class="ttdoc">Converts the string to lowercase letters.</div><div class="ttdef"><b>Definition:</b> StrView.h:613</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_afc42761ebe86bc3b28282ba6b95b988c"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c">telnet::StrView::toLowerCase</a></div><div class="ttdeci">void toLowerCase()</div><div class="ttdoc">Converts the string to lowercase letters.</div><div class="ttdef"><b>Definition:</b> StrView.h:617</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_afc555624c5ba61a095b954d9785cd18e"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afc555624c5ba61a095b954d9785cd18e">telnet::StrView::setLengthUndo</a></div><div class="ttdeci">virtual void setLengthUndo()</div><div class="ttdoc">undo the last setLength call</div><div class="ttdef"><b>Definition:</b> StrView.h:471</div></div>
-<div class="ttc" id="aclasstelnet_1_1_str_view_html_afcff036690f189b220e039afe8b9a0f7"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">telnet::StrView::toUpperCase</a></div><div class="ttdeci">void toUpperCase()</div><div class="ttdoc">Converts the string to uppercase letters.</div><div class="ttdef"><b>Definition:</b> StrView.h:622</div></div>
+<div class="ttc" id="aclasstelnet_1_1_str_view_html_afcff036690f189b220e039afe8b9a0f7"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7">telnet::StrView::toUpperCase</a></div><div class="ttdeci">void toUpperCase()</div><div class="ttdoc">Converts the string to uppercase letters.</div><div class="ttdef"><b>Definition:</b> StrView.h:626</div></div>
 <div class="ttc" id="aclasstelnet_1_1_str_view_html_afed25c1f44bea77bce830bf9bafc54f0"><div class="ttname"><a href="classtelnet_1_1_str_view.html#afed25c1f44bea77bce830bf9bafc54f0">telnet::StrView::operator!=</a></div><div class="ttdeci">virtual bool operator!=(const char *alt) const</div><div class="ttdoc">checks if the indicated string is different from the current string</div><div class="ttdef"><b>Definition:</b> StrView.h:377</div></div>
 <div class="ttc" id="anamespacetelnet_html"><div class="ttname"><a href="namespacetelnet.html">telnet</a></div><div class="ttdoc">Automatically include the telnet namespace.</div><div class="ttdef"><b>Definition:</b> KARadioCommands.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->

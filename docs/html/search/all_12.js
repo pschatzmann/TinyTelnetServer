@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['_7estr_128',['~Str',['../classtelnet_1_1_str.html#a22ffecb7b91d0724f96002526c834ec9',1,'telnet::Str']]],
-  ['_7evector_129',['~Vector',['../classtelnet_1_1_vector.html#a33fc4934cb870683ae08af71594844c7',1,'telnet::Vector']]]
+  ['vector_126',['Vector',['../classtelnet_1_1_vector.html',1,'Vector&lt; T &gt;'],['../classtelnet_1_1_vector.html#a857c1302b5a1ade7e1a897965f595407',1,'telnet::Vector::Vector(std::initializer_list&lt; T &gt; iniList)'],['../classtelnet_1_1_vector.html#a97280b4a49a1760d098e6d233d965e8c',1,'telnet::Vector::Vector(size_t len=0, Allocator &amp;allocator=DefaultAllocator)'],['../classtelnet_1_1_vector.html#af4f09082a50b3f43687535e759fddd91',1,'telnet::Vector::Vector(Allocator &amp;allocator)'],['../classtelnet_1_1_vector.html#a430178fcee4db6e3e4d7a979c01db3d5',1,'telnet::Vector::Vector(int size, T value, Allocator &amp;allocator=DefaultAllocator)'],['../classtelnet_1_1_vector.html#a25ebcd7014fca60efbd653f3b4c17d49',1,'telnet::Vector::Vector(Vector&lt; T &gt; &amp;&amp;moveFrom)'],['../classtelnet_1_1_vector.html#a56c0272405a621eb8ef6725bad9a19a0',1,'telnet::Vector::Vector(Vector&lt; T &gt; &amp;copyFrom)'],['../classtelnet_1_1_vector.html#a82966588bcb9581d45c32fee936f674e',1,'telnet::Vector::Vector(TT(&amp;a)[N])'],['../classtelnet_1_1_vector.html#a0dff38728896ded8063a667e26f4e1c2',1,'telnet::Vector::Vector(T *from, T *to, Allocator &amp;allocator=DefaultAllocator)']]],
+  ['vector_3c_20char_20_3e_127',['Vector&lt; char &gt;',['../classtelnet_1_1_vector.html',1,'telnet']]],
+  ['vector_3c_20client_20_3e_128',['Vector&lt; Client &gt;',['../classtelnet_1_1_vector.html',1,'telnet']]],
+  ['vector_3c_20telnet_3a_3atinyserialserver_3a_3acommand_20_3e_129',['Vector&lt; telnet::TinySerialServer::Command &gt;',['../classtelnet_1_1_vector.html',1,'telnet']]]
 ];

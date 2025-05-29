@@ -1,13 +1,18 @@
 var searchData=
 [
-  ['tinyserialserver_246',['TinySerialServer',['../classtelnet_1_1_tiny_serial_server.html#abbba7798d1c36ad8bb83376857f96604',1,'telnet::TinySerialServer::TinySerialServer()=default'],['../classtelnet_1_1_tiny_serial_server.html#ae8bdd5877441d40322c8c3c8b07d2c5e',1,'telnet::TinySerialServer::TinySerialServer(Stream &amp;stream)']]],
-  ['tinytelnetserver_247',['TinyTelnetServer',['../classtelnet_1_1_tiny_telnet_server.html#a771675a828014027bca6021884c7c833',1,'telnet::TinyTelnetServer']]],
-  ['tobinary_248',['toBinary',['../classtelnet_1_1_str_view.html#a4c9f09eb658e0b0d1ce261d078f27b66',1,'telnet::StrView']]],
-  ['todouble_249',['toDouble',['../classtelnet_1_1_str_view.html#a717798b8ae5a730ac320e99a71d72522',1,'telnet::StrView']]],
-  ['tofloat_250',['toFloat',['../classtelnet_1_1_str_view.html#acb592cab880e5f65b2e31efbf976f5e4',1,'telnet::StrView']]],
-  ['toint_251',['toInt',['../classtelnet_1_1_str_view.html#ad2db9dcf09114103856937735e91a2ea',1,'telnet::StrView']]],
-  ['tolong_252',['toLong',['../classtelnet_1_1_str_view.html#ab829689f28f070c86c61a702d2efdd41',1,'telnet::StrView']]],
-  ['tolowercase_253',['toLowerCase',['../classtelnet_1_1_str_view.html#afc42761ebe86bc3b28282ba6b95b988c',1,'telnet::StrView']]],
-  ['touppercase_254',['toUpperCase',['../classtelnet_1_1_str_view.html#afcff036690f189b220e039afe8b9a0f7',1,'telnet::StrView']]],
-  ['trim_255',['trim',['../classtelnet_1_1_str_view.html#a956b07c2f06dbbd4a45bc77be5085932',1,'telnet::StrView']]]
+  ['sdfilecommands_235',['SDFileCommands',['../classtelnet_1_1_s_d_file_commands.html#af15cdd3eb72e9777155539a592205d7d',1,'telnet::SDFileCommands']]],
+  ['set_236',['set',['../classtelnet_1_1_str_view.html#a9bbc18f63643cb591ff963a68d2bd4f4',1,'telnet::StrView::set(const char *alt)'],['../classtelnet_1_1_str_view.html#ad28bbc47059375f6907e4566d6b511ba',1,'telnet::StrView::set(const StrView &amp;alt)'],['../classtelnet_1_1_str_view.html#a4e2c83e70ef7e8a3a11aae085991a462',1,'telnet::StrView::set(char chars[], int maxlen, int len=0, bool isConst=false)']]],
+  ['setchars_237',['setChars',['../classtelnet_1_1_str.html#ac8b499f862b47f549d37ebd233287447',1,'telnet::Str']]],
+  ['seterrorcallback_238',['setErrorCallback',['../classtelnet_1_1_tiny_serial_server.html#a7345d1ff9a045dc8b4b5929fc191dbdc',1,'telnet::TinySerialServer']]],
+  ['setlength_239',['setLength',['../classtelnet_1_1_str_view.html#a9561273c1d7b1b056b3af2fdf693283f',1,'telnet::StrView']]],
+  ['setlengthundo_240',['setLengthUndo',['../classtelnet_1_1_str_view.html#afc555624c5ba61a095b954d9785cd18e',1,'telnet::StrView']]],
+  ['setmaxfilelength_241',['setMaxFileLength',['../classtelnet_1_1_s_d_file_commands.html#a5b71aa60cb127101197a004005b85b28',1,'telnet::SDFileCommands']]],
+  ['setmaxinputbuffersize_242',['setMaxInputBufferSize',['../classtelnet_1_1_tiny_serial_server.html#a205cb30c12c8ab2cd8eb135f42611399',1,'telnet::TinySerialServer']]],
+  ['setreference_243',['setReference',['../classtelnet_1_1_tiny_serial_server.html#af18f354e3db7c08b67f6751e63b76245',1,'telnet::TinySerialServer']]],
+  ['setstream_244',['setStream',['../classtelnet_1_1_tiny_serial_server.html#a4ea3110016f67d3dcb9793fcae72288f',1,'telnet::TinySerialServer']]],
+  ['startswith_245',['startsWith',['../classtelnet_1_1_str_view.html#a59cd76cd53162d7d050c437663352bc5',1,'telnet::StrView']]],
+  ['str_246',['Str',['../classtelnet_1_1_str.html#ad24c2981da30cf6647ac5374b374c35a',1,'telnet::Str::Str(StrView &amp;source)'],['../classtelnet_1_1_str.html#a78a5f7fcee4a06cbef54c552fc8e14a5',1,'telnet::Str::Str(Str &amp;source)'],['../classtelnet_1_1_str.html#a390702598f81a5a83bfb29a5067702e9',1,'telnet::Str::Str(Str &amp;&amp;obj)']]],
+  ['strview_247',['StrView',['../classtelnet_1_1_str_view.html#a0ffa149b980b770d4e770c7464edf5f1',1,'telnet::StrView::StrView(const char *chars)'],['../classtelnet_1_1_str_view.html#aab2b269ca972c9a955d9783983b7a973',1,'telnet::StrView::StrView(char chars[], int maxlen, int len=0)']]],
+  ['substr_248',['substr',['../classtelnet_1_1_str_view.html#a9785c9a79490ae59dfe50c235e06f948',1,'telnet::StrView::substr(const char *from, int start, int end)'],['../classtelnet_1_1_str_view.html#a72aad8dbcd88f71fc56274f23040c2eb',1,'telnet::StrView::substr(StrView &amp;from, int start, int end)']]],
+  ['substring_249',['substring',['../classtelnet_1_1_str.html#ab0ff33739244b9436abe917edee88c19',1,'telnet::Str']]]
 ];

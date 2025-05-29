@@ -123,10 +123,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a1d884b24e7706e72a8ad57f37c259744">getReference</a> ()</td></tr>
 <tr class="memdesc:a1d884b24e7706e72a8ad57f37c259744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference object which can be used in the callback. <br /></td></tr>
 <tr class="separator:a1d884b24e7706e72a8ad57f37c259744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="memItemLeft" align="right" valign="top"><a id="aca0af5b5ab2ee4fc92e965ed73413cce"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#aca0af5b5ab2ee4fc92e965ed73413cce">getRemoveQuotes</a> ()</td></tr>
-<tr class="memdesc:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove quotes from the parameters ? <br /></td></tr>
-<tr class="separator:aca0af5b5ab2ee4fc92e965ed73413cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a541291ab5b21c0b8edb4a01a261682ef"><td class="memItemLeft" align="right" valign="top"><a id="a541291ab5b21c0b8edb4a01a261682ef"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a541291ab5b21c0b8edb4a01a261682ef">processCommand</a> ()</td></tr>
 <tr class="memdesc:a541291ab5b21c0b8edb4a01a261682ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">proccess the next command: call in loop() <br /></td></tr>
@@ -143,10 +139,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#af18f354e3db7c08b67f6751e63b76245">setReference</a> (void *reference)</td></tr>
 <tr class="memdesc:af18f354e3db7c08b67f6751e63b76245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a reference object which can be used in the callback. <br /></td></tr>
 <tr class="separator:af18f354e3db7c08b67f6751e63b76245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="memItemLeft" align="right" valign="top"><a id="a979fbf2c8e4efb741bbd1922c14fcb61"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a979fbf2c8e4efb741bbd1922c14fcb61">setRemoveQuotes</a> (bool remove)</td></tr>
-<tr class="memdesc:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove quotes from the parameters. <br /></td></tr>
-<tr class="separator:a979fbf2c8e4efb741bbd1922c14fcb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ea3110016f67d3dcb9793fcae72288f"><td class="memItemLeft" align="right" valign="top"><a id="a4ea3110016f67d3dcb9793fcae72288f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtelnet_1_1_tiny_serial_server.html#a4ea3110016f67d3dcb9793fcae72288f">setStream</a> (Stream &amp;stream)</td></tr>
 <tr class="memdesc:a4ea3110016f67d3dcb9793fcae72288f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the stream to be used. <br /></td></tr>
@@ -199,9 +191,6 @@ bool(*&#160;</td><td class="memItemRight" valign="bottom"><b>error_callback</b> 
 <tr class="memitem:a407c3efba665d276a38229f905bef352"><td class="memItemLeft" align="right" valign="top"><a id="a407c3efba665d276a38229f905bef352"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_active</b> = false</td></tr>
 <tr class="separator:a407c3efba665d276a38229f905bef352"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6638a785808fb6a0faef07a4309751ba"><td class="memItemLeft" align="right" valign="top"><a id="a6638a785808fb6a0faef07a4309751ba"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_remove_quotes</b> = true</td></tr>
-<tr class="separator:a6638a785808fb6a0faef07a4309751ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8151ed6fce8ac4681ff14a37ef22c31"><td class="memItemLeft" align="right" valign="top"><a id="ac8151ed6fce8ac4681ff14a37ef22c31"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>max_input_buffer_size</b> = MAX_INPUT_BUFFER_SIZE</td></tr>
 <tr class="separator:ac8151ed6fce8ac4681ff14a37ef22c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,7 +246,6 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>p_stream</b> = nu
 </table>
 </div><div class="memdoc">
 <p>Parses the command and parameters: syntax: cmd(param1,param2,...) or cmd par1 par2 ... </p>
-<p>remove quotes</p>
 
 </div>
 </div>

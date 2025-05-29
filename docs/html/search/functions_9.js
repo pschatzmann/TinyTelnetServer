@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nindexof_210',['nIndexOf',['../classtelnet_1_1_str_view.html#a6b12a09a006bfbf22cf72bd40b186923',1,'telnet::StrView::nIndexOf(const char c, int n)'],['../classtelnet_1_1_str_view.html#abf0d87db13532ab2153e084d22c85ac5',1,'telnet::StrView::nIndexOf(const char *cont, int n)']]],
-  ['numberofdecimals_211',['numberOfDecimals',['../classtelnet_1_1_str_view.html#a94c47191b77f4120c246078a7ceba283',1,'telnet::StrView']]]
+  ['matches_211',['matches',['../classtelnet_1_1_str_view.html#ab9782b5988236272374d58e37e79b792',1,'telnet::StrView']]],
+  ['maxlength_212',['maxLength',['../classtelnet_1_1_str_view.html#a4edf448f8cda7d86772db2fe9cb40ea6',1,'telnet::StrView']]]
 ];

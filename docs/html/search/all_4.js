@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['findcommand_51',['findCommand',['../classtelnet_1_1_tiny_serial_server.html#a9b2d37d24441e8cf9661f598a183457b',1,'telnet::TinySerialServer']]],
-  ['floattostring_52',['floatToString',['../classtelnet_1_1_str_view.html#a84ed111fd3a0268437c8e3cfe56cf1d6',1,'telnet::StrView']]],
-  ['free_53',['free',['../classtelnet_1_1_allocator.html#a9c3e4072854fea7a8be289d17c6390fc',1,'telnet::Allocator']]]
+  ['end_48',['end',['../classtelnet_1_1_tiny_serial_server.html#adc34417a19a7b70626d19c41072d72a5',1,'telnet::TinySerialServer::end()'],['../classtelnet_1_1_tiny_telnet_server.html#a64e9fa75beda50a9e8400ee0d4e61984',1,'telnet::TinyTelnetServer::end()']]],
+  ['endswith_49',['endsWith',['../classtelnet_1_1_str_view.html#a36ea1ac4ff77d39eeed580726d77316e',1,'telnet::StrView']]],
+  ['endswithignorecase_50',['endsWithIgnoreCase',['../classtelnet_1_1_str_view.html#ad2398aedf2b539a7f37ae4c9130266ae',1,'telnet::StrView']]],
+  ['equals_51',['equals',['../classtelnet_1_1_str_view.html#a121dcd3a7cd975ef3aae9fe71ae7fa3c',1,'telnet::StrView']]],
+  ['equalsignorecase_52',['equalsIgnoreCase',['../classtelnet_1_1_str_view.html#a3c4aa3bd42775b444d80f6f57cc3eeae',1,'telnet::StrView']]]
 ];
