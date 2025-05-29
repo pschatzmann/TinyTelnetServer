@@ -187,6 +187,8 @@ class TinySerialServer {
       offset = 0;
       end = cmd.length();
     }
+    // if there are no parameters, we use the whole command
+    if (pos == -1) pos = cmd.length();
 
     // determine cmd
     cmd.substr(input, 0, pos);
