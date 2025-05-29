@@ -44,7 +44,7 @@ class SDFileCommands {
 
   /**
    *
-   * @brief Register file commands with the server
+   * @brief Register file commands (inspired by linux) with the server
    *
    * @param server The TinySerialServer to register commands with
    */
@@ -62,6 +62,28 @@ class SDFileCommands {
     server.addCommand("cd", cmd_cd, "DIRECTORY");
     server.addCommand("pwd", cmd_pwd);
   }
+
+  /**
+   *
+   * @brief Register file commands (inspired by Windows) with the server
+   *
+   * @param server The TinySerialServer to register commands with
+   */
+  void addCommandsWindows(TinySerialServer& server) {
+    server.addCommand("dir", cmd_ls, "[DIRECTORY]");
+    server.addCommand("type", cmd_cat, "FLENAME");
+    server.addCommand("move", cmd_mv, "SOURCE DESTINATION");
+    server.addCommand("copy", cmd_cp, "SOURCE DESTINATION");
+    server.addCommand("del", cmd_rm, "FILENAME");
+    server.addCommand("mkdir", cmd_mkdir, "DIRECTORY_NAME");
+    server.addCommand("chkdsk", cmd_df);
+    server.addCommand("touch", cmd_touch, "FILENAME");
+    server.addCommand("write", cmd_write, "FILENAME TEXT");
+    server.addCommand("head", cmd_head, "[-n lines] FILENAME");
+    server.addCommand("cd", cmd_cd, "DIRECTORY");
+    server.addCommand("pwd", cmd_pwd);
+  }
+
 
   /**
    * @brief Create empty files or update timestamps
