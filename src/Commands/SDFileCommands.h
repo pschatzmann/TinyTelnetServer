@@ -693,8 +693,11 @@ class SDFileCommands {
   static bool cmd_cd(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                      Print& out, TinySerialServer* self) {
     // check parameters
-    if (parameters.size() == 0 || parameters[0].length() == 0) {
-      out.println("Usage: cd <pathnname>");
+    if (parameters.size() != 1 || parameters[0].length() == 0) {
+      char msg[100];
+      snprintf(msg, sizeof(msg), "Usage: cd <pathnname>; received %d parameters",
+                  parameters.size());
+      out.println(msg);
       out.println();
       return false;
     }

@@ -198,9 +198,7 @@ class TinySerialServer {
     TELNET_LOGI("cmd: '%s'", cmd.c_str());
 
     while (!tail.isEmpty()) {
-      tail.trim();
       split(tail, par, tail, delimiter);
-      par.trim();
       TELNET_LOGI("- par: '%s'", par.c_str());
       parameters.push_back(par);
     }
@@ -210,26 +208,31 @@ class TinySerialServer {
   // / Splits the string into head and tail at the first comma
   void split(telnet::Str& str, telnet::Str& head, telnet::Str& tail,
              char sep = ',') {
-
     // Use single quotes for aruments with spaces
-    int pos = str.indexOf(sep);
-    int start = 0;
-    if (str.startsWith("'")){
-      pos = str.indexOf("'", 1);
-      start = 1;  // Skip the first quote
-    }
-    if (str.startsWith("\"")){
-      pos = str.indexOf("\"", 1);
-      start = 1;  // Skip the first quote
+    str.trim();
+    int start_pos = 0;
+    int end_pos = -1;
+    if (str.startsWith("'")) {
+      end_pos = str.indexOf("'", 1);
+      start_pos = 1;  // Skip the first quote
+    } else if (str.startsWith("\"")) {
+      // Use of quotes for aruments with spaces
+      end_pos = str.indexOf("\"", 1);
+      start_pos = 1;  // Skip the first quote
+    } else {
+      end_pos = str.indexOf(sep);
     }
 
-    if (pos == -1) {
+    if (end_pos == -1) {
       head = str;
       tail = "";
     } else {
-      head.substr(str, start, pos);
-      tail.substr(str, pos + 1, str.length());
+      head.substr(str, start_pos, end_pos);
+      tail.substr(str, end_pos + start_pos, str.length());
+      tail.trim();
     }
+    TELNET_LOGI("head: '%s' - len: %d", head.c_str(), head.length());
+    TELNET_LOGI("tail: '%s' - len: %d", tail.c_str(), tail.length());
   }
 
   /// process the command

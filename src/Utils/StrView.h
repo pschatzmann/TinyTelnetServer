@@ -487,6 +487,9 @@ class StrView {
         this->len = len;
       }
       return true;
+    } else {
+      this->chars[0] = 0;
+      this->len = 0;
     }
     return false;
   }
@@ -501,6 +504,7 @@ class StrView {
     if (chars == nullptr) return;
     rtrim();
     ltrim();
+    len = strlen(chars);
   }
 
   /// count number of indicated characters as position
