@@ -4,7 +4,7 @@
 #include "TinySerialServer.h"
 
 namespace telnet {
-  
+
 // Current directory
 static String current_dir = "/";  // Default to root directory
 
@@ -366,9 +366,10 @@ class SDFileCommands {
    */
   static bool cmd_ls(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                      Print& out, TinySerialServer* self) {
+    int maxlen = 60;
     // Default to root directory if no path is specified
-    String path_str;
-    const char* path = current_dir.c_str();
+    String path_str = current_dir;
+    const char* path = path_str.c_str();
     if (parameters.size() == 1 && parameters[0].length() > 0) {
       path_str = resolveName(parameters[0].c_str());
       path = path_str.c_str();
@@ -394,17 +395,32 @@ class SDFileCommands {
     // List files
     out.print("Directory listing of: ");
     out.println(path);
-    out.println("Name                             Size      Type");
-    out.println("--------------------------------------------------");
+    out.println();
+    out.print("Name");
+    for (int j=0;j<maxlen - 4;j++) {
+      out.print(" ");
+    }
+    out.println("Type      Size");
+    
+
+    int start = path_str.length();
+    if (!path_str.endsWith("/")) {
+      start++;
+    }
 
     File entry;
     while (entry = dir.openNextFile()) {
+      // Skip hidden files
+      if (entry.name()[start] == '.') {
+        continue;  
+      }
       // Print filename with padding
-      out.print(entry.name());
+      const char* name = entry.name() + start;
+      out.print(name);
 
       // Padding
-      int nameLen = strlen(entry.name());
-      for (int i = nameLen; i < 32; i++) {
+      int nameLen = strlen(name);
+      for (int i = nameLen; i < maxlen; i++) {
         out.print(" ");
       }
 
@@ -413,6 +429,7 @@ class SDFileCommands {
         out.println("<DIR>");
       } else {
         // Print file size with padding
+        out.print("      ");
         char sizeStr[16];
         snprintf(sizeStr, sizeof(sizeStr), "%8lu", entry.size());
         out.println(sizeStr);
