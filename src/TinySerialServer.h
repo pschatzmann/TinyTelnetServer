@@ -115,8 +115,10 @@ class TinySerialServer {
     if (parameters.size() == 0) {
       out.println("\nAvailable commands:");
       for (auto& command : self->commands) {
-        out.print(command.cmd);
-        out.print("\t");
+        if (isAscii(command.cmd[0])) {
+          out.print(command.cmd);
+          out.print("\t");
+        }
       }
       out.println("\n");
     } else {

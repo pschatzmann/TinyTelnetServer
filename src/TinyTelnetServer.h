@@ -20,6 +20,7 @@ class TinyTelnetServer : public TinySerialServer {
     // register help command
     addCommand("help", cmd_help);
     addCommand("bye", cmd_bye, ": (no parameters) - Closes the session");
+    addCommand("\375", cmd_bye);  // Ctrl-Z/Ctrl-C close the session)
   }
   /// Start the server
   bool begin() override {
