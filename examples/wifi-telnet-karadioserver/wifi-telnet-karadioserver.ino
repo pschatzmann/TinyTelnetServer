@@ -26,7 +26,7 @@ AudioSourceSD source(startFilePath, ext, PIN_AUDIO_KIT_SD_CARD_CS);
 AudioBoardStream i2s(AudioKitEs8388V1);
 MP3DecoderHelix decoder;  // or change to MP3DecoderMAD
 AudioPlayer player(source, i2s, decoder);
-KARadioCommands sdFileCommands(server, player);
+KARadioCommands kaRadioCommands(server, player);
 const char* ssid = "ssid";
 const char* password = "pwd";
 
@@ -41,7 +41,7 @@ void login() {
   Serial.println(WiFi.localIP());
 }
 
-bool setupPlayer() {
+void setupPlayer() {
   // setup output
   auto cfg = i2s.defaultConfig(TX_MODE);
   // sd_active is setting up SPI with the right SD pins by calling
@@ -59,6 +59,7 @@ bool setupPlayer() {
 void setup() {
   Serial.begin(115200);
   // setup logger
+  AudioToolsLogger.begin(Serial, AudioToolsLogLevel::Info);
   TinyTelnetLogger.begin(Serial, TinyTelnetLogLevel::Info);
 
   

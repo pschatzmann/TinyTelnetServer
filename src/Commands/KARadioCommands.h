@@ -6,8 +6,17 @@
 
 namespace telnet {
 
+static int max_input_files = 0;
+static Vector<Str> input_files;
+static Vector<const char*> input_files_refs;
+
 /**
- * @brief Class providing KA-Radio control commands for TinyTelnetServer
+ * @brief Class providing KA-Radio control commands for TinyTelnetServer using
+ * the AudioTools AudioPlayer: The Audio player supports multiple audio sources:
+ * - files
+ * - urls
+ * - ftp
+ * - etc
  *
  * Implements KA-Radio CLI commands with proper prefixes:
  * - cli.play: Start a station by id
@@ -30,12 +39,18 @@ namespace telnet {
  */
 class KARadioCommands {
  public:
+  /// Empty constructor: you need to call addCommands() and setAudioPlayer() yourself
   KARadioCommands() = default;
+  /// Constructor which registers the commands to the server and adds the player
   KARadioCommands(TinySerialServer& server, AudioPlayer& player) {
     addCommands(server);
     setAudioPlayer(player);
   }
 
+  /// Defines a maximum number of files: 0 = unlimited
+  void setMaxInputFiles(int max) { max_input_files = max; }
+
+  /// Assigns the AudioPlayer to be used
   void setAudioPlayer(AudioPlayer& player) { this->p_player = &player; }
 
   AudioPlayer& audioPlayer() { return *this->p_player; }
@@ -47,7 +62,7 @@ class KARadioCommands {
    */
   void addCommands(TinySerialServer& server) {
     // Register CLI commands
-    server.addCommand("cli.play", cmd_play);
+    server.addCommand("cli.start", cmd_play);
     server.addCommand("cli.stop", cmd_stop);
     server.addCommand("cli.vol", cmd_volume);
     server.addCommand("cli.vol+", cmd_volup);
@@ -72,12 +87,30 @@ class KARadioCommands {
   }
 
   /**
+   * Enumerating files might be too slow to be useful, so we provide
+   * an alternative interface to made all audio files or urls available.
+   * A good way to structure things it to provide a list of directories.
+   * We store a copy of the provided name.
+   */
+  void addAudio(const char* name) { input_files.push_back(Str(name)); }
+
+  /**
+   * Enumerating files might be too slow to be useful, so we provide
+   * an alternative interface to made all audio files or urls available.
+   * A good way to structure things it to provide a list of directories.
+   * We just store a pointer to the provided name, so you need to make sure
+   * that the provided name is valid as long as the server is running.
+   */
+  void addAudioRefs(const char* name) { input_files_refs.push_back(name); }
+
+  /**
    * @brief Error handler
    */
   static bool cmd_error(telnet::Str& cmd,
                         telnet::Vector<telnet::Str> parameters, Print& out,
                         TinySerialServer* self) {
     out.println("##CMD_ERROR#");
+    return true;
   }
 
   /**
@@ -213,6 +246,7 @@ class KARadioCommands {
     KARadioCommands* commands = (KARadioCommands*)self->getReference();
     AudioPlayer& player = commands->audioPlayer();
     AudioSource& source = player.audioSource();
+    int original_idx = source.index();
     if (commands == nullptr || commands->p_player == nullptr) {
       TELNET_LOGE("%s", "KA-Radio communication not initialized");
       return false;
@@ -222,16 +256,63 @@ class KARadioCommands {
     out.println();
     out.println("##CLI.LIST#");
 
-    while (source.setIndex(idx++)) {
-      out.print("#CLI.LISTINFO#: ");
-      out.print(idx);
-      out.print(", ");
-      out.print(source.toStr());
-      out.print(", ");
-      out.print(source.toStr());
+    // first priority use input_files
+    if (input_files.size() > 0) {
+      out.println("#CLI.LISTINFO#: Using input files from memory");
+      for (int i = 0; i < input_files.size(); i++) {
+        out.print("#CLI.LISTINFO#: ");
+        out.print(i + 1);
+        out.print(", ");
+        out.print(input_files[i].c_str());
+        out.print(", ");
+        out.print(input_files[i].c_str());
+        if (max_input_files > 0 && i >= max_input_files) {
+          TELNET_LOGI("max limit reached: %d", max_input_files);
+          break;
+        }
+        out.println();
+      }
+      out.println("##LI.LIST#");
+      return true;
+    } else if (input_files_refs.size() > 0) {
+      // second priority use input_files_refs
+      out.println("#CLI.LISTINFO#: Using input files from references");
+      for (int i = 0; i < input_files_refs.size(); i++) {
+        out.print("#CLI.LISTINFO#: ");
+        out.print(i + 1);
+        out.print(", ");
+        out.print(input_files_refs[i]);
+        out.print(", ");
+        out.print(input_files_refs[i]);
+        if (max_input_files > 0 && i >= max_input_files) {
+          TELNET_LOGI("max limit reached: %d", max_input_files);
+          break;
+        }
+        out.println();
+      }
+      out.println("##LI.LIST#");
+      return true;
+    } else {
+      // last priority use AudioSource
+      while (source.setIndex(idx++)) {
+        out.print("#CLI.LISTINFO#: ");
+        out.print(idx);
+        out.print(", ");
+        out.print(source.toStr());
+        out.print(", ");
+        out.print(source.toStr());
+        if (max_input_files > 0 && idx >= max_input_files) {
+          TELNET_LOGI("max limit reached: %d", max_input_files);
+          break;
+        }
+        out.println();
+      }
     }
+    out.println();
     out.println("##LI.LIST#");
-
+    out.println();
+    // restore original position
+    source.setIndex(original_idx);
     return true;
   }
 
@@ -305,7 +386,7 @@ class KARadioCommands {
     player.play();
 
     out.println();
-    printPlaying(*commands,player, out);
+    printPlaying(*commands, player, out);
 
     return true;
   }
@@ -330,7 +411,8 @@ class KARadioCommands {
   // /**
   //  * @brief Get or set name
   //  */
-  // static bool cmd_name(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
+  // static bool cmd_name(telnet::Str& cmd, telnet::Vector<telnet::Str>
+  // parameters,
   //                      Print& out, TinySerialServer* self) {
   //   KARadioCommands* commands = (KARadioCommands*)self->getReference();
   //   if (commands == nullptr || commands->p_player == nullptr) {
@@ -355,7 +437,8 @@ class KARadioCommands {
   // /**
   //  * @brief Get or set url
   //  */
-  // static bool cmd_url(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
+  // static bool cmd_url(telnet::Str& cmd, telnet::Vector<telnet::Str>
+  // parameters,
   //                     Print& out, TinySerialServer* self) {
   //   KARadioCommands* commands = (KARadioCommands*)self->getReference();
   //   if (commands == nullptr || commands->p_player == nullptr) {
@@ -379,7 +462,8 @@ class KARadioCommands {
   // /**
   //  * @brief Get or set path
   //  */
-  // static bool cmd_path(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
+  // static bool cmd_path(telnet::Str& cmd, telnet::Vector<telnet::Str>
+  // parameters,
   //                      Print& out, TinySerialServer* self) {
   //   KARadioCommands* commands = (KARadioCommands*)self->getReference();
   //   if (commands == nullptr || commands->p_player == nullptr) {
@@ -403,7 +487,8 @@ class KARadioCommands {
   // /**
   //  * @brief Get or set port
   //  */
-  // static bool cmd_port(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
+  // static bool cmd_port(telnet::Str& cmd, telnet::Vector<telnet::Str>
+  // parameters,
   //                      Print& out, TinySerialServer* self) {
   //   KARadioCommands* commands = (KARadioCommands*)self->getReference();
   //   if (commands == nullptr || commands->p_player == nullptr) {
@@ -465,9 +550,9 @@ class KARadioCommands {
   Str path;
   int port;
 
-
   /// prints the urlset, portset and pathset
-  static void printURL(KARadioCommands& commands, AudioPlayer& player, Print& out) {
+  static void printURL(KARadioCommands& commands, AudioPlayer& player,
+                       Print& out) {
     const char* source_str = player.audioSource().toStr();
     int& result_port = commands.port;
     Str& result_path = commands.path;
@@ -497,14 +582,15 @@ class KARadioCommands {
     int ivolume = player.volume() * 254.0;
     out.print("##CLI.VOL#:");
     out.print(ivolume);
+    out.println();
   }
 
-  static void printPlaying(KARadioCommands& commands, AudioPlayer& player, Print& out) {
+  static void printPlaying(KARadioCommands& commands, AudioPlayer& player,
+                           Print& out) {
     printURL(commands, player, out);
     printVolume(player, out);
     out.println(player.isActive() ? "##CLI.PLAYING#" : "CLI.STOPPED");
   }
-
 };
 
-}
+}  // namespace telnet

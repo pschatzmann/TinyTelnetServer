@@ -168,6 +168,13 @@ class TinySerialServer {
   /// par1 par2 ...
   bool parseCommand(const char* input, telnet::Str& cmd,
                     telnet::Vector<telnet::Str>& parameters) {
+    // filter out invalid commands
+    if (!isValidFirstChar(input[0])) {
+      TELNET_LOGE("Command ignored: %s", input);
+      return false;
+    }
+    TELNET_LOGE("Command: %s", input);
+
     cmd = input;
     char delimiter;
     int offset;
@@ -235,6 +242,12 @@ class TinySerialServer {
     }
     TELNET_LOGI("head: '%s' - len: %d", head.c_str(), head.length());
     TELNET_LOGI("tail: '%s' - len: %d", tail.c_str(), tail.length());
+  }
+
+  bool isValidFirstChar(char c) {
+    if (c == '\375') return true;
+    if (isAlpha(c)) return true;
+    return false;
   }
 
   /// process the command
