@@ -1,5 +1,7 @@
 Implements KA-Radio CLI commands with proper prefixes. This document gives the supported commands and the corresponding original output of KA-Radio.
 
+See https://github.com/karawin/Ka-Radio32/blob/master/Interface.md
+
 ## Android remote command
 
 KaRadio Remote Control by Vassilis Serasidis on google Play is an easy and fast WiFi remote control for your AudioTools AudioPlayer using the KA-Radio API.
@@ -7,7 +9,6 @@ KaRadio Remote Control by Vassilis Serasidis on google Play is an easy and fast 
 With this android app you can select the station or file you want to play, set the volume.
 
 See https://play.google.com/store/apps/details?id=com.serasidis.karadio.rc
-
 
 ## Supported Commands
 

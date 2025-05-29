@@ -20,6 +20,7 @@ static Vector<const char*> input_files_refs;
  *
  * Implements KA-Radio CLI commands with proper prefixes:
  * - cli.play: Start a station by id
+ * - cli.start: Start playback of current station or resume playback
  * - cli.stop: Stop playback
  * - cli.vol: Get or set volume
  * - cli.vol+: Increase volume
@@ -39,7 +40,8 @@ static Vector<const char*> input_files_refs;
  */
 class KARadioCommands {
  public:
-  /// Empty constructor: you need to call addCommands() and setAudioPlayer() yourself
+  /// Empty constructor: you need to call addCommands() and setAudioPlayer()
+  /// yourself
   KARadioCommands() = default;
   /// Constructor which registers the commands to the server and adds the player
   KARadioCommands(TinySerialServer& server, AudioPlayer& player) {
@@ -62,24 +64,25 @@ class KARadioCommands {
    */
   void addCommands(TinySerialServer& server) {
     // Register CLI commands
-    server.addCommand("cli.start", cmd_play);
-    server.addCommand("cli.stop", cmd_stop);
-    server.addCommand("cli.vol", cmd_volume);
-    server.addCommand("cli.vol+", cmd_volup);
-    server.addCommand("cli.vol-", cmd_voldown);
-    server.addCommand("cli.list", cmd_list);
-    server.addCommand("cli.next", cmd_next);
-    server.addCommand("cli.prev", cmd_prev);
-    server.addCommand("cli.info", cmd_info);
-    server.addCommand("cli.instant", cmd_instant);
-    // server.addCommand("cli.name", cmd_name);
-    // server.addCommand("cli.url", cmd_url);
-    // server.addCommand("cli.path", cmd_path);
-    // server.addCommand("cli.port", cmd_port);
+    const char* no_parameters = ": no parameters";
+    server.addCommand("cli.start", cmd_play, no_parameters);
+    server.addCommand("cli.play", cmd_play, ": play(\"no\")");
+    server.addCommand("cli.stop", cmd_stop), no_parameters;
+    server.addCommand("cli.vol", cmd_volume, ": cli.vol[(\"0-254\")]");
+    server.addCommand("cli.vol+", cmd_volup, no_parameters);
+    server.addCommand("cli.vol-", cmd_voldown, no_parameters);
+    server.addCommand("cli.list", cmd_list, ": cli.list[(\"no\")]");
+    server.addCommand("cli.next", cmd_next, no_parameters);
+    server.addCommand("cli.prev", cmd_prev, no_parameters);
+    server.addCommand("cli.info", cmd_info, no_parameters);
+    // server.addCommand("cli.instant", cmd_instant);
+    //  server.addCommand("cli.name", cmd_name);
+    //  server.addCommand("cli.url", cmd_url);
+    //  server.addCommand("cli.path", cmd_path);
+    //  server.addCommand("cli.port", cmd_port);
 
     // Register SYS commands
-    server.addCommand("sys.version", cmd_version);
-    server.addCommand("sys.boot", cmd_boot);
+    server.addCommand("sys.version", cmd_version, no_parameters);
 
     // Store reference to this instance in the server
     server.setReference(this);
@@ -177,10 +180,11 @@ class KARadioCommands {
     if (parameters.size() == 1) {
       // Set volume
       int volume = atoi(parameters[0].c_str());
-      if (volume >= 0 && volume <= 254) {
-        player.setVolume(static_cast<float>(volume) / 254.0);
-      }
+      if (volume > 254) volume = 254;
+      if (volume < 0 ) volume = 0;
+      player.setVolume(static_cast<float>(volume) / 254.0);
     }
+    
     // Get current volume
     int volume = player.volume() * 254.0;
     out.println();
@@ -244,74 +248,40 @@ class KARadioCommands {
   static bool cmd_list(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
                        Print& out, TinySerialServer* self) {
     KARadioCommands* commands = (KARadioCommands*)self->getReference();
-    AudioPlayer& player = commands->audioPlayer();
-    AudioSource& source = player.audioSource();
-    int original_idx = source.index();
     if (commands == nullptr || commands->p_player == nullptr) {
       TELNET_LOGE("%s", "KA-Radio communication not initialized");
       return false;
     }
 
-    int idx = 0;
+    AudioPlayer& player = commands->audioPlayer();
+    AudioSource& source = player.audioSource();
+    int original_idx = source.index();
+
+    // Check if we're listing a specific index
+    int specific_index = -1;
+    if (parameters.size() > 0) {
+      specific_index = parameters[0].toInt();
+      TELNET_LOGI("Requested specific item index: %d", specific_index);
+      // Convert from 1-based (user visible) to 0-based (internal)
+      specific_index = specific_index > 0 ? specific_index - 1 : -1;
+    }
+
     out.println();
     out.println("##CLI.LIST#");
 
-    // first priority use input_files
+    // List items based on priority
     if (input_files.size() > 0) {
-      out.println("#CLI.LISTINFO#: Using input files from memory");
-      for (int i = 0; i < input_files.size(); i++) {
-        out.print("#CLI.LISTINFO#: ");
-        out.print(i + 1);
-        out.print(", ");
-        out.print(input_files[i].c_str());
-        out.print(", ");
-        out.print(input_files[i].c_str());
-        if (max_input_files > 0 && i >= max_input_files) {
-          TELNET_LOGI("max limit reached: %d", max_input_files);
-          break;
-        }
-        out.println();
-      }
-      out.println("##LI.LIST#");
-      return true;
+      listFromInputFiles(out, specific_index);
     } else if (input_files_refs.size() > 0) {
-      // second priority use input_files_refs
-      out.println("#CLI.LISTINFO#: Using input files from references");
-      for (int i = 0; i < input_files_refs.size(); i++) {
-        out.print("#CLI.LISTINFO#: ");
-        out.print(i + 1);
-        out.print(", ");
-        out.print(input_files_refs[i]);
-        out.print(", ");
-        out.print(input_files_refs[i]);
-        if (max_input_files > 0 && i >= max_input_files) {
-          TELNET_LOGI("max limit reached: %d", max_input_files);
-          break;
-        }
-        out.println();
-      }
-      out.println("##LI.LIST#");
-      return true;
+      listFromInputFileRefs(out, specific_index);
     } else {
-      // last priority use AudioSource
-      while (source.setIndex(idx++)) {
-        out.print("#CLI.LISTINFO#: ");
-        out.print(idx);
-        out.print(", ");
-        out.print(source.toStr());
-        out.print(", ");
-        out.print(source.toStr());
-        if (max_input_files > 0 && idx >= max_input_files) {
-          TELNET_LOGI("max limit reached: %d", max_input_files);
-          break;
-        }
-        out.println();
-      }
+      listFromAudioSource(source, out, specific_index);
     }
+
+    out.println("##CLI.LIST#");
     out.println();
-    out.println("##LI.LIST#");
-    out.println();
-    // restore original position
+
+    // Restore original position
     source.setIndex(original_idx);
     return true;
   }
@@ -352,44 +322,44 @@ class KARadioCommands {
     return true;
   }
 
-  /**
-   * @brief Immediately play a station
-   */
-  static bool cmd_instant(telnet::Str& cmd,
-                          telnet::Vector<telnet::Str> parameters, Print& out,
-                          TinySerialServer* self) {
-    KARadioCommands* commands = (KARadioCommands*)self->getReference();
-    if (commands == nullptr || commands->p_player == nullptr) {
-      TELNET_LOGE("%s", "KA-Radio communication not initialized");
-      return false;
-    }
-    AudioPlayer& player = commands->audioPlayer();
-    Str& name = commands->name;
-    Str& url = commands->url;
-    Str& path = commands->path;
-    int& port = commands->port;
+  // /**
+  //  * @brief Immediately play a station
+  //  */
+  // static bool cmd_instant(telnet::Str& cmd,
+  //                         telnet::Vector<telnet::Str> parameters, Print& out,
+  //                         TinySerialServer* self) {
+  //   KARadioCommands* commands = (KARadioCommands*)self->getReference();
+  //   if (commands == nullptr || commands->p_player == nullptr) {
+  //     TELNET_LOGE("%s", "KA-Radio communication not initialized");
+  //     return false;
+  //   }
+  //   AudioPlayer& player = commands->audioPlayer();
+  //   Str& name = commands->name;
+  //   Str& url = commands->url;
+  //   Str& path = commands->path;
+  //   int& port = commands->port;
 
-    if (parameters.size() == 1) {
-      player.setPath(parameters[0].c_str());
-    } else {
-      Str result;
-      if (port == 443)
-        result.add("https://");
-      else
-        result.add("http://");
-      result.add(url.c_str());
-      result.add(path.c_str());
-      TELNET_LOGE("instant: %s", url.c_str());
-      player.setPath(result.c_str());
-    }
+  //   if (parameters.size() == 1) {
+  //     player.setPath(parameters[0].c_str());
+  //   } else {
+  //     Str result;
+  //     if (port == 443)
+  //       result.add("https://");
+  //     else
+  //       result.add("http://");
+  //     result.add(url.c_str());
+  //     result.add(path.c_str());
+  //     TELNET_LOGE("instant: %s", url.c_str());
+  //     player.setPath(result.c_str());
+  //   }
 
-    player.play();
+  //   player.play();
 
-    out.println();
-    printPlaying(*commands, player, out);
+  //   out.println();
+  //   printPlaying(*commands, player, out);
 
-    return true;
-  }
+  //   return true;
+  // }
 
   /**
    * @brief Show current radio info
@@ -528,21 +498,6 @@ class KARadioCommands {
     return true;
   }
 
-  /**
-   * @brief Reboot KA-Radio system
-   */
-  static bool cmd_boot(telnet::Str& cmd, telnet::Vector<telnet::Str> parameters,
-                       Print& out, TinySerialServer* self) {
-    KARadioCommands* commands = (KARadioCommands*)self->getReference();
-    if (commands == nullptr || commands->p_player == nullptr) {
-      TELNET_LOGE("%s", "KA-Radio communication not initialized");
-      return false;
-    }
-
-    ESP.restart();
-    return true;
-  }
-
  protected:
   AudioPlayer* p_player = nullptr;
   Str name;
@@ -590,6 +545,120 @@ class KARadioCommands {
     printURL(commands, player, out);
     printVolume(player, out);
     out.println(player.isActive() ? "##CLI.PLAYING#" : "CLI.STOPPED");
+  }
+
+  /// print file name w/o extension
+  static void printKey(Print& out, const char* name) {
+      Str key{name};
+    int start = key.lastIndexOf("/");
+    if (start > 0) {
+      int end = key.lastIndexOf(".");
+      if (end < 0) end = key.length();
+      key.substr(name, start + 1, end);
+      out.print(key.c_str());
+    } else {
+      out.print(name);
+    }
+  }
+
+  /**
+   * @brief Print a single list item in the standard format
+   *
+   * @param out Output stream
+   * @param index Item index (1-based for display)
+   * @param name Item name/path
+   */
+  static void printListItem(Print& out, int index, const char* name) {
+    out.print("#CLI.LISTINFO#: ");
+    out.print(index);
+    out.print(", ");
+    printKey(out, name);
+    out.print(", ");
+    out.print(name);
+    out.println();
+  }
+
+  /**
+   * @brief List stations from input_files
+   *
+   * @param out Output stream
+   * @param specific_index Index to show (-1 for all)
+   */
+  static void listFromInputFiles(Print& out, int specific_index) {
+    if (specific_index > 0) {
+      printListItem(out, specific_index, input_files[specific_index-1].c_str());
+      return;
+    }
+
+    for (int i = 0; i < input_files.size(); i++) {
+      printListItem(out, i + 1, input_files[i].c_str());
+
+      // Check max limit
+      if (max_input_files > 0 && i >= max_input_files - 1) {
+        TELNET_LOGI("max limit reached: %d", max_input_files);
+        break;
+      }
+    }
+  }
+
+  /**
+   * @brief List stations from input_files_refs
+   *
+   * @param out Output stream
+   * @param specific_index Index to show (-1 for all)
+   */
+  static void listFromInputFileRefs(Print& out, int specific_index) {
+    if (specific_index > 0) {
+      printListItem(out, specific_index, input_files_refs[specific_index-1]);
+      return;
+    }
+
+    for (int i = 0; i < input_files_refs.size(); i++) {
+      printListItem(out, i + 1, input_files_refs[i]);
+
+      // Check max limit
+      if (max_input_files > 0 && i >= max_input_files - 1) {
+        TELNET_LOGI("max limit reached: %d", max_input_files);
+        break;
+      }
+    }
+  }
+
+  /**
+   * @brief List stations from AudioSource
+   *
+   * @param source The AudioSource to list from
+   * @param out Output stream
+   * @param specific_index Index to show (-1 for all)
+   */
+  static void listFromAudioSource(AudioSource& source, Print& out,
+                                  int specific_index) {
+    // If requesting a specific index, try to jump directly to it
+    if (specific_index >= 0) {
+      TELNET_LOGI("Item at index %d", specific_index);
+      if (source.setIndex(specific_index)) {
+        printListItem(out, specific_index + 1, source.toStr());
+      } else {
+        TELNET_LOGW("No item found at index %d", specific_index + 1);
+      }
+      return;
+    }
+
+    // Otherwise list all items
+    int idx = 0;
+    int count = 0;
+    while (source.setIndex(idx)) {
+      printListItem(out, idx + 1, source.toStr());
+      count++;
+
+      // Check max limit
+      if (max_input_files > 0 && count >= max_input_files) {
+        TELNET_LOGI("max limit reached: %d", max_input_files);
+        break;
+      }
+
+      idx++;
+    }
   }
 };
 
